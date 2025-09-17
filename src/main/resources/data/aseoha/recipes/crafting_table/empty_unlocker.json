@@ -18,9 +18,9 @@
     }
   },
   "pattern": [
-    "BS ",
+    "BSS",
     "CGC",
-    " A"
+    "SAS"
   ],
   "result": {
     "count": 1,
