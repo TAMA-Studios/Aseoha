@@ -37,14 +37,14 @@ public class ABlocks {
                 (Boolean) p_lambda$litBlockEmission$34_1_.getValue(BlockStateProperties.LIT) ? light : 0;
     }
 
-    // public static final RegistryObject<Block> CORAL =
-    // registerBlock("tardis_coral",
-    // () -> new Coral(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-
-    // public static final RegistryObject<Block> WORKBENCH =
-    // registerBlock("workbench",
-    // () -> new
-    // WorkbenchBlock(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+//     public static final RegistryObject<Block> CORAL =
+//     registerBlock("tardis_coral",
+//     () -> new Coral(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+//
+//     public static final RegistryObject<Block> WORKBENCH =
+//     registerBlock("workbench",
+//     () -> new
+//     WorkbenchBlock(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     // public static final RegistryObject<Block> EYE_OF_HARMONY =
     // registerBlock("eye_of_harmony",
@@ -59,10 +59,10 @@ public class ABlocks {
     // -> 2).noOcclusion())));
 
     public static final RegistryObject<WhirlyGigBlock> WHIRLYGIG =
-            registerWithItemSpecial("whirlygig", () -> new WhirlyGigBlock());
+            registerWithItemSpecial("whirlygig", WhirlyGigBlock::new);
 
     public static final RegistryObject<VortexDetectorBlock> VORTEX_DETECTOR =
-            registerWithItem("vortex_detector", VortexDetectorBlock::new);
+            UNREGISTERED.register("vortex_detector", VortexDetectorBlock::new);
 
     public static final RegistryObject<Block> QUANTISCOPE = registerBlock(
             "quantiscope",
@@ -340,25 +340,25 @@ public class ABlocks {
             () -> new Block(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(1.25F, 5.25F)));
 
-    public static RegistryObject<SlabBlock> meglos_SLAB = registerBlock(
-            "meglos_slab",
+    public static RegistryObject<SlabBlock> MEGALOS_SLAB = registerBlock(
+            "megalos_slab",
             () -> new SlabBlock(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(1.25F, 5.25F)));
 
-    public static RegistryObject<Block> meglos_BLOCK = registerBlock(
-            "meglos", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
+    public static RegistryObject<Block> MEGALOS_BLOCK = registerBlock(
+            "megalos", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
 
-    public static RegistryObject<Block> meglos_STRIPE = registerBlock(
-            "meglos_stripe", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
+    public static RegistryObject<Block> MEGALOS_STRIPE = registerBlock(
+            "megalos_stripe", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
 
-    public static RegistryObject<Block> meglos_FLOOR = registerBlock(
-            "meglos_floor", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
+    public static RegistryObject<Block> MEGALOS_FLOOR = registerBlock(
+            "megalos_floor", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
 
-    public static RegistryObject<Block> meglos_PILLAR =
-            registerBlock("meglos_pillar", () -> new Block(BlockBehaviour.Properties.of()));
+    public static RegistryObject<Block> MEGALOS_PILLAR =
+            registerBlock("megalos_pillar", () -> new Block(BlockBehaviour.Properties.of()));
 
-    public static RegistryObject<Block> meglos_PILLAR_TOP = registerBlock(
-            "meglos_pillar_top", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
+    public static RegistryObject<Block> MEGALOS_PILLAR_TOP = registerBlock(
+            "megalos_pillar_top", () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
 
     public static RegistryObject<Block> TOYOTA_LOWER_HEXAGON_FULL = registerBlock(
             "toyota_lower_hexagon_full",

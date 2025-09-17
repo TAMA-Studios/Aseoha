@@ -21,6 +21,9 @@ public class TileRegistry {
     public static final DeferredRegister<BlockEntityType<?>> TYPES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, aseoha.MODID);
 
+    public static final DeferredRegister<BlockEntityType<?>> UNREGISTERED =
+            DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, aseoha.MODID);
+
     // Exteriors
     public static final RegistryObject<BlockEntityType<WardrobeExteriorTile>> WARDROBE_EXTERIOR_TILE = TYPES.register(
             "exterior/wardrobe", () -> create(WardrobeExteriorTile::new, ExteriorBlocks.WARDROBE_EXTERIOR_BLOCK.get()));
@@ -82,7 +85,7 @@ public class TileRegistry {
             TYPES.register("tiles/whirlygig", () -> create(WhirlygigTile::new, ABlocks.WHIRLYGIG.get()));
 
     public static final RegistryObject<BlockEntityType<VortexDetectorTile>> VORTEX_DETECTOR =
-            TYPES.register("tiles/vortex_detector", () -> create(VortexDetectorTile::new, ABlocks.VORTEX_DETECTOR.get()));
+            UNREGISTERED.register("tiles/vortex_detector", () -> create(VortexDetectorTile::new, ABlocks.VORTEX_DETECTOR.get()));
 
     @Contract("_, _ -> new")
     public static <T extends BlockEntity> @NotNull BlockEntityType<T> create(
