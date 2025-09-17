@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import tama.Blocks.ABlocks;
 import tama.TileEntities.Console.*;
 import tama.TileEntities.Exterior.CapaldiExteriorTile;
 import tama.TileEntities.Exterior.Hartnell112ExteriorTile;
@@ -67,14 +68,21 @@ public class TileRegistry {
     public static final RegistryObject<BlockEntityType<TokamakConsoleTile>> TOKAMAK_CONSOLE_TILE = TYPES.register(
             "console/tokamak", () -> create(TokamakConsoleTile::new, ConsoleBlocks.TOKAMAK_CONSOLE_BLOCK.get()));
 
-//    public static final RegistryObject<BlockEntityType<BaseConsoleTile<?>>> HARTNELL_CONSOLE_TILE = TYPES.register(
-//            "console/hartnell",
-//            () -> create(
-//                    (pos, state) -> new BaseConsoleTile<>(pos, state, TileRegistry.HARTNELL_CONSOLE_TILE),
-//                    ConsoleBlocks.HARTNELL_CONSOLE_BLOCK.get()));
+    //    public static final RegistryObject<BlockEntityType<BaseConsoleTile<?>>> HARTNELL_CONSOLE_TILE =
+    // TYPES.register(
+    //            "console/hartnell",
+    //            () -> create(
+    //                    (pos, state) -> new BaseConsoleTile<>(pos, state, TileRegistry.HARTNELL_CONSOLE_TILE),
+    //                    ConsoleBlocks.HARTNELL_CONSOLE_BLOCK.get()));
 
     public static final RegistryObject<BlockEntityType<CoralConsoleTile>> CORAL_CONSOLE_TILE = TYPES.register(
             "console/coral", () -> create(CoralConsoleTile::new, ConsoleBlocks.CORAL_CONSOLE_BLOCK.get()));
+
+    public static final RegistryObject<BlockEntityType<WhirlygigTile>> WHIRLYGIG_TILE =
+            TYPES.register("tiles/whirlygig", () -> create(WhirlygigTile::new, ABlocks.WHIRLYGIG.get()));
+
+    public static final RegistryObject<BlockEntityType<VortexDetectorTile>> VORTEX_DETECTOR =
+            TYPES.register("tiles/vortex_detector", () -> create(VortexDetectorTile::new, ABlocks.VORTEX_DETECTOR.get()));
 
     @Contract("_, _ -> new")
     public static <T extends BlockEntity> @NotNull BlockEntityType<T> create(

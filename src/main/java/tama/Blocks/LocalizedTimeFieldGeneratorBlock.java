@@ -62,12 +62,10 @@ public class LocalizedTimeFieldGeneratorBlock extends Block {
         TickrateManager.excludeEntity(player);
         TickrateManager.addTickrateArea(level.dimension(), aabb, rate);
 
-        if (rate != 0) {
             level.getEntitiesOfClass(Entity.class, aabb)
                     .forEach(ent -> ent.getCapability(Capabilities.TICK_RATE).ifPresent(cap -> {
                         if (!cap.isExcluded() && cap.getTickrate() == 0) cap.setTickrate(rate);
                     }));
-        }
         return super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
     }
 

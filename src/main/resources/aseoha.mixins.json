@@ -5,19 +5,13 @@
   "refmap": "aseoha.refmap.json",
   "mixins": [
     "ConsoleTileMixin",
-    "EntityMixin",
     "FuelHandlerMixin",
     "MonitorMixin",
-    "ServerLevelMixin",
     "SonicPortMixin"
   ],
   "client": [
-    "client.ClientLevelMixin",
     "client.ControlEntityRendererMixin",
     "client.DoorRendererMixin",
-    "client.LevelRendererMixin",
-    "client.MinecraftMixin",
-    "client.ParticleEngineMixin",
     "client.TextOptionMixin",
     "client.TextureManagerMixin"
   ],

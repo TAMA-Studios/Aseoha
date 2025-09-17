@@ -2,6 +2,8 @@
 package tama.Blocks;
 
 import static net.tardis.mod.registry.BlockRegistry.TUNGSTEN_PATTERN;
+import static net.tardis.mod.registry.BlockRegistry.registerWithItem;
+import static tama.TileEntities.ConsoleBlocks.registerWithItemSpecial;
 import static tama.aseoha.MODID;
 
 import java.util.function.Supplier;
@@ -17,6 +19,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import tama.Items.AItems;
+import tama.TileEntities.TileRegistry;
 
 public class ABlocks {
 
@@ -24,6 +27,8 @@ public class ABlocks {
     // the "aseoha"
     // namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+
+    public static final DeferredRegister<Block> UNREGISTERED = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
     public static ToIntFunction<BlockState> maxLightLevel = BlockState -> 15;
 
@@ -53,6 +58,12 @@ public class ABlocks {
     // 5.25F).lightLevel(BlockState
     // -> 2).noOcclusion())));
 
+    public static final RegistryObject<WhirlyGigBlock> WHIRLYGIG =
+            registerWithItemSpecial("whirlygig", () -> new WhirlyGigBlock());
+
+    public static final RegistryObject<VortexDetectorBlock> VORTEX_DETECTOR =
+            registerWithItem("vortex_detector", VortexDetectorBlock::new);
+
     public static final RegistryObject<Block> QUANTISCOPE = registerBlock(
             "quantiscope",
             () -> new QuantiscopeBlock(BlockBehaviour.Properties.of()
@@ -60,7 +71,7 @@ public class ABlocks {
                     .sound(SoundType.STONE)
                     .strength(1.25F, 4.2F)));
 
-    public static final RegistryObject<Block> LOCALIZED_TIME_FIELD_GENERATOR = registerBlock(
+    public static final RegistryObject<Block> LOCALIZED_TIME_FIELD_GENERATOR = UNREGISTERED.register(
             "localized_time_field_generator",
             () -> new LocalizedTimeFieldGeneratorBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()

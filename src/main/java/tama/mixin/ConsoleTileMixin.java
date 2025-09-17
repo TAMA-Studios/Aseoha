@@ -2,14 +2,12 @@
 package tama.mixin;
 
 import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tardis.mod.blockentities.consoles.ConsoleTile;
-import net.tardis.mod.cap.Capabilities;
 import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.misc.ITextureVariantBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

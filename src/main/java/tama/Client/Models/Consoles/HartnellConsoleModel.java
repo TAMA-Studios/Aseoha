@@ -22,7 +22,6 @@ import net.tardis.mod.cap.Capabilities;
 import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.client.animations.AnimationHelper;
 import net.tardis.mod.client.models.BaseTileHierarchicalModel;
-import net.tardis.mod.client.models.IAnimatableTileModel;
 import net.tardis.mod.client.models.consoles.IAdditionalConsoleRenderData;
 import net.tardis.mod.control.ControlType;
 import net.tardis.mod.control.datas.ControlDataBool;
@@ -30,7 +29,6 @@ import net.tardis.mod.control.datas.ControlDataFloat;
 import net.tardis.mod.registry.ControlRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
-import tama.TileEntities.Console.HartnellConsoleTile;
 
 public class HartnellConsoleModel<T extends ConsoleTile> extends BaseTileHierarchicalModel<ConsoleTile>
         implements IAdditionalConsoleRenderData {
