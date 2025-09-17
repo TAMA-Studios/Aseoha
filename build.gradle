@@ -207,7 +207,6 @@ spotless {
 				.feature('INDENT_OUTPUT', true)                // optional: true by default
 				.feature('ORDER_MAP_ENTRIES_BY_KEYS', true)    // optional: false by default
 				.feature('ALLOW_COMMENTS', true) // optional: false by default
-				.spaceBeforeSeparator()
 		jsonPatch([
 				[op: 'replace', path: '/ItemModels', value: 'aseoha:item/'],
 				[op: 'replace', path: '/BlockModels', value: 'aseoha:block/']
