@@ -140,7 +140,7 @@ dependencies {
  */
 if (System.getProperty("idea.sync.active") == "true") {
 	afterEvaluate {
-		tasks.withType(JavaCompile).all {
+		tasks.withType(JavaCompile).configureEach {
 			it.options.annotationProcessorPath = files()
 		}
 	}
