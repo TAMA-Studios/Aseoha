@@ -899,7 +899,7 @@ public class BattleConsoleModel<T extends ConsoleTile> extends BaseTileHierarchi
         this.animate(
                 ((IHelpWithConsole) tile).getAseoha$idleAnimationState(), BattleConsoleAnimations.IDLE, ageInTicks);
 
-        tile.getCapability(Capabilities.TARDIS).ifPresent(cap -> {
+        tile.getLevel().getCapability(Capabilities.TARDIS).ifPresent(cap -> {
             float Throt =
                     cap.getControlDataOrCreate(ControlRegistry.THROTTLE.get()).get();
             this.ThottleSlider.z = (float) Math.toRadians(320 + Throt * 240); // 100.0F - 75.0F
