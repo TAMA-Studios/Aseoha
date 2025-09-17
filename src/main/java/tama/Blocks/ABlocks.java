@@ -64,7 +64,7 @@ public class ABlocks {
     public static final RegistryObject<VortexDetectorBlock> VORTEX_DETECTOR =
             UNREGISTERED.register("vortex_detector", VortexDetectorBlock::new);
 
-    public static final RegistryObject<Block> QUANTISCOPE = registerBlock(
+    public static final RegistryObject<Block> QUANTISCOPE = UNREGISTERED.register(
             "quantiscope",
             () -> new QuantiscopeBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -314,9 +314,9 @@ public class ABlocks {
                     .strength(1.25F, 5.25F)
                     .noOcclusion()));
 
-    public static RegistryObject<Block> FOODMACHINE_OLD = registerBlock(
+    public static RegistryObject<FoodMachineBlock> FOODMACHINE_OLD = registerBlock(
             "foodmachine_old",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new FoodMachineBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .strength(1.25F, 5.25F)
                     .noOcclusion()));
@@ -452,7 +452,7 @@ public class ABlocks {
             "toyota_upper_wall_pattern_top_right",
             () -> new Block(BlockBehaviour.Properties.of().strength(1.25F, 5.25F)));
 
-    public static RegistryObject<Block> CRYSTALLINE_BLOCK = registerBlock(
+    public static RegistryObject<Block> CRYSTALLINE_BLOCK = UNREGISTERED.register(
             "crystalline/crystalline_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GLASS)
                     .sound(SoundType.GLASS)

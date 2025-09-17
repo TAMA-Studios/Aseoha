@@ -23,6 +23,8 @@ import tama.World.Dimensions;
 public class AItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
+    public static final DeferredRegister<Item> UNREGISTERED = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+
     public static final DeferredRegister<Item> FOOD_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final RegistryObject<Item> CANDY_CANE = FOOD_ITEMS.register(
@@ -150,16 +152,16 @@ public class AItems {
     public static final RegistryObject<Item> ENGINE = ITEMS.register(
             "engine", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
-    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_HELMET = ITEMS.register(
+    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_HELMET = UNREGISTERED.register(
             "mondas_cyberman_helmet",
             () -> new MondasCybermanArmorItem(ArmorMaterials.IRON, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_CHEST = ITEMS.register(
+    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_CHEST = UNREGISTERED.register(
             "mondas_cyberman_chest",
             () -> new MondasCybermanArmorItem(ArmorMaterials.IRON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_LEGS = ITEMS.register(
+    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_LEGS = UNREGISTERED.register(
             "mondas_cyberman_legs",
             () -> new MondasCybermanArmorItem(ArmorMaterials.IRON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_BOOTS = ITEMS.register(
+    public static final RegistryObject<ArmorItem> MONDAS_CYBERMAN_BOOTS = UNREGISTERED.register(
             "mondas_cyberman_boots",
             () -> new MondasCybermanArmorItem(ArmorMaterials.IRON, ArmorItem.Type.BOOTS, new Item.Properties()));
 

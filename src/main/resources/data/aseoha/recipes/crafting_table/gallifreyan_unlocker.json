@@ -1,0 +1,13 @@
+{
+  "category" : "misc",
+  "ingredients" : [ {
+    "item" : "minecraft:red_sand"
+  }, {
+    "item" : "aseoha:empty_unlocker"
+  } ],
+  "result" : {
+    "count" : 1,
+    "item" : "aseoha:mondas_unlocker"
+  },
+  "type" : "minecraft:crafting_shapeless"
+}

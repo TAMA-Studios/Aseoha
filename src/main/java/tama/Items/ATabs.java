@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import tama.Blocks.Roundels;
+import tama.TileEntities.ConsoleBlocks;
 import tama.aseoha;
 
 public class ATabs {
@@ -17,6 +18,11 @@ public class ATabs {
     public static RegistryObject<CreativeModeTab> MAIN = TABS.register("main", () -> CreativeModeTab.builder()
             .icon(() -> new ItemStack(Roundels.COPPER_ROUNDEL.get()))
             .title(Component.translatable(buildName("main")))
+            .build());
+
+    public static RegistryObject<CreativeModeTab> CONSOLES = TABS.register("consoles", () -> CreativeModeTab.builder()
+            .icon(() -> new ItemStack(ConsoleBlocks.COPPER_CONSOLE_BLOCK.get()))
+            .title(Component.translatable(buildName("consoles")))
             .build());
 
     public static RegistryObject<CreativeModeTab> FOOD = TABS.register("food", () -> CreativeModeTab.builder()

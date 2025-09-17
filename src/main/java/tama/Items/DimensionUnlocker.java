@@ -1,23 +1,28 @@
 /* (C) TAMA Studios 2025 */
 package tama.Items;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.tardis.mod.cap.Capabilities;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DimensionUnlocker extends Item {
 
     private final ResourceKey<DimensionType> DimensionType;
 
-    public DimensionUnlocker(Properties p_41383_, ResourceKey<DimensionType> Dimension) {
-        super(p_41383_);
+    public DimensionUnlocker(Properties properties, ResourceKey<DimensionType> Dimension) {
+        super(properties);
         this.DimensionType = Dimension;
     }
 
@@ -32,5 +37,11 @@ public class DimensionUnlocker extends Item {
         player.setItemInHand(interactionHand, AItems.EMPTY_UNLOCKER.get().getDefaultInstance());
 
         return super.use(level, player, interactionHand);
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, List<Component> components, @NotNull TooltipFlag flag) {
+        components.add(Component.translatable("item.aseoha.dimension_unlocker.desc"));
+        super.appendHoverText(stack, level, components, flag);
     }
 }
