@@ -1,5 +1,5 @@
 /* (C) TAMA Studios 2025 */
-package tama.mixin;
+package tama.mixin.client;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;

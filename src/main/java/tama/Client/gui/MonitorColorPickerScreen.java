@@ -3,9 +3,10 @@ package tama.Client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.misc.tardis.montior.BasicMonitorFunction;
-
 public class MonitorColorPickerScreen extends BasicMonitorFunction {
     @Override
     public void doServerAction(ITardisLevel tardis, Player player) {}

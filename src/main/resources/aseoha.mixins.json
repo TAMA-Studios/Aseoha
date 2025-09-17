@@ -6,7 +6,7 @@
   "mixins": [
     "ConsoleTileMixin",
     "FuelHandlerMixin",
-    "MonitorMixin",
+    "client.MonitorMixin",
     "SonicPortMixin"
   ],
   "client": [

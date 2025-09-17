@@ -106,7 +106,7 @@ dependencies {
 	implementation fg.deobf("curse.maven:create-328085:6641603")
 	implementation fg.deobf("curse.maven:create-connected-947914:6650193")
 	implementation fg.deobf("curse.maven:embeddium-908741:5681725")
-	implementation fg.deobf("curse.maven:free-cam-557076:4643128")
+//	implementation fg.deobf("curse.maven:free-cam-557076:4643128")
 	implementation fg.deobf("curse.maven:controlling-250398:4646682")
 	implementation fg.deobf("curse.maven:searchables-858542:5284015")
 	implementation fg.deobf("curse.maven:configured-457570:5180900")

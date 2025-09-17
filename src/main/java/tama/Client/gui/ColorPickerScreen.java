@@ -8,8 +8,11 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import tama.aseoha;
 
+@OnlyIn(Dist.CLIENT)
 public class ColorPickerScreen extends Screen {
     private static final ResourceLocation COLOR_WHEEL =
             new ResourceLocation(aseoha.MODID, "textures/gui/color_wheel.png");
