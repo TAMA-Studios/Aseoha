@@ -43,12 +43,12 @@ public class FoodMachineBlock extends Block implements SimpleWaterloggedBlock {
     public FoodMachineBlock(Properties prop) {
         super(prop);
         this.registerDefaultState(
-                (BlockState) this.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, false));
+                this.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(new Property[] {BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.WATERLOGGED});
+        builder.add(BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.WATERLOGGED);
     }
 
     @NotNull
