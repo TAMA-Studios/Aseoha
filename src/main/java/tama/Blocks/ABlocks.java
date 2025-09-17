@@ -2,7 +2,6 @@
 package tama.Blocks;
 
 import static net.tardis.mod.registry.BlockRegistry.TUNGSTEN_PATTERN;
-import static net.tardis.mod.registry.BlockRegistry.registerWithItem;
 import static tama.TileEntities.ConsoleBlocks.registerWithItemSpecial;
 import static tama.aseoha.MODID;
 
@@ -19,7 +18,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import tama.Items.AItems;
-import tama.TileEntities.TileRegistry;
 
 public class ABlocks {
 
@@ -37,14 +35,14 @@ public class ABlocks {
                 (Boolean) p_lambda$litBlockEmission$34_1_.getValue(BlockStateProperties.LIT) ? light : 0;
     }
 
-//     public static final RegistryObject<Block> CORAL =
-//     registerBlock("tardis_coral",
-//     () -> new Coral(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-//
-//     public static final RegistryObject<Block> WORKBENCH =
-//     registerBlock("workbench",
-//     () -> new
-//     WorkbenchBlock(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    //     public static final RegistryObject<Block> CORAL =
+    //     registerBlock("tardis_coral",
+    //     () -> new Coral(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    //
+    //     public static final RegistryObject<Block> WORKBENCH =
+    //     registerBlock("workbench",
+    //     () -> new
+    //     WorkbenchBlock(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     // public static final RegistryObject<Block> EYE_OF_HARMONY =
     // registerBlock("eye_of_harmony",

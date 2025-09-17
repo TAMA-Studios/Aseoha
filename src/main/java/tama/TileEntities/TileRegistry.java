@@ -84,8 +84,8 @@ public class TileRegistry {
     public static final RegistryObject<BlockEntityType<WhirlygigTile>> WHIRLYGIG_TILE =
             TYPES.register("tiles/whirlygig", () -> create(WhirlygigTile::new, ABlocks.WHIRLYGIG.get()));
 
-    public static final RegistryObject<BlockEntityType<VortexDetectorTile>> VORTEX_DETECTOR =
-            UNREGISTERED.register("tiles/vortex_detector", () -> create(VortexDetectorTile::new, ABlocks.VORTEX_DETECTOR.get()));
+    public static final RegistryObject<BlockEntityType<VortexDetectorTile>> VORTEX_DETECTOR = UNREGISTERED.register(
+            "tiles/vortex_detector", () -> create(VortexDetectorTile::new, ABlocks.VORTEX_DETECTOR.get()));
 
     @Contract("_, _ -> new")
     public static <T extends BlockEntity> @NotNull BlockEntityType<T> create(

@@ -26,7 +26,8 @@ public class VortexDetectorBlock extends net.minecraft.world.level.block.Block i
 
     public VortexDetectorBlock() {
         super(Properties.of());
-        this.registerDefaultState(this.defaultBlockState().setValue(POWERED, false).setValue(INVERTED, false));
+        this.registerDefaultState(
+                this.defaultBlockState().setValue(POWERED, false).setValue(INVERTED, false));
     }
 
     @Override

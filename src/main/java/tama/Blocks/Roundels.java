@@ -39,7 +39,8 @@ public class Roundels {
 
     public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_TOP = register("megalos_white_half_roundel_top");
 
-    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_BOTTOM = register("megalos_white_half_roundel_bottom");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_BOTTOM =
+            register("megalos_white_half_roundel_bottom");
 
     // public static final RegistryObject<Block> megalos_ROUNDEL1 =
     // register("mg_roundel1");

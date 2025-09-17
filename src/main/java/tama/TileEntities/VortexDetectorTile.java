@@ -17,8 +17,6 @@ public class VortexDetectorTile extends TickingTile {
         super(TileRegistry.VORTEX_DETECTOR.get(), p_155229_, p_155230_);
     }
 
-
-
     @Override
     public void tick() {
         if (level != null && level.isClientSide) return;

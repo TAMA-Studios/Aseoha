@@ -319,7 +319,8 @@ public class ClientRegistry {
     @SubscribeEvent
     public static void addTabItemsEvent(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == MAIN.get()) AItems.ITEMS.getEntries().forEach(event::accept);
-        if (event.getTab() == CONSOLES.get()) ConsoleBlocks.CONSOLE_BLOCKS.getEntries().forEach(event::accept);
+        if (event.getTab() == CONSOLES.get())
+            ConsoleBlocks.CONSOLE_BLOCKS.getEntries().forEach(event::accept);
         else if (event.getTab() == FOOD.get()) AItems.FOOD_ITEMS.getEntries().forEach(event::accept);
         if (Minecraft.getInstance().options.operatorItemsTab().get())
             if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS) event.accept(AItems.ASEOHA_MANUAL.get());

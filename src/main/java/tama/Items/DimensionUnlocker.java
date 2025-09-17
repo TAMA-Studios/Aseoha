@@ -1,6 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package tama.Items;
 
+import java.util.List;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.InteractionHand;
@@ -14,8 +15,6 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.tardis.mod.cap.Capabilities;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class DimensionUnlocker extends Item {
 
@@ -40,7 +39,8 @@ public class DimensionUnlocker extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, List<Component> components, @NotNull TooltipFlag flag) {
+    public void appendHoverText(
+            @NotNull ItemStack stack, @Nullable Level level, List<Component> components, @NotNull TooltipFlag flag) {
         components.add(Component.translatable("item.aseoha.dimension_unlocker.desc"));
         super.appendHoverText(stack, level, components, flag);
     }
