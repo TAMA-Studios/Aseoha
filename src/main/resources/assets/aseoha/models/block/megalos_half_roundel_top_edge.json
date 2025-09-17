@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "aseoha:block/meglos/meglos_blank",
-		"4": "aseoha:block/meglos/meglos_door_2",
-		"5": "aseoha:block/meglos/meglos_door_3",
-		"particle": "aseoha:block/meglos/meglos_blank"
+		"0": "aseoha:block/megalos/megalos_blank",
+		"4": "aseoha:block/megalos/megalos_door_2",
+		"5": "aseoha:block/megalos/megalos_door_3",
+		"particle": "aseoha:block/megalos/megalos_blank"
 	},
 	"elements": [
 		{

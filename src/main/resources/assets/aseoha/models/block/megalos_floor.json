@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"7": "aseoha:block/meglos/meglos_floor",
-		"particle": "aseoha:block/meglos/meglos_blank"
+		"7": "aseoha:block/megalos/megalos_floor",
+		"particle": "aseoha:block/megalos/megalos_blank"
 	},
 	"elements": [
 		{

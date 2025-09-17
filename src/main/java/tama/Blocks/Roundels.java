@@ -19,41 +19,41 @@ public class Roundels {
 
     public static RegistryObject<Block> TOYOTA_ROOF_ROUNDEL = register("toyota_roof_roundel");
 
-    public static RegistryObject<Block> meglos_FULL_ROUNDEL = register("meglos_full_roundel");
+    public static RegistryObject<Block> MEGALOS_FULL_ROUNDEL = register("megalos_full_roundel");
 
-    public static RegistryObject<Block> meglos_HALF_ROUNDEL = register("meglos_half_roundel");
+    public static RegistryObject<Block> MEGALOS_HALF_ROUNDEL = register("megalos_half_roundel");
 
-    public static RegistryObject<Block> meglos_HALF_ROUNDEL_BOTTOM_EDGE = register("meglos_half_roundel_bottom_edge");
+    public static RegistryObject<Block> MEGALOS_HALF_ROUNDEL_BOTTOM_EDGE = register("megalos_half_roundel_bottom_edge");
 
-    public static RegistryObject<Block> meglos_HALF_ROUNDEL_TOP_EDGE = register("meglos_half_roundel_top_edge");
+    public static RegistryObject<Block> MEGALOS_HALF_ROUNDEL_TOP_EDGE = register("megalos_half_roundel_top_edge");
 
-    public static RegistryObject<Block> meglos_WHITE_FULL_ROUNDEL = register("meglos_white_full_roundel");
+    public static RegistryObject<Block> MEGALOS_WHITE_FULL_ROUNDEL = register("megalos_white_full_roundel");
 
-    public static RegistryObject<Block> meglos_WHITE_HALF_ROUNDEL = register("meglos_white_half_roundel");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL = register("megalos_white_half_roundel");
 
-    public static RegistryObject<Block> meglos_WHITE_HALF_ROUNDEL_BOTTOM_EDGE =
-            register("meglos_white_half_roundel_bottom_edge");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_BOTTOM_EDGE =
+            register("megalos_white_half_roundel_bottom_edge");
 
-    public static RegistryObject<Block> meglos_WHITE_HALF_ROUNDEL_TOP_EDGE =
-            register("meglos_white_half_roundel_top_edge");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_TOP_EDGE =
+            register("megalos_white_half_roundel_top_edge");
 
-    public static RegistryObject<Block> meglos_WHITE_HALF_ROUNDEL_TOP = register("meglos_white_half_roundel_top");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_TOP = register("megalos_white_half_roundel_top");
 
-    public static RegistryObject<Block> meglos_WHITE_HALF_ROUNDEL_BOTTOM = register("meglos_white_half_roundel_bottom");
+    public static RegistryObject<Block> MEGALOS_WHITE_HALF_ROUNDEL_BOTTOM = register("megalos_white_half_roundel_bottom");
 
-    // public static final RegistryObject<Block> MEGLOS_ROUNDEL1 =
+    // public static final RegistryObject<Block> megalos_ROUNDEL1 =
     // register("mg_roundel1");
     //
-    // public static final RegistryObject<Block> MEGLOS_ROUNDEL2 =
+    // public static final RegistryObject<Block> megalos_ROUNDEL2 =
     // register("mg_roundel2");
     //
-    // public static final RegistryObject<Block> MEGLOS_ROUNDEL3 =
+    // public static final RegistryObject<Block> megalos_ROUNDEL3 =
     // register("mg_roundel3");
     //
-    // public static final RegistryObject<Block> MEGLOS_ROUNDEL4 =
+    // public static final RegistryObject<Block> megalos_ROUNDEL4 =
     // register("mg_roundel4");
     //
-    // public static final RegistryObject<Block> MEGLOS_ROUNDEL5 =
+    // public static final RegistryObject<Block> megalos_ROUNDEL5 =
     // register("mg_roundel5");
 
     public static final RegistryObject<Block> HELLBENT_ROUNDEL1 = register("hb_roundel01");
