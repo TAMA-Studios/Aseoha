@@ -78,14 +78,7 @@ public class ABlocks {
 
     public static final RegistryObject<Block> FAULTLOCATOR = registerBlock(
             "faultlocator",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .sound(SoundType.STONE)
-                    .strength(1.25F, 4.2F)));
-
-    public static final RegistryObject<Block> FAULTLOCATOR_S = registerBlock(
-            "faultlocator_s",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new AxisRotatedBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .sound(SoundType.STONE)
                     .strength(1.25F, 4.2F)));

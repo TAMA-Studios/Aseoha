@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-        "model": "aseoha:block/faultlocator"
-      }
+    "facing=east": {
+      "model": "aseoha:block/faultlocator",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "aseoha:block/faultlocator"
+    },
+    "facing=south": {
+      "model": "aseoha:block/faultlocator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aseoha:block/faultlocator",
+      "y": 270
+    }
   }
 }

@@ -206,9 +206,8 @@ spotless {
 		jackson()                 // optional: add a whitespace before key separator. False by default
 				.feature('INDENT_OUTPUT', true)                // optional: true by default
 				.feature('ORDER_MAP_ENTRIES_BY_KEYS', true)    // optional: false by default
-				.feature('ALLOW_COMMENTS', true) // optional: false by default
-		jsonPatch([
-				[op: 'replace', path: '/ItemModels', value: 'aseoha:item/'],
-				[op: 'replace', path: '/BlockModels', value: 'aseoha:block/']
-		])	}
+//		jsonPatch([
+//				[op: 'replace', path: '/ItemModels', value: 'aseoha:item/'],
+//				[op: 'replace', path: '/BlockModels', value: 'aseoha:block/']
+//		])	}
 }
