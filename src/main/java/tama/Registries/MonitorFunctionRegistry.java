@@ -11,6 +11,6 @@ public class MonitorFunctionRegistry {
     public static final DeferredRegister<MonitorFunction> FUNCTIONS =
             DeferredRegister.create(Helper.createRL("monitor_functions"), aseoha.MODID);
 
-//    public static final RegistryObject<MonitorColorPickerScreen> CUSTOMIZATION =
-//            FUNCTIONS.register("interior/customization", MonitorColorPickerScreen::new);
+    //    public static final RegistryObject<MonitorColorPickerScreen> CUSTOMIZATION =
+    //            FUNCTIONS.register("interior/customization", MonitorColorPickerScreen::new);
 }

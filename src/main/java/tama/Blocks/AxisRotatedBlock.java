@@ -12,7 +12,8 @@ import org.jetbrains.annotations.Nullable;
 public class AxisRotatedBlock extends Block {
     public AxisRotatedBlock(Properties p_49795_) {
         super(p_49795_);
-        this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
+        this.registerDefaultState(
+                this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override

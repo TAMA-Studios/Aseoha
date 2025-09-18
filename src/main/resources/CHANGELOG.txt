@@ -1,0 +1,57 @@
+MADE ARTRON USAGE WHILE IN FLIGHT CLOSER TO 1.16
+
+instead of updating every second, it now updates every tick, and is a lot slower to better match 1.16
+
+Ported all flight events from 1.16 (except for time ram)
+
+Added the Food Machine
+
+Added the Battle Console (IT'S FINALLY FINISHED!)
+
+Revamped all Dimensions
+
+Ported some tungsten stuff
+
+EVEN MOAR CREATE RECIPES as well as console swapping with nuggets + manual item application
+
+added repairing system for leaky capacitors
+
+Midnight sets entities on fire now
+
+ported the Workshop from 1.16
+
+Ported Cavern water library, ARS, and library rooms
+
+Added Grand Library ARS Room
+
+Added like 3 new Toyota rooms and a ruined variant
+
+Added aquarium ARS room
+
+Added 10th's Wardrobe ARS Room
+
+Added some exterior and console texture variants
+
+Added a Coffee Pot
+
+Laid down some epic backing lang files
+
+Fixed bugs (Including the ARS Screen being empty)
+
+Added recipes to stuff that lacked them
+
+Dimension unlockers have textures + recipes now
+
+Ported the spinny thingey from 1.16
+
+Ported the 1.16 and 1.14 steam consoles
+
+Ported the 1.16 Coral console
+
+Made Monitor text white
+
+Candy Cane Sonic
+
+Updated HB Light model + texture, make it so it properly orients when you place it instead of having two blocks
+
+fixed pretty much every block/item with a missing texture
