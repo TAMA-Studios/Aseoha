@@ -1,10 +1,10 @@
 {
   "ingredients" : [ {
-    "item" : "aseoha:console/coral"
+    "item" : "aseoha:console/toyota"
   } ],
   "result" : {
     "count" : 1,
-    "item" : "tardis:galvanic_console"
+    "item" : "aseoha:console/coral"
   },
   "type" : "minecraft:crafting_shapeless"
 }
