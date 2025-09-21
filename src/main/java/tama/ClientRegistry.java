@@ -198,12 +198,12 @@ public class ClientRegistry {
         BrokenExteriorRenderer.register(new ModelHolder<>(
                 type -> type == ExteriorRegistry.CAPALDI_EXTERIOR.get(),
                 set -> new CapaldiExteriorModel<>(set.bakeLayer(CapaldiExteriorModel.LAYER_LOCATION)),
-                new ResourceLocation(aseoha.MODID, "textures/entity/mk2/mk2_tennant.png")));
+                new ResourceLocation(aseoha.MODID, "textures/exteriors/capaldi.png")));
 
         BrokenExteriorRenderer.register(new ModelHolder<>(
                 type -> type == ExteriorRegistry.HARTNELL112_EXTERIOR.get(),
                 set -> new Hartnell112Exterior<>(set.bakeLayer(Hartnell112Exterior.LAYER_LOCATION)),
-                new ResourceLocation(aseoha.MODID, "textures/entity/convert/hartnell.png")));
+                new ResourceLocation(aseoha.MODID, "textures/exteriors/convert/hartnell.png")));
     }
 
     @OnlyIn(Dist.CLIENT)

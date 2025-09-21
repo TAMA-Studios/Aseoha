@@ -7,6 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.tardis.mod.control.ControlType;
 import net.tardis.mod.control.datas.ControlDataBool;
 import net.tardis.mod.control.datas.ControlDataNone;
+import tama.Controls.CloakControl;
 import tama.Controls.CoffeePotControl;
 import tama.Controls.CollisionControl;
 import tama.Controls.LightSwitchControl;
@@ -33,4 +34,7 @@ public class ControlRegistry {
 
     public static final RegistryObject<ControlType<ControlDataNone>> COLLISION_FOUR =
             CONTROLS.register("collision_four", () -> new ControlType<>(CollisionControl::new, ControlDataNone::new));
+
+    public static final RegistryObject<ControlType<ControlDataBool>> CLOAK =
+            CONTROLS.register("cloak", () -> new ControlType<>(CloakControl::new, ControlDataBool::new));
 }

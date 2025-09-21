@@ -5,14 +5,17 @@
   "refmap": "aseoha.refmap.json",
   "mixins": [
     "ConsoleTileMixin",
+    "ExteriorTileMixin",
     "FuelHandlerMixin",
-    "client.MonitorMixin",
+    "ExteriorExtraDataMixin",
     "SonicPortMixin"
   ],
   "client": [
     "client.ControlEntityRendererMixin",
     "client.DoorRendererMixin",
-    "client.TextOptionMixin"
+    "client.TextOptionMixin",
+    "client.ExteriorRendererMixin",
+    "client.MonitorMixin"
   ],
   "minVersion": "0.8"
 }

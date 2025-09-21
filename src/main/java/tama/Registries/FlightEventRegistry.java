@@ -26,4 +26,5 @@ public class FlightEventRegistry {
 
     public static final RegistryObject<FlightEventType> DIMENSIONAL_DRIFT =
             FLIGHT_EVENTS.register("dimensional_drift", () -> new FlightEventType(0.6F, DimensionalDriftEvent::new));
+
 }

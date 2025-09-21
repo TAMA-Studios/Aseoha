@@ -240,15 +240,20 @@
   "control.aseoha.coffeepot": "Coffee Pot",
   "control.aseoha.wibbly_lever": "Wibbly Lever",
   "entity.aseoha.k9": "K9",
-  "exterior.tardis.bluedoctor": "Blue Doctor Exterior",
-  "exterior.tardis.brackolin": "Brackolin Exterior",
-  "exterior.tardis.hartnell112": "1.12 Hartnell Exterior",
-  "exterior.tardis.olwarrior": "Ol' warrior Exterior",
-  "exterior.tardis.rani": "Rani Exterior",
-  "exterior.tardis.wardrobe": "Wardrobe Exterior",
+  "exterior.aseoha.tardis.bluedoctor": "Blue Doctor Exterior",
+  "exterior.aseoha.tardis.brackolin": "Brackolin Exterior",
+  "exterior.aseoha.tardis.hartnell112": "1.12 Hartnell Exterior",
+  "exterior.aseoha.tardis.olwarrior": "Ol' warrior Exterior",
+  "exterior.aseoha.tardis.rani": "Rani Exterior",
+  "exterior.aseoha.tardis.capaldi": "Capaldi Exterior",
   "exterior_animation.aseoha.fast_af": "Fast Animation",
-  "flight_events.aseoha.power_fault": "Power Fault!",
-  "flight_events.aseoha.tardis_taking_over": "TARDIS Taking Over!",
+  "flight_event.aseoha.power_fault": "Power Fault!",
+  "flight_event.aseoha.tardis_taking_over": "TARDIS Taking Over!",
+  "flight_event.aseoha.tardis.vertical_displacement": "Vertical Displacement Error!",
+  "flight_event.aseoha.tardis.low_artron": "Low Artron Flow!",
+  "flight_event.aseoha.tardis.dimensional_drift": "Dimensional Drift!",
+  "flight_event.aseoha.tardis.exterior_bulkhead": "Exterior Bulkhead Failure!",
+  "flight_event.aseoha.tardis.vortex_scrap": "Vortex Scrap!",
   "item.aseoha.aseoha_manual": "Manual [ASEOHA]",
   "item.aseoha.authorized_control_disc": "Authorized Control Disc",
   "item.aseoha.empty_unlocker": "Empty Dimensional Coordinate Unlocker",
@@ -493,7 +498,8 @@
   "tooltip.item.info.reenabled": "This was Re-Enabled by ASEOHA!",
   "tooltip.part.upgrades/atrium.description": "Takes blocks with the TARDIS exterior \nConsult the ASEOHA Manual for more information",
   "tooltip.part.upgrades/dynamic_coordinates.description": "Makes the TARDIS monitor update flight position while flying",
-  "item.aseoha.dimension_unlocker.desc": "Use in the TARDIS to unlock the contained dimension"
+  "item.aseoha.dimension_unlocker.desc": "Use in the TARDIS to unlock the contained dimension",
+  "control.aseoha.cloak": "Turned Cloaking Mechanism %s"
 
 }
 
