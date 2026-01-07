@@ -45,6 +45,8 @@ public class TACommonEventsMixin {
     @SubscribeEvent
     @Overwrite(remap = false)
     public static void onControlHit(ControlEvent.ControlHitEvent event) {
+        if(event.isCanceled()) return;
+
         if ((event.getControl().getEntry().equals(ControlRegistry.X.get()) || event.getControl().getEntry().equals(ControlRegistry.Y.get()) || event.getControl().getEntry().equals(ControlRegistry.Z.get())) && event.getControl().getConsole().hasNavCom()) {
             BlockPos pos = event.getControl().getConsole().getDestinationPosition().offset(((AxisControl) event.getControl()).getAddPos(event.getPlayer().isShiftKeyDown() ? -event.getControl().getConsole().getCoordIncr() : event.getControl().getConsole().getCoordIncr()));
             event.getPlayer().displayClientMessage(aseoha$getTarget(pos), true);
