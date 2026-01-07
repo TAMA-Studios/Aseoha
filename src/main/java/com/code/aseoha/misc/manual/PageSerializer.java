@@ -1,4 +1,4 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.google.gson.JsonObject;
 

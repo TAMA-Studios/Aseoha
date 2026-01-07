@@ -1,6 +1,5 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
-import com.code.aseoha.misc.PageSerializer;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 
@@ -13,20 +12,20 @@ public class NormalPageSerializer extends PageSerializer {
     }
 
     @Override
-    public List<com.code.aseoha.misc.Page> read(JsonObject root) {
+    public List<Page> read(JsonObject root) {
 
         if(!root.has("text"))
             return Lists.newArrayList();
 
-        List<com.code.aseoha.misc.Page> pages = Lists.newArrayList();
+        List<Page> pages = Lists.newArrayList();
 
-        com.code.aseoha.misc.Page page = new com.code.aseoha.misc.Page();
+        Page page = new Page();
         String leftovers = page.parseString(root.get("text").getAsString());
         pages.add(page);
 
         //Handle overfill
         while(!leftovers.isEmpty()){
-            com.code.aseoha.misc.Page p = new com.code.aseoha.misc.Page();
+            Page p = new Page();
             leftovers = p.parseString(leftovers);
             pages.add(p);
         }

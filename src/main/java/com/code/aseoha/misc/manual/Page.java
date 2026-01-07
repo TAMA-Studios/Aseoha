@@ -1,4 +1,4 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
@@ -12,11 +12,10 @@ import org.apache.logging.log4j.Level;
 
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Page {
 
-    private static final List<com.code.aseoha.misc.PageSerializer> SERIALIZERS = Lists.newArrayList();
+    private static final List<PageSerializer> SERIALIZERS = Lists.newArrayList();
 
     public static final int WIDTH = 65, LINES = 10, MAX_LINE_WIDTH = 115;
     protected List<String> lines = Lists.newArrayList();

@@ -1,11 +1,10 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.code.aseoha.aseoha;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.util.ResourceLocation;
-import net.tardis.mod.Tardis;
 import net.tardis.mod.client.ClientHelper;
 import org.apache.logging.log4j.Level;
 

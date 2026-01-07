@@ -2,7 +2,7 @@
   "compatibilityLevel": "JAVA_8",
   "minVersion": "0.8",
   "mixins": [
-    "CommonEventsMixin"
+    "TACommonEventsMixin"
   ],
   "package": "com.code.aseoha.integration.tadditions.mixin",
   "refmap": "aseoha.tacompat.refmap.json",

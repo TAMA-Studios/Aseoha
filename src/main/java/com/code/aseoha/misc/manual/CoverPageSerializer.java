@@ -1,4 +1,4 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
@@ -13,8 +13,8 @@ public class CoverPageSerializer extends PageSerializer {
     }
 
     @Override
-    public List<com.code.aseoha.misc.Page> read(JsonObject root) {
-        com.code.aseoha.misc.CoverPage page = new com.code.aseoha.misc.CoverPage();
+    public List<Page> read(JsonObject root) {
+        CoverPage page = new CoverPage();
 
         page.setTitle(root.get("title").getAsString());
 

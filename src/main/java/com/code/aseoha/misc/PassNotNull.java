@@ -5,6 +5,7 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import org.jetbrains.annotations.NotNull;
 
 public class PassNotNull {
     /**
@@ -13,7 +14,7 @@ public class PassNotNull {
      * @param FallBack If the Dimension IS null, default to this Dimension
      * @return A RegitstryKey Dimension
      */
-    public static RegistryKey<Dimension> NotNullDimensionRegKey(RegistryKey<Dimension> Dim, RegistryKey<Dimension> FallBack){
+    public static RegistryKey<Dimension> NotNullDimensionRegKey(RegistryKey<Dimension> Dim, @NotNull RegistryKey<Dimension> FallBack){
         RegistryKey<Dimension> dim;
         if(Dim == null){
             dim = FallBack == null ? Dimension.OVERWORLD : FallBack;
@@ -28,7 +29,7 @@ public class PassNotNull {
      * @param FallBack If the World IS null, default to this World
      * @return A RegitstryKey World
      */
-    public static RegistryKey<World> NotNullWorldRegKey(RegistryKey<World> world, RegistryKey<World> FallBack){
+    public static RegistryKey<World> NotNullWorldRegKey(RegistryKey<World> world, @NotNull RegistryKey<World> FallBack){
         RegistryKey<World> dim;
         if(world == null){
             dim = FallBack == null ? World.OVERWORLD : FallBack;
@@ -43,7 +44,7 @@ public class PassNotNull {
      * @param FallBack If the world IS null, default to this serverworld
      * @return A serverworld
      */
-    public static ServerWorld NotNullServerWorld(ServerWorld world, ServerWorld FallBack){
+    public static ServerWorld NotNullServerWorld(ServerWorld world, @NotNull ServerWorld FallBack){
         ServerWorld dim;
         if(world == null){
             dim = FallBack == null ? Minecraft.getInstance().level.getServer().getLevel(Minecraft.getInstance().level.dimension() == null ? ServerWorld.OVERWORLD : Minecraft.getInstance().level.dimension()).getLevel() : FallBack;

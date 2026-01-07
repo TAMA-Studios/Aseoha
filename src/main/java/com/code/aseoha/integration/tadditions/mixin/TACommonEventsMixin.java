@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(CommonEvents.class)
-public class CommonEventsMixin {
+public class TACommonEventsMixin {
     /**
      * @author codiak540
      * @reason prevent TA from executing anything onServerTick, it tends to NullPointer and we do what they're trying to anyway

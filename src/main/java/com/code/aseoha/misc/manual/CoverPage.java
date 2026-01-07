@@ -1,4 +1,4 @@
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
