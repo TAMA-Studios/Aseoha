@@ -12,6 +12,7 @@ import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.StringTextComponent;
+import org.jetbrains.annotations.NotNull;
 
 public class ChangeChapterButton extends Button {
     protected final boolean isForward;
@@ -31,7 +32,7 @@ public class ChangeChapterButton extends Button {
         this(x, y, 17, 12, isForward, onPress, playTurnSound);
     }
 
-    public void renderButton(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+    public void renderButton(@NotNull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         Minecraft.getInstance().getTextureManager().bind(ManualScreen.TEXTURE);
         int u = 5;
         int v = 228;
@@ -46,7 +47,7 @@ public class ChangeChapterButton extends Button {
         this.blit(matrixStack, this.x, this.y, u, v, this.width, this.height);
     }
 
-    public void playDownSound(SoundHandler handler) {
+    public void playDownSound(@NotNull SoundHandler handler) {
         if (this.playTurnSound) {
             handler.play(SimpleSound.forUI(SoundEvents.BOOK_PAGE_TURN, 1.0F));
         }

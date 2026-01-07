@@ -4,21 +4,19 @@ import com.code.aseoha.aseoha;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import lombok.Getter;
 import net.minecraft.util.ResourceLocation;
 import net.tardis.mod.client.ClientHelper;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
 
-public class Index{
-	private List<Chapter> chapters = Lists.newArrayList();
+@Getter
+public class Index {
+	private final List<Chapter> chapters = Lists.newArrayList();
 	
 	public Index(List<Chapter> chapters){
         this.chapters.addAll(chapters);
-    }
-	
-	public List<Chapter> getChapters(){
-        return this.chapters;
     }
 
     public static Index read(ResourceLocation id, JsonObject object, String localeCode){

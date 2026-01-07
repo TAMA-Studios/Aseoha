@@ -2,6 +2,7 @@ package com.code.aseoha.misc;
 
 import com.code.aseoha.client.models.armor.PrydonianHelmModel;
 import com.code.aseoha.items.AseohaItems;
+import com.code.aseoha.misc.manual.ManualScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.item.Item;

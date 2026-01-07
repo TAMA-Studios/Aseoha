@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.blaze3d.matrix.MatrixStack;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -13,11 +14,16 @@ import org.apache.logging.log4j.Level;
 import java.io.InputStreamReader;
 import java.util.List;
 
+@Getter
 public class Page {
 
     private static final List<PageSerializer> SERIALIZERS = Lists.newArrayList();
 
     public static final int WIDTH = 65, LINES = 10, MAX_LINE_WIDTH = 115;
+    /**
+     * -- GETTER --
+     * Gets the number of new lines which all the text will be rendered as
+     */
     protected List<String> lines = Lists.newArrayList();
 
     public Page(){}
@@ -25,11 +31,6 @@ public class Page {
     static {
         SERIALIZERS.add(new NormalPageSerializer());
         SERIALIZERS.add(new CoverPageSerializer());
-    }
-
-    /** Gets the number of new lines which all the text will be rendered as*/
-    public List<String> getLines(){
-        return this.lines;
     }
 
     //Returns true if this page was clicked
@@ -103,10 +104,6 @@ public class Page {
         return ""; //DO NOT CHANGE THIS or you will soft lock the game
     }
 
-    public int getNumberOfLines(){
-        return this.lines.size();
-    }
-
     public void render(MatrixStack stack, FontRenderer font, int globalPage, int x, int y, int width, int height){
         int index = 0;
         for(String lines : this.getLines()){
@@ -115,7 +112,7 @@ public class Page {
         }
 
         //draw page number
-        font.draw(stack, globalPage + "", x + (WIDTH) / 2 + font.getSplitter().stringWidth(globalPage + "") / 2, y + 120, 0x000000);
+        font.draw(stack, globalPage + "", x + (float) (WIDTH) / 2 + font.getSplitter().stringWidth(globalPage + "") / 2, y + 120, 0x000000);
 
     }
 

@@ -2,6 +2,7 @@ package com.code.aseoha.misc.manual;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -13,6 +14,7 @@ import org.lwjgl.opengl.GL11;
 public class CoverPage extends Page {
 
     private ResourceLocation texture;
+    @Getter
     private String title;
 
     @Override
@@ -62,9 +64,5 @@ public class CoverPage extends Page {
     public void setTitle(String title) {
         this.title = title;
         this.parseString(title);
-    }
-    
-    public String getTitle() {
-    	return this.title;
     }
 }

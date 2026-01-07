@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package com.code.aseoha.misc;
+package com.code.aseoha.misc.manual;
 
 import com.code.aseoha.aseoha;
 import com.google.common.collect.Lists;
@@ -17,16 +17,12 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.Widget;
-import net.minecraft.client.gui.widget.button.ChangePageButton;
 import net.minecraft.item.ItemStack;
 import net.minecraft.resources.IResource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.tardis.mod.Tardis;
-import net.tardis.mod.client.guis.widgets.ChangeChapterButton;
-import net.tardis.mod.client.guis.widgets.ReturnToIndexButton;
 import net.tardis.mod.contexts.gui.GuiItemContext;
 import net.tardis.mod.misc.GuiContext;
 import org.jetbrains.annotations.NotNull;
@@ -67,7 +63,7 @@ public class ManualScreen extends Screen {
     }
 
     public ManualScreen(GuiContext context) {
-        this(new StringTextComponent("Manual"), "aseoha");
+        this(new StringTextComponent("Manual"), aseoha.MODID);
         if (context instanceof GuiItemContext) {
             ItemStack stack = ((GuiItemContext)context).getItemStack();
             if (stack.hasTag()) {
@@ -80,11 +76,26 @@ public class ManualScreen extends Screen {
                 }
             }
         }
+    }
 
+    public ManualScreen(ItemStack stack) {
+        this(new StringTextComponent("Manual"), aseoha.MODID);
+        if (stack.hasTag()) {
+            if (stack.getTag().contains("page")) {
+                this.pageIndex = stack.getTag().getInt("page");
+            }
+
+            if (stack.getTag().contains("chapter")) {
+                this.chapterIndex = stack.getTag().getInt("chapter");
+            }
+        }
+    }
+
+    public ManualScreen() {
+        this(new StringTextComponent("Manual"), aseoha.MODID);
     }
 
     public void onClose() {
-//        Network.sendToServer(new UpdateManualPageMessage(this.pageIndex, this.chapterIndex));
         super.onClose();
     }
 
@@ -133,11 +144,11 @@ public class ManualScreen extends Screen {
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         Pair<Page, Page> pages = this.getPages();
         if (pages.getFirst() != null) {
-            ((Page)pages.getFirst()).render(matrixStack, this.font, this.getGlobalPageNumber(), this.pageX, this.pageY, this.width, this.height);
+            pages.getFirst().render(matrixStack, this.font, this.getGlobalPageNumber(), this.pageX, this.pageY, this.width, this.height);
         }
 
         if (pages.getSecond() != null) {
-            ((Page)pages.getSecond()).render(matrixStack, this.font, this.getGlobalPageNumber() + 1, this.page2X, this.pageY, this.width, this.height);
+            pages.getSecond().render(matrixStack, this.font, this.getGlobalPageNumber() + 1, this.page2X, this.pageY, this.width, this.height);
         }
 
         this.renderTooltips(matrixStack, mouseX, mouseY, partialTicks);
@@ -303,18 +314,17 @@ public class ManualScreen extends Screen {
         return this.chapterIndex;
     }
 
-    @SuppressWarnings("unchecked")
-    public Pair getPages() {
+    public Pair<Page, Page> getPages() {
         Chapter chapter = this.getChapter();
         if (chapter != null && this.pageIndex < chapter.getPages().size()) {
             Page page2 = null;
             if (this.pageIndex + 1 < chapter.getPages().size()) {
-                page2 = (Page)chapter.getPages().get(this.pageIndex + 1);
+                page2 = chapter.getPages().get(this.pageIndex + 1);
             }
 
-            return new Pair(this.getChapter().getPages().get(this.pageIndex), page2);
+            return new Pair<>(this.getChapter().getPages().get(this.pageIndex), page2);
         } else {
-            return new Pair(null, null);
+            return new Pair<>(null, null);
         }
     }
 
@@ -334,10 +344,9 @@ public class ManualScreen extends Screen {
 
         try {
             resource = getManualResourceNullable(indexLocation);
-        } catch (IOException var7) {
-            IOException e = var7;
-            e.printStackTrace();
-            Tardis.LOGGER.error("Could not find Manual resources for locale: {}, reverting to contents for locale {}", Minecraft.getInstance().getLanguageManager().getSelected().getCode(), "en_us");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+            aseoha.LOGGER.error("Could not find Manual resources for locale: {}, reverting to contents for locale {}", Minecraft.getInstance().getLanguageManager().getSelected().getCode(), "en_us");
             localeCode = "en_us";
             indexLocation = this.getManualIndexResourceLocation(localeCode);
 

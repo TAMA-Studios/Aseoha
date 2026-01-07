@@ -11,6 +11,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class ChangePageButton extends Button {
@@ -23,7 +24,8 @@ public class ChangePageButton extends Button {
         this.playTurnSound = p_i51079_5_;
     }
 
-    public void renderButton(MatrixStack p_230431_1_, int p_230431_2_, int p_230431_3_, float p_230431_4_) {
+    @SuppressWarnings("deprecation")
+    public void renderButton(@NotNull MatrixStack p_230431_1_, int p_230431_2_, int p_230431_3_, float p_230431_4_) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         Minecraft.getInstance().getTextureManager().bind(ReadBookScreen.BOOK_LOCATION);
         int lvt_5_1_ = 0;
@@ -39,7 +41,7 @@ public class ChangePageButton extends Button {
         this.blit(p_230431_1_, this.x, this.y, lvt_5_1_, lvt_6_1_, 23, 13);
     }
 
-    public void playDownSound(SoundHandler p_230988_1_) {
+    public void playDownSound(@NotNull SoundHandler p_230988_1_) {
         if (this.playTurnSound) {
             p_230988_1_.play(SimpleSound.forUI(SoundEvents.BOOK_PAGE_TURN, 1.0F));
         }

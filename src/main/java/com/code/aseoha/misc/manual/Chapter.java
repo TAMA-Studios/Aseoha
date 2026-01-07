@@ -3,28 +3,22 @@ package com.code.aseoha.misc.manual;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import lombok.Getter;
 import net.minecraft.util.ResourceLocation;
 import net.tardis.mod.Tardis;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
 
+@Getter
 public class Chapter {
 
-    private List<Page> pages = Lists.newArrayList();
-    private String displayName;
+    private final List<Page> pages = Lists.newArrayList();
+    private final String displayName;
 
     public Chapter(String display, List<Page> pages){
         this.displayName = display;
         this.pages.addAll(pages);
-    }
-
-    public List<Page> getPages(){
-        return this.pages;
-    }
-    
-    public String getDisplayName() {
-    	return this.displayName;
     }
 
     public void insertPage(int index, Page page){

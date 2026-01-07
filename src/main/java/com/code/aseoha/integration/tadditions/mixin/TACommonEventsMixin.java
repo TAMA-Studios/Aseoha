@@ -31,7 +31,7 @@ import org.spongepowered.asm.mixin.Unique;
 public class TACommonEventsMixin {
     /**
      * @author codiak540
-     * @reason prevent TA from executing anything onServerTick, it tends to NullPointer and we do what they're trying to anyway
+     * @reason prevent TA from executing anything onServerTick, it tends to NullPointer, and we do what they're trying to anyway
      */
     @SubscribeEvent
     @Overwrite(remap = false)
@@ -54,7 +54,7 @@ public class TACommonEventsMixin {
             event.setCanceled(true);
             if (event.getControl().getConsole() instanceof FourteenthConsoleTile) {
                 BlockPos pos = event.getControl().getConsole().getBlockPos();
-                Vector3d p = event.getPlayer().position().subtract((double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5).normalize();
+                Vector3d p = event.getPlayer().position().subtract((double) pos.getX() + 0.5, pos.getY(), (double) pos.getZ() + 0.5).normalize();
                 float rot = aseoha$getRot(p);
 
                 ((IMonitorHelp) event.getControl()).setRotAngle(rot);
@@ -63,7 +63,7 @@ public class TACommonEventsMixin {
 
         if (event.getControl().getEntry().equals(ControlRegistry.FAST_RETURN.get())) {
             event.setCanceled(true);
-            if (!event.getControl().getConsole().getLevel().isClientSide() && event.getControl().getConsole().getLandTime() <= 0) {
+            if (!event.getControl().getEntity().level.isClientSide() && event.getControl().getConsole().getLandTime() <= 0) {
                 if (event.getControl().getConsole().getCurrentLocation() == event.getControl().getConsole().getDestinationPosition()) {
                     SpaceTimeCoord coord = event.getControl().getConsole().getReturnLocation();
                     event.getControl().getConsole().setDestination(RegistryKey.create(Registry.DIMENSION_REGISTRY, coord.getDimRL()), coord.getPos());
@@ -101,7 +101,7 @@ public class TACommonEventsMixin {
             event.setCanceled(true);
             if (control.getConsole() instanceof FourteenthConsoleTile) {
                 BlockPos pos = control.getConsole().getBlockPos();
-                Vector3d p = event.getPlayer().position().subtract((double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5).normalize();
+                Vector3d p = event.getPlayer().position().subtract((double) pos.getX() + 0.5, pos.getY(), (double) pos.getZ() + 0.5).normalize();
                 float rot = aseoha$getRot(p);
 
                 ((IMonitorHelp) control).setRotAngle(rot);
@@ -111,7 +111,7 @@ public class TACommonEventsMixin {
         if (((ControlEntity) event.getTarget()).getControl().getEntry().equals(ControlRegistry.FAST_RETURN.get())) {
             event.setCanceled(true);
             control = ((ControlEntity) event.getTarget()).getControl();
-            if (!control.getConsole().getLevel().isClientSide() && control.getConsole().getLandTime() <= 0) {
+            if (!control.getEntity().level.isClientSide() && control.getConsole().getLandTime() <= 0) {
                 if (control.getConsole().getCurrentLocation() == control.getConsole().getDestinationPosition()) {
                     SpaceTimeCoord coord = control.getConsole().getReturnLocation();
                     RegistryKey<World> worldKey = RegistryKey.create(Registry.DIMENSION_REGISTRY, coord.getDimRL());
