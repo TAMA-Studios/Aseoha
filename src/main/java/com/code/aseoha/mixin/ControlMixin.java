@@ -6,17 +6,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.mistersecret312.temporal_api.events.ControlEvent;
 import net.tardis.mod.controls.AbstractControl;
 import net.tardis.mod.entity.ControlEntity;
-import net.tardis.mod.tileentities.ConsoleTile;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,29 +25,6 @@ public abstract class ControlMixin extends Entity {
         super(p_i48580_1_, p_i48580_2_);
     }
 
-    @Override
-    public boolean canCollideWith(@NotNull Entity p_241849_1_) {
-        return canBeCollidedWith();
-    }
-
-    @Override
-    public boolean canBeCollidedWith() {
-        return true;
-    }
-    /**
-     * @author
-     * @reason
-     */
-    @Overwrite
-    public boolean isPushable() {
-        return true; // Make the entity solid
-    }
-    @Override
-    public void push(Entity entity) {
-        if (!(entity instanceof PlayerEntity)) { // Prevent players from being shoved
-            super.push(entity);
-        }
-    }
 
 //    @Override
 //    public void refreshDimensions() {

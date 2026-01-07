@@ -15,11 +15,12 @@
   ],
   "compatibilityLevel": "JAVA_8",
   "injectors": {
-    "defaultRequire": 1,
+    "defaultRequire": 0,
     "maxShiftBy": 5
   },
   "minVersion": "0.8",
   "mixins": [
+    "TACommonEventsMixin",
     "BrokenExteriorMixin",
     "BrokenExteriorTypeMixin",
     "ConsoleChangeMessageMixin",

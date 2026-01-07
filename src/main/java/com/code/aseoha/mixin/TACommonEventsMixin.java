@@ -1,4 +1,4 @@
-package com.code.aseoha.integration.tadditions.mixin;
+package com.code.aseoha.mixin;
 
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.BlockPos;
