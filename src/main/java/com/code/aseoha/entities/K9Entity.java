@@ -184,8 +184,7 @@ public class K9Entity extends RecycledWolf implements IAngerable, ISpaceImmuneEn
         Item item = itemstack.getItem();
         if (this.level.isClientSide) {
             if (!this.isDead && !player.isCrouching()) OpenK9Screen(this);
-            boolean flag = this.isOwnedBy(player) || this.isTame() || item == Items.IRON_INGOT && !this.isTame() && !this.isAngry();
-            return flag ? ActionResultType.CONSUME : ActionResultType.PASS;
+            return ActionResultType.SUCCESS;
         } else {
             if (this.isTame()) {
                 if (item instanceof IArtronItemStackBattery) {

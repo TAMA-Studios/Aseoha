@@ -50,190 +50,190 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
         super(p_i48580_1_, p_i48580_2_);
     }
 
-    @Shadow(remap = false)
-    public abstract ConsoleTile getConsole();
-
-    @Shadow(remap = false)
-    private ConsoleTile console;
-
-    @Shadow(remap = false)
-    @Nullable
-    public abstract ExteriorTile getExteriorTile();
-
-    @Shadow(remap = false)
-    private AbstractExterior exterior;
-
-    @Shadow(remap = false)
-    private boolean hasLanded;
-
-    @Shadow(remap = false) public abstract Entity changeDimension(@NotNull ServerWorld destination);
+//    @Shadow(remap = false)
+//    public abstract ConsoleTile getConsole();
+//
+//    @Shadow(remap = false)
+//    private ConsoleTile console;
+//
+//    @Shadow(remap = false)
+//    @Nullable
+//    public abstract ExteriorTile getExteriorTile();
+//
+//    @Shadow(remap = false)
+//    private AbstractExterior exterior;
+//
+//    @Shadow(remap = false)
+//    private boolean hasLanded;
+//
+//    @Shadow(remap = false) public abstract Entity changeDimension(@NotNull ServerWorld destination);
 
 //    private RegistryKey<DimensionType> interiorDimension;
-    private boolean canDismount = false;
-    private boolean jumping = false;
-    public float renderYaw = 0;
-    private float prevRotationPitch;
-    private float prevRotationYaw;
-    private float rotationPitch;
-    private float rotationYaw;
+//    private boolean canDismount = false;
+//    private boolean jumping = false;
+//    public float renderYaw = 0;
+//    private float prevRotationPitch;
+//    private float prevRotationYaw;
+//    private float rotationPitch;
+//    private float rotationYaw;
+//
+//    @Override
+//    public boolean isJumping() {
+//        return jumping;
+//    }
+//
+//    @Override
+//    public void setJumping(boolean jumpingState) {
+//        this.jumping = jumpingState;
+//    }
+//
+//    @Override
+//    public void setHasLanded(boolean hasLanded) {
+//        this.hasLanded = hasLanded;
+//    }
+//
+//    /**
+//     * @author Codiak
+//     * @reason RWF
+//     */
+//    @Overwrite(remap = false)
+//    public boolean isPushable() {
+//        return true;
+//    }
+//
+//    @Override
+//    public double getPassengersRidingOffset() {
+//        return (double)this.getDimensions(this.getPose()).height * 0.9D;
+//    }
+//
+//    @Override
+//    protected boolean canRide(@NotNull Entity entityIn) {
+//        return true;
+//    }
+//
+//
+//    @Inject(method = "interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResultType;", at = @At("HEAD"), cancellable = true)
+//    private void Aseoha$Interact(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResultType> cir) {
+//        if (!player.level.isClientSide) {
+//            player.level.getServer().tell(new TickDelayedTask(1, () -> {
+//                double x = 0, y = TardisHelper.TARDIS_POS.getY(), z = 0;
+//                ConsoleTile console = null;
+////                ServerWorld ws = Objects.requireNonNull(this.level.getServer()).getLevel(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(this.getConsole().getLevel()).getServer()).getLevel(this.getConsole().getLevel().dimension())).dimension());
+//
+//                ServerWorld ws = ((IHelpWithConsole) console).Aseoha$GetInteriorDimension().getServer().getLevel(((IHelpWithConsole) console).Aseoha$GetInteriorDimension().dimension());//this.level.getServer().getLevel(((IHelpWithConsole) this.getConsole()).getInteriorDimension().dimension());
+//                //Get Console
+//                if (ws != null) {
+//                    TileEntity te = ws.getBlockEntity(TardisHelper.TARDIS_POS);
+//                    if (te instanceof ConsoleTile)
+//                        console = (ConsoleTile) te;
+//                }
+//
+//                //If an interior door exists, put the player near it
+//                DoorEntity door = console != null ? console.getDoor().orElse(null) : null;
+//
+//                float rotationYaw = door != null ? door.yRot : player.yRot;
+//
+//                aseoha.LOGGER.info("test {}", player);
+//
+//                if (door != null)
+//                    door.addEntityToTeleportImmuneList(player.getUUID());
+//
+//                WorldHelper.teleportEntities(player, ws, x, y, z, rotationYaw, player.xRot);
+//
+//                //Motion
+//
+//                Vector3d oldMotion = player.getDeltaMovement();
+//                assert door != null;
+//                Vector3d setMot = oldMotion.yRot(-(float) Math.toRadians(door.yRot));
+//
+//                this.level.getServer().tell(new TickDelayedTask(1, () -> {
+//                    Entity ent = ws.getEntity(player.getUUID());
+//                    if (ent != null)
+//                        ent.moveTo(setMot);
+//                    if (ent instanceof ServerPlayerEntity) {
+//                        ((ServerPlayerEntity) ent).connection.send(new SEntityVelocityPacket(ent));
+//                    }
+//                }));
+//            }));
+//        }
+//        cir.setReturnValue(ActionResultType.FAIL);
+//    }
+//
+//    @Override
+//    public void setCanDismount(boolean canDismount) {
+//        this.canDismount = canDismount;
+//    }
+//
+//    @Override
+//    public boolean canDismount() {
+//        return canDismount;
+//    }
+//
+//    @Override
+//    public boolean canBeRiddenInWater(Entity rider) {
+//        return true;
+//    }
 
-    @Override
-    public boolean isJumping() {
-        return jumping;
-    }
 
-    @Override
-    public void setJumping(boolean jumpingState) {
-        this.jumping = jumpingState;
-    }
-
-    @Override
-    public void setHasLanded(boolean hasLanded) {
-        this.hasLanded = hasLanded;
-    }
-
-    /**
-     * @author Codiak
-     * @reason RWF
-     */
-    @Overwrite(remap = false)
-    public boolean isPushable() {
-        return true;
-    }
-
-    @Override
-    public double getPassengersRidingOffset() {
-        return (double)this.getDimensions(this.getPose()).height * 0.9D;
-    }
-
-    @Override
-    protected boolean canRide(@NotNull Entity entityIn) {
-        return true;
-    }
-
-
-    @Inject(method = "interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResultType;", at = @At("HEAD"), cancellable = true)
-    private void Aseoha$Interact(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResultType> cir) {
-        if (!player.level.isClientSide) {
-            player.level.getServer().tell(new TickDelayedTask(1, () -> {
-                double x = 0, y = TardisHelper.TARDIS_POS.getY(), z = 0;
-                ConsoleTile console = null;
-//                ServerWorld ws = Objects.requireNonNull(this.level.getServer()).getLevel(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(this.getConsole().getLevel()).getServer()).getLevel(this.getConsole().getLevel().dimension())).dimension());
-
-                ServerWorld ws = ((IHelpWithConsole) console).Aseoha$GetInteriorDimension().getServer().getLevel(((IHelpWithConsole) console).Aseoha$GetInteriorDimension().dimension());//this.level.getServer().getLevel(((IHelpWithConsole) this.getConsole()).getInteriorDimension().dimension());
-                //Get Console
-                if (ws != null) {
-                    TileEntity te = ws.getBlockEntity(TardisHelper.TARDIS_POS);
-                    if (te instanceof ConsoleTile)
-                        console = (ConsoleTile) te;
-                }
-
-                //If an interior door exists, put the player near it
-                DoorEntity door = console != null ? console.getDoor().orElse(null) : null;
-
-                float rotationYaw = door != null ? door.yRot : player.yRot;
-
-                aseoha.LOGGER.info("test {}", player);
-
-                if (door != null)
-                    door.addEntityToTeleportImmuneList(player.getUUID());
-
-                WorldHelper.teleportEntities(player, ws, x, y, z, rotationYaw, player.xRot);
-
-                //Motion
-
-                Vector3d oldMotion = player.getDeltaMovement();
-                assert door != null;
-                Vector3d setMot = oldMotion.yRot(-(float) Math.toRadians(door.yRot));
-
-                this.level.getServer().tell(new TickDelayedTask(1, () -> {
-                    Entity ent = ws.getEntity(player.getUUID());
-                    if (ent != null)
-                        ent.moveTo(setMot);
-                    if (ent instanceof ServerPlayerEntity) {
-                        ((ServerPlayerEntity) ent).connection.send(new SEntityVelocityPacket(ent));
-                    }
-                }));
-            }));
-        }
-        cir.setReturnValue(ActionResultType.FAIL);
-    }
-
-    @Override
-    public void setCanDismount(boolean canDismount) {
-        this.canDismount = canDismount;
-    }
-
-    @Override
-    public boolean canDismount() {
-        return canDismount;
-    }
-
-    @Override
-    public boolean canBeRiddenInWater(Entity rider) {
-        return true;
-    }
-
-
-    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tick()V", shift = At.Shift.AFTER))
-    private void Aseoha$Tick(CallbackInfo ci) {
-
-        if(level.isClientSide) {
-            if(isVehicle()) {
-                MiscHelper.forceThirdPerson();
-            }
-        }
-
-        if(isVehicle()) {
-            if(this.getControllingPassenger() instanceof PlayerEntity) {
-                this.renderYaw += 5;
-
-                if(!level.isClientSide) {
-                    this.moveTo(Vector3d.ZERO);
-
-                    PlayerEntity entity = (PlayerEntity) this.getControllingPassenger();
-
-                    this.prevRotationPitch = this.rotationPitch;
-                    this.prevRotationYaw = this.rotationYaw;
-
-                    this.rotationPitch = entity.xRot;
-                    this.rotationYaw = entity.yRot;
-
-                    float speed = this.getConsole().getControl(ThrottleControl.class).get().getAmount();
-
-                    Vector3d lookVec = PlayerHelper.getVectorForRotation(0, this.rotationYaw).scale(speed);
-
-                    if(entity.getSpeed() > 0) {
-                        this.setDeltaMovement(this.getDeltaMovement().add(lookVec.x, 0, lookVec.z));
-                    } else if (entity.getSpeed() < 0) {
-                        this.setDeltaMovement(this.getDeltaMovement().add(-lookVec.x, 0, -lookVec.z));
-                    }
-
-                    if(entity.moveDist > 0) {
-                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw - 90F).scale(speed);
-
-                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
-                    } else if (entity.moveDist < 0) {
-                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw + 90F).scale(speed);
-
-                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
-                    }
-
-                    if(this.isJumping()) {
-                        this.setDeltaMovement(this.getDeltaMovement().add(0, 1 * speed, 0));
-                        this.setJumping(false);
-                    }
-
-                    if(entity.isCrouching()) {
-                        this.setDeltaMovement(this.getDeltaMovement().add(0, -1 * speed, 0));
-                    }
-
-                    //Update Tardis Screen
-                    this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
-                    this.getConsole().updateFlightTime();
-                }
-            }
-        }
+//    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tick()V", shift = At.Shift.AFTER))
+//    private void Aseoha$Tick(CallbackInfo ci) {
+//
+//        if(level.isClientSide) {
+//            if(isVehicle()) {
+//                MiscHelper.forceThirdPerson();
+//            }
+//        }
+//
+//        if(isVehicle()) {
+//            if(this.getControllingPassenger() instanceof PlayerEntity) {
+//                this.renderYaw += 5;
+//
+//                if(!level.isClientSide) {
+//                    this.moveTo(Vector3d.ZERO);
+//
+//                    PlayerEntity entity = (PlayerEntity) this.getControllingPassenger();
+//
+//                    this.prevRotationPitch = this.rotationPitch;
+//                    this.prevRotationYaw = this.rotationYaw;
+//
+//                    this.rotationPitch = entity.xRot;
+//                    this.rotationYaw = entity.yRot;
+//
+//                    float speed = this.getConsole().getControl(ThrottleControl.class).get().getAmount();
+//
+//                    Vector3d lookVec = PlayerHelper.getVectorForRotation(0, this.rotationYaw).scale(speed);
+//
+//                    if(entity.getSpeed() > 0) {
+//                        this.setDeltaMovement(this.getDeltaMovement().add(lookVec.x, 0, lookVec.z));
+//                    } else if (entity.getSpeed() < 0) {
+//                        this.setDeltaMovement(this.getDeltaMovement().add(-lookVec.x, 0, -lookVec.z));
+//                    }
+//
+//                    if(entity.moveDist > 0) {
+//                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw - 90F).scale(speed);
+//
+//                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
+//                    } else if (entity.moveDist < 0) {
+//                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw + 90F).scale(speed);
+//
+//                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
+//                    }
+//
+//                    if(this.isJumping()) {
+//                        this.setDeltaMovement(this.getDeltaMovement().add(0, 1 * speed, 0));
+//                        this.setJumping(false);
+//                    }
+//
+//                    if(entity.isCrouching()) {
+//                        this.setDeltaMovement(this.getDeltaMovement().add(0, -1 * speed, 0));
+//                    }
+//
+//                    //Update Tardis Screen
+//                    this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
+//                    this.getConsole().updateFlightTime();
+//                }
+//            }
+//        }
 //        if (this.level.isClientSide) {
 //            if (this.isVehicle()) {
 //                MiscHelper.forceThirdPerson();
@@ -298,12 +298,12 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
 
 
 
-    }
+//    }
 
-    @Override
-    public Entity getControllingPassenger() {
-        return !this.getPassengers().isEmpty() ? this.getPassengers().get(0) : null;
-    }
+//    @Override
+//    public Entity getControllingPassenger() {
+//        return !this.getPassengers().isEmpty() ? this.getPassengers().get(0) : null;
+//    }
 
     /**
      * @author Codiak
@@ -311,21 +311,21 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
      */
 //    @Overwrite(remap = false)
 //    @Override
-    @Inject(method = "rideTick()V", at = @At("TAIL"))
-    public void rideTick(CallbackInfo ci) {
-        this.setDeltaMovement(Vector3d.ZERO);
-        if (canUpdate())
-            this.tick();
-        if (this.isPassenger()) {
-            this.getVehicle().positionRider(this);
-        }
-    }
+//    @Inject(method = "rideTick()V", at = @At("TAIL"))
+//    public void rideTick(CallbackInfo ci) {
+//        this.setDeltaMovement(Vector3d.ZERO);
+//        if (canUpdate())
+//            this.tick();
+//        if (this.isPassenger()) {
+//            this.getVehicle().positionRider(this);
+//        }
+//    }
 
 
 
-    public boolean canBeControlledByRider() {
-        return true;
-    }
+//    public boolean canBeControlledByRider() {
+//        return true;
+//    }
 
 //    @Override
 //    public RegistryKey<DimensionType> getInteriorDimension() {

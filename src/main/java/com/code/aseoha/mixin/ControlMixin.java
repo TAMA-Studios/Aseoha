@@ -10,6 +10,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.tardis.mod.controls.AbstractControl;
+import net.tardis.mod.controls.XControl;
 import net.tardis.mod.entity.ControlEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

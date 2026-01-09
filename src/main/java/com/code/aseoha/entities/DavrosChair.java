@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * @author Codiak <br />
  * This is a ridable Davros wheelchair.
  */
-public class DavrosChair extends CreatureEntity implements IMob, ISpaceImmuneEntity {
+public class DavrosChair extends CreatureEntity implements ISpaceImmuneEntity {
     public DavrosChair(EntityType<? extends CreatureEntity> p_i50129_1_, World p_i50129_2_) {
         super(p_i50129_1_, p_i50129_2_);
     }
@@ -44,7 +44,7 @@ public class DavrosChair extends CreatureEntity implements IMob, ISpaceImmuneEnt
 //            pass.setPos(pos.x, pos.y, pos.z);
         Vector3d pos;
         if (!this.getPassengers().isEmpty()) {
-            pos = this.getLookAngle().scale(0.25).add(this.position()); //.scale(0.5).add(this.position());
+            pos = this.getLookAngle().scale(0.5).add(this.position()); //.scale(0.5).add(this.position());
             pass.setPos(pos.x, pos.y, pos.z);
         }
 

@@ -1,9 +1,14 @@
 package com.code.aseoha.protocol;
 
+import com.code.aseoha.Helpers.IHelpWithConsole;
 import com.code.aseoha.Helpers.PlayerHelper;
 import com.code.aseoha.upgrades.HostileEjection;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.concurrent.TickDelayedTask;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -26,7 +31,7 @@ public class EjectProtocol extends Protocol {
                     ExteriorTile ext = console.getExteriorType().getExteriorTile(console);
                     if (ext != null) {
                         entities.forEach(entity -> {
-                            if(entity instanceof PlayerEntity && PlayerHelper.HasKey((PlayerEntity) entity, console)) {
+                            if(!(entity instanceof LivingEntity) || entity instanceof TameableEntity || (entity instanceof CreatureEntity && !console.getUpgrade(HostileEjection.class).isPresent()) || (entity instanceof PlayerEntity && PlayerHelper.HasKey((PlayerEntity) entity, console))) {
                                 entities.remove(entity);
                             }
                         });

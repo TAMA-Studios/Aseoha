@@ -1,5 +1,6 @@
 package com.code.aseoha.mixin;
 
+import com.code.aseoha.aseoha;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -187,6 +188,10 @@ public class TACommonEventsMixin {
         IFormattableTextComponent y = (new StringTextComponent(", Y - ")).append(String.valueOf(pos.getY())).withStyle(TextFormatting.LIGHT_PURPLE);
         IFormattableTextComponent z = (new StringTextComponent(", Z - ")).append(String.valueOf(pos.getZ())).withStyle(TextFormatting.LIGHT_PURPLE);
         return target.append(x).append(y).append(z);
+    }
+
+    static {
+        aseoha.LOGGER.info("If you see an error after this message, and you DON'T have Temporal Additions installed, you can ignore it.");
     }
 
 }

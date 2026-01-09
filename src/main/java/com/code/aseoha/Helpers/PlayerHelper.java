@@ -3,12 +3,14 @@ package com.code.aseoha.Helpers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.tardis.mod.entity.TardisEntity;
 import net.tardis.mod.helper.TardisHelper;
@@ -29,8 +31,7 @@ public class PlayerHelper {
     public static void giveItemStack(PlayerEntity player, IItemProvider item, int amount) {player.addItem(new ItemStack(item, amount));}
 
     public static void removeItemInHand(PlayerEntity player, Hand hand, int amount){
-        ItemStack itemstack = player.getItemInHand(hand);
-        itemstack.shrink(amount);
+        player.getItemInHand(hand).shrink(amount);
     }
 
     public static Vector3d getVectorForRotation(float pitch, float yaw) {
@@ -40,20 +41,14 @@ public class PlayerHelper {
         float f3 = MathHelper.sin(f1);
         float f4 = MathHelper.cos(f);
         float f5 = MathHelper.sin(f);
-        return new Vector3d((double)(f3 * f4), (double)(-f5), (double)(f2 * f4));
+        return new Vector3d(f3 * f4, -f5, f2 * f4);
     }
 
     /**
      * Takes a PlayerEntity and whips out a ServerPlayerEntity
      */
     public static ServerPlayerEntity PlayerToServer(PlayerEntity Player) {
-        AtomicReference<ServerPlayerEntity> ResultPlayer = new AtomicReference<>();
-        MinecraftServer Server = ServerLifecycleHooks.getCurrentServer();
-        Server.getPlayerList().getPlayers().forEach(P2 -> {
-            if(P2.equals(Player))
-                ResultPlayer.set(P2);
-        });
-        return ResultPlayer.get();
+        return ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(Player.getUUID());
     }
 
     /**
@@ -64,12 +59,26 @@ public class PlayerHelper {
      */
     public static boolean HasKey(PlayerEntity player, ConsoleTile console) {
         AtomicReference<Boolean> atomic = new AtomicReference<>();
-        player.inventory.items.forEach((item) -> {
+        atomic.set(false);
+        for(ItemStack item : player.inventory.items) {
             if(item.getItem() instanceof KeyItem) {
-                atomic.set(((KeyItem) item.getItem()).getTardis(item).equals(console.getLevel().dimension().location()));
+                if(((KeyItem) item.getItem()).getTardis(item).equals(console.getLevel().dimension().location())) {
+                    return true;
+                }
             }
-        });
-        return atomic.get() != null && atomic.get();
+        }
+        return false;
+    }
+
+    public static boolean HasItem(PlayerEntity player, Item item) {
+        for(ItemStack i : player.inventory.items) {
+            if(item.getItem() instanceof KeyItem) {
+                if((i.getItem()).equals(item)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static float calculateNetHeadYaw(LivingEntity entity) {
