@@ -6,16 +6,16 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
 
-import com.code.tama.tts.TTSMod;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.apache.logging.log4j.Level;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
+
+import com.code.tama.aseoha.aseoha;
 
 public class Index {
 	private List<Chapter> chapters = Lists.newArrayList();
@@ -41,7 +41,7 @@ public class Index {
 			return new Index(chapters);
 
 		} catch (Exception e) {
-			TTSMod.LOGGER.log(Level.ALL, "Caught error in manual index {}", id.toString());
+			aseoha.LOGGER.info("Caught error in manual index {}", id.toString());
 			return null;
 		}
 	}
@@ -57,8 +57,7 @@ public class Index {
 				return (new JsonParser()).parse(new InputStreamReader(resource.get().open())).getAsJsonObject();
 			}
 		} catch (IOException e) {
-			TTSMod.LOGGER.log(Level.ALL, "Error occured parsing json file " + loc.toString());
-			TTSMod.LOGGER.catching(Level.ALL, e);
+			aseoha.LOGGER.info("Error occured parsing json file " + loc.toString());
 		}
 
 		return null;
