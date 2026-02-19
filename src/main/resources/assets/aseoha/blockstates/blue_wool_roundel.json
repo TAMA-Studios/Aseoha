@@ -1,7 +1,7 @@
 {
-  "variants":{
-    "":{
-      "model":"aseohait:block/roundel/blue_wool_roundel"
+  "variants" : {
+    "" : {
+      "model" : "aseohait:block/roundel/blue_wool_roundel"
     }
   }
 }

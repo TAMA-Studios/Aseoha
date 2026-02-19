@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/toyota_roof_roundel"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/toyota_roof_roundel"
     }
   }
 }

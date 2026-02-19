@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/skaro_sand"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/skaro_sand"
+    }
   }
 }

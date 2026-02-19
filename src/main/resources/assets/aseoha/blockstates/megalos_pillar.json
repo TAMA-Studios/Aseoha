@@ -1,7 +1,7 @@
 {
-  "variants":{
-    "":{
-      "model":"aseoha:block/megalos_pillar"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/megalos_pillar"
     }
   }
 }

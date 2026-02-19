@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/harmonic_pillar"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/harmonic_pillar"
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/toyota_platform_block"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/toyota_platform_block"
     }
   }
 }

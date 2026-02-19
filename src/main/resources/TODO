@@ -2,3 +2,7 @@ TODO:
 Fix C418 Disk 11 Trenzalore
 Fix Colin Richmond Interior Door
 Fix Gallifrey
+Make custom level cap for TARDIS levels so we can add our own data to the TARDIS
+
+x << y = x * (y^2)
+x >> y = x / (y^2)

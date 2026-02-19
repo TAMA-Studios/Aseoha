@@ -1,7 +1,7 @@
 {
-  "variants":{
-    "":{
-      "model":"aseohait:block/roundel/acacia_planks_roundel"
+  "variants" : {
+    "" : {
+      "model" : "aseohait:block/roundel/acacia_planks_roundel"
     }
   }
 }

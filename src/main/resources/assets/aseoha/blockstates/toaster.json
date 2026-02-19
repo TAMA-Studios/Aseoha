@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/toaster"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/toaster"
+    }
   }
 }

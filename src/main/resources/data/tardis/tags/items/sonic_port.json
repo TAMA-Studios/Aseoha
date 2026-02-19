@@ -1,7 +1,4 @@
 {
-  "replace": false,
-  "values": [
-    "minecraft:music_disc_11",
-    "aseoha:authorized_control_disc"
-  ]
+  "replace" : false,
+  "values" : [ "minecraft:music_disc_11", "aseoha:authorized_control_disc" ]
 }

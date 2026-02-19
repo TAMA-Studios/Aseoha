@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/1-20/flowering_azalea"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/1-20/flowering_azalea"
     }
   }
 }

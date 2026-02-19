@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/structure_remove_old"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/structure_remove_old"
     }
   }
 }

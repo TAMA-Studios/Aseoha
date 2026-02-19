@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/hb_hex"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/hb_hex"
+    }
   }
 }

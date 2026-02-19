@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "aseoha:item/unlocker/empty_unlocker"
+  "parent" : "minecraft:item/handheld",
+  "textures" : {
+    "layer0" : "aseoha:item/unlocker/empty_unlocker"
   }
 }

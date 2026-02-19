@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/copper/copper_roundel"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/copper/copper_roundel"
+    }
   }
 }

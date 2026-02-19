@@ -1,7 +1,7 @@
 {
-  "variants":{
-    "":{
-      "model":"aseoha:block/blue_crystal"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/blue_crystal"
     }
   }
 }

@@ -1,6 +1,4 @@
 {
-  "replace": false,
-  "values": [
-    "aseohait:latinum_block"
-  ]
+  "replace" : false,
+  "values" : [ "aseohait:latinum_block" ]
 }

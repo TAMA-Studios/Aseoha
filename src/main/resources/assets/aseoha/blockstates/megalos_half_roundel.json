@@ -1,7 +1,7 @@
 {
-  "variants":{
-    "":{
-      "model":"aseoha:block/megalos_half_roundel"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/megalos_half_roundel"
     }
   }
 }

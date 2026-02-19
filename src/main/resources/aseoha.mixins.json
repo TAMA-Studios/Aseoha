@@ -1,21 +1,9 @@
 {
-  "required": true,
-  "package": "tama.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "refmap": "aseoha.refmap.json",
-  "mixins": [
-    "ConsoleTileMixin",
-    "ExteriorTileMixin",
-    "FuelHandlerMixin",
-    "ExteriorExtraDataMixin",
-    "SonicPortMixin"
-  ],
-  "client": [
-    "client.ControlEntityRendererMixin",
-    "client.DoorRendererMixin",
-    "client.TextOptionMixin",
-    "client.ExteriorRendererMixin",
-    "client.MonitorMixin"
-  ],
-  "minVersion": "0.8"
+  "client" : [ "client.ClientLevelMixin", "client.DoorRendererMixin", "client.TextOptionMixin", "client.ExteriorRendererMixin", "client.MonitorMixin" ],
+  "compatibilityLevel" : "JAVA_17",
+  "minVersion" : "0.8",
+  "mixins" : [ "ConsoleTileMixin", "ExteriorTileMixin", "FuelHandlerMixin", "ExteriorExtraDataMixin", "SonicPortMixin" ],
+  "package" : "com.code.tama.aseoha.mixin",
+  "refmap" : "aseoha.refmap.json",
+  "required" : true
 }

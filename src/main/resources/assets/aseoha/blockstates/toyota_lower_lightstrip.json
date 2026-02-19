@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/toyota_lower_lightstrip"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/toyota_lower_lightstrip"
     }
   }
 }

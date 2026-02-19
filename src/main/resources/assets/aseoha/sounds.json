@@ -1,341 +1,232 @@
 {
-  "distorted_takeoff": {
-    "subtitle": "aseoha.tardis.distorted_takeoff",
-    "sounds": [
-      "aseoha:aseoha/distorted_takeoff"
-    ]
+  "affirmative_master" : {
+    "sounds" : [ "aseoha:aseoha/affirmative_master" ],
+    "subtitle" : "aseoha.k9.affirmative_master"
   },
-  "distorted_land": {
-    "subtitle": "aseoha.tardis.distorted_land",
-    "sounds": [
-      "aseoha:aseoha/distorted_land"
-    ]
+  "block_azalea_break" : {
+    "sounds" : [ "aseoha:block/azalea/break1", "aseoha:block/azalea/break2", "aseoha:block/azalea/break3", "aseoha:block/azalea/break4", "aseoha:block/azalea/break5", "aseoha:block/azalea/break6" ],
+    "subtitle" : "subtitles.block.generic.break"
   },
-  "chiptune_takeoff": {
-    "subtitle": "aseoha.tardis.chiptune_takeoff",
-    "sounds": [
-      "aseoha:aseoha/chiptune_takeoff"
-    ]
+  "block_azalea_fall" : {
+    "sounds" : [ "aseoha:block/azalea/step1", "aseoha:block/azalea/step2", "aseoha:block/azalea/step3", "aseoha:block/azalea/step4", "aseoha:block/azalea/step5", "aseoha:block/azalea/step6" ]
   },
-  "chiptune_flightloop": {
-    "subtitle": "aseoha.tardis.chiptune_flightloop",
-    "sounds": [
-      "aseoha:aseoha/chiptune_flightloop"
-    ]
+  "block_azalea_hit" : {
+    "sounds" : [ "aseoha:block/azalea/step1", "aseoha:block/azalea/step2", "aseoha:block/azalea/step3", "aseoha:block/azalea/step4", "aseoha:block/azalea/step5", "aseoha:block/azalea/step6" ],
+    "subtitle" : "subtitles.block.generic_hit"
   },
-  "chiptune_landing": {
-    "subtitle": "aseoha.tardis.chiptune_landing",
-    "sounds": [
-      "aseoha:aseoha/chiptune_landing"
-    ]
+  "block_azalea_leaves_break" : {
+    "sounds" : [ {
+      "name" : "aseoha:block/azalea_leaves/break1",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break1",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break2",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break2",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break3",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break3",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break4",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break4",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break5",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break5",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break6",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break6",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break7",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break7",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    } ],
+    "subtitle" : "subtitles.block.generic.break"
   },
-  "smith_takeoff": {
-    "sounds": [
-      {
-        "name": "aseoha:aseoha/smith_takeoff",
-        "stream": true
-      }
-    ]
+  "block_azalea_leaves_fall" : {
+    "sounds" : [ "aseoha:block/azalea_leaves/step1", "aseoha:block/azalea_leaves/step2", "aseoha:block/azalea_leaves/step3", "aseoha:block/azalea_leaves/step4", "aseoha:block/azalea_leaves/step5" ]
   },
-  "smith_flight_loop": {
-    "sounds": [
-      {
-        "name": "aseoha:aseoha/smith_flight_loop",
-        "stream": true
-      }
-    ]
+  "block_azalea_leaves_hit" : {
+    "sounds" : [ {
+      "name" : "aseoha:block/azalea_leaves/step1",
+      "volume" : 0.8
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step2",
+      "volume" : 0.8
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step3",
+      "volume" : 0.8
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step4",
+      "volume" : 0.8
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step5",
+      "volume" : 0.8
+    } ],
+    "subtitle" : "subtitles.block.generic_hit"
   },
-  "smith_landing": {
-    "sounds": [
-      {
-        "name": "aseoha:aseoha/smith_landing",
-        "stream": true
-      }
-    ]
+  "block_azalea_leaves_place" : {
+    "sounds" : [ {
+      "name" : "aseoha:block/azalea_leaves/break1",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break1",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break2",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break2",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break3",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break3",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break4",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break4",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break5",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break5",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break6",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break6",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break7",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/break7",
+      "pitch" : 0.92,
+      "volume" : 0.85
+    } ],
+    "subtitle" : "subtitles.block.generic.place"
   },
-  "affirmative_master": {
-    "subtitle": "aseoha.k9.affirmative_master",
-    "sounds": [
-      "aseoha:aseoha/affirmative_master"
-    ]
+  "block_azalea_leaves_step" : {
+    "sounds" : [ {
+      "name" : "aseoha:block/azalea_leaves/step1",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step2",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step3",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step4",
+      "volume" : 0.85
+    }, {
+      "name" : "aseoha:block/azalea_leaves/step5",
+      "volume" : 0.85
+    } ],
+    "subtitle" : "subtitles.block.generic.footsteps"
   },
-  "empty": {
-    "subtitle": "",
-    "sounds": [
-      "aseoha:aseoha/empty"
-    ]
+  "block_azalea_place" : {
+    "sounds" : [ "aseoha:block/azalea/break1", "aseoha:block/azalea/break2", "aseoha:block/azalea/break3", "aseoha:block/azalea/break4", "aseoha:block/azalea/break5", "aseoha:block/azalea/break6" ],
+    "subtitle" : "subtitles.block.generic.place"
   },
-  "majestic_tale": {
-    "sounds": [
-      {
-        "name": "aseoha:aseoha/majestic_tale",
-        "stream": true
-      }
-    ]
+  "block_azalea_step" : {
+    "sounds" : [ "aseoha:block/azalea/step1", "aseoha:block/azalea/step2", "aseoha:block/azalea/step3", "aseoha:block/azalea/step4", "aseoha:block/azalea/step5", "aseoha:block/azalea/step6" ],
+    "subtitle" : "subtitles.block.generic.footsteps"
   },
-  "throttle_blast": {
-    "category": "block",
-    "subtitle": "aseoha.subtitle.time_blast",
-    "sounds": [
-      {
-        "name": "aseoha:aseoha/time_blast",
-        "stream": true
-      }
-    ]
+  "chiptune_flightloop" : {
+    "sounds" : [ "aseoha:aseoha/chiptune_flightloop" ],
+    "subtitle" : "aseoha.tardis.chiptune_flightloop"
   },
-  "block_azalea_break": {
-    "sounds": [
-      "aseoha:block/azalea/break1",
-      "aseoha:block/azalea/break2",
-      "aseoha:block/azalea/break3",
-      "aseoha:block/azalea/break4",
-      "aseoha:block/azalea/break5",
-      "aseoha:block/azalea/break6"
-    ],
-    "subtitle": "subtitles.block.generic.break"
+  "chiptune_landing" : {
+    "sounds" : [ "aseoha:aseoha/chiptune_landing" ],
+    "subtitle" : "aseoha.tardis.chiptune_landing"
   },
-  "block_azalea_fall": {
-    "sounds": [
-      "aseoha:block/azalea/step1",
-      "aseoha:block/azalea/step2",
-      "aseoha:block/azalea/step3",
-      "aseoha:block/azalea/step4",
-      "aseoha:block/azalea/step5",
-      "aseoha:block/azalea/step6"
-    ]
+  "chiptune_takeoff" : {
+    "sounds" : [ "aseoha:aseoha/chiptune_takeoff" ],
+    "subtitle" : "aseoha.tardis.chiptune_takeoff"
   },
-  "block_azalea_hit": {
-    "sounds": [
-      "aseoha:block/azalea/step1",
-      "aseoha:block/azalea/step2",
-      "aseoha:block/azalea/step3",
-      "aseoha:block/azalea/step4",
-      "aseoha:block/azalea/step5",
-      "aseoha:block/azalea/step6"
-    ],
-    "subtitle": "subtitles.block.generic_hit"
+  "distorted_land" : {
+    "sounds" : [ "aseoha:aseoha/distorted_land" ],
+    "subtitle" : "aseoha.tardis.distorted_land"
   },
-  "block_azalea_place": {
-    "sounds": [
-      "aseoha:block/azalea/break1",
-      "aseoha:block/azalea/break2",
-      "aseoha:block/azalea/break3",
-      "aseoha:block/azalea/break4",
-      "aseoha:block/azalea/break5",
-      "aseoha:block/azalea/break6"
-    ],
-    "subtitle": "subtitles.block.generic.place"
+  "distorted_takeoff" : {
+    "sounds" : [ "aseoha:aseoha/distorted_takeoff" ],
+    "subtitle" : "aseoha.tardis.distorted_takeoff"
   },
-  "block_azalea_step": {
-    "sounds": [
-      "aseoha:block/azalea/step1",
-      "aseoha:block/azalea/step2",
-      "aseoha:block/azalea/step3",
-      "aseoha:block/azalea/step4",
-      "aseoha:block/azalea/step5",
-      "aseoha:block/azalea/step6"
-    ],
-    "subtitle": "subtitles.block.generic.footsteps"
+  "empty" : {
+    "sounds" : [ "aseoha:aseoha/empty" ],
+    "subtitle" : ""
   },
-  "block_azalea_leaves_break": {
-    "sounds": [
-      {
-        "name": "aseoha:block/azalea_leaves/break1",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break1",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break2",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break2",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break3",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break3",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break4",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break4",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break5",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break5",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break6",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break6",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break7",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break7",
-        "pitch": 0.92,
-        "volume": 0.85
-      }
-    ],
-    "subtitle": "subtitles.block.generic.break"
+  "lava_chicken" : {
+    "sounds" : [ "aseoha:lava_chicken" ],
+    "subtitle" : "aseoha.music.lava_chicken"
   },
-  "block_azalea_leaves_fall": {
-    "sounds": [
-      "aseoha:block/azalea_leaves/step1",
-      "aseoha:block/azalea_leaves/step2",
-      "aseoha:block/azalea_leaves/step3",
-      "aseoha:block/azalea_leaves/step4",
-      "aseoha:block/azalea_leaves/step5"
-    ]
+  "majestic_tale" : {
+    "sounds" : [ {
+      "name" : "aseoha:aseoha/majestic_tale",
+      "stream" : true
+    } ]
   },
-  "block_azalea_leaves_hit": {
-    "sounds": [
-      {
-        "name": "aseoha:block/azalea_leaves/step1",
-        "volume": 0.8
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step2",
-        "volume": 0.8
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step3",
-        "volume": 0.8
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step4",
-        "volume": 0.8
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step5",
-        "volume": 0.8
-      }
-    ],
-    "subtitle": "subtitles.block.generic_hit"
+  "smith_flight_loop" : {
+    "sounds" : [ {
+      "name" : "aseoha:aseoha/smith_flight_loop",
+      "stream" : true
+    } ]
   },
-  "block_azalea_leaves_place": {
-    "sounds": [
-      {
-        "name": "aseoha:block/azalea_leaves/break1",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break1",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break2",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break2",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break3",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break3",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break4",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break4",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break5",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break5",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break6",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break6",
-        "pitch": 0.92,
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break7",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/break7",
-        "pitch": 0.92,
-        "volume": 0.85
-      }
-    ],
-    "subtitle": "subtitles.block.generic.place"
+  "smith_landing" : {
+    "sounds" : [ {
+      "name" : "aseoha:aseoha/smith_landing",
+      "stream" : true
+    } ]
   },
-  "block_azalea_leaves_step": {
-    "sounds": [
-      {
-        "name": "aseoha:block/azalea_leaves/step1",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step2",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step3",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step4",
-        "volume": 0.85
-      },
-      {
-        "name": "aseoha:block/azalea_leaves/step5",
-        "volume": 0.85
-      }
-    ],
-    "subtitle": "subtitles.block.generic.footsteps"
+  "smith_takeoff" : {
+    "sounds" : [ {
+      "name" : "aseoha:aseoha/smith_takeoff",
+      "stream" : true
+    } ]
   },
-  "lava_chicken": {
-    "subtitle": "aseoha.music.lava_chicken",
-    "sounds": [
-      "aseoha:lava_chicken"
-    ]
+  "throttle_blast" : {
+    "category" : "block",
+    "sounds" : [ {
+      "name" : "aseoha:aseoha/time_blast",
+      "stream" : true
+    } ],
+    "subtitle" : "aseoha.subtitle.time_blast"
   }
 }

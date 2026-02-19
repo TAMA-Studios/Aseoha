@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/structure_spawn_old"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/structure_spawn_old"
     }
   }
 }

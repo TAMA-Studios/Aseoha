@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/meglos/meglos_floor"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/meglos/meglos_floor"
+    }
   }
 }

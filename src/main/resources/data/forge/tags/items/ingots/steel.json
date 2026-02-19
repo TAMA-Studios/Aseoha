@@ -1,6 +1,4 @@
 {
-  "replace": false,
-  "values": [
-    "aseoha:steel_ingot"
-  ]
+  "replace" : false,
+  "values" : [ "aseoha:steel_ingot" ]
 }

@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aseoha:block/toyota_lower_hexagon_full"
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/toyota_lower_hexagon_full"
     }
   }
 }

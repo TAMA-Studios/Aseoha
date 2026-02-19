@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/lootcrate"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/lootcrate"
+    }
   }
 }

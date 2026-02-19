@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/coatrack"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/coatrack"
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/hellbent/hb_glass06"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/hellbent/hb_glass06"
+    }
   }
 }

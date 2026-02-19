@@ -1,19 +1,19 @@
 {
-  "variants": {
-    "facing=east": {
-      "model": "aseoha:blocks/throttle_control",
-      "y": 90
+  "variants" : {
+    "facing=east" : {
+      "model" : "aseoha:blocks/throttle_control",
+      "y" : 90
     },
-    "facing=north": {
-      "model": "aseoha:blocks/throttle_control"
+    "facing=north" : {
+      "model" : "aseoha:blocks/throttle_control"
     },
-    "facing=south": {
-      "model": "aseoha:blocks/throttle_control",
-      "y": 180
+    "facing=south" : {
+      "model" : "aseoha:blocks/throttle_control",
+      "y" : 180
     },
-    "facing=west": {
-      "model": "aseoha:blocks/throttle_control",
-      "y": 270
+    "facing=west" : {
+      "model" : "aseoha:blocks/throttle_control",
+      "y" : 270
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/gallifrey_sand"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/gallifrey_sand"
+    }
   }
 }

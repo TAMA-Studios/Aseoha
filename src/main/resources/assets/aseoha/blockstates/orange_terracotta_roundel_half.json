@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/roundel/orange_terracotta_roundel_half"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/roundel/orange_terracotta_roundel_half"
+    }
   }
 }

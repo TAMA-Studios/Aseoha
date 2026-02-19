@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-        "model": "aseoha:block/meglos/meglos_blankwall"
-      }
+  "variants" : {
+    "" : {
+      "model" : "aseoha:block/meglos/meglos_blankwall"
+    }
   }
 }
