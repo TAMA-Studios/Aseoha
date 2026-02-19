@@ -18,7 +18,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import tama.Misc.TimerIMPL;
 
 public class TickrateSavedData extends SavedData {
-    public static final String NAME = "tickrate_data";
+    public static final String NAME = "aseoha$tickrate_saved_data";
 
     private TimerIMPL currentTimer = new TimerIMPL(20.0F, 0L);
 
