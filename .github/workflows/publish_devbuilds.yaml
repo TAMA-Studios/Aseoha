@@ -2,7 +2,7 @@ name: Automated donator builds
 
 on:
   push:
-    branches: [ "feat/rwf-claude" ]
+    branches: [ "main", "feat/**" ]
 
 jobs:
   build:
@@ -14,7 +14,6 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          # Fetch full history so the commit list is populated in the payload
           fetch-depth: 0
 
       - name: Set up JDK 8
@@ -34,13 +33,16 @@ jobs:
 
       - name: Rename artifacts with run number and branch
         run: |
+          # Sanitize branch name — replace any character that isn't alphanumeric,
+          # hyphen, or underscore with a hyphen so it's safe to use in a filename
+          SAFE_BRANCH=$(echo "${{ github.ref_name }}" | sed 's/[^a-zA-Z0-9_-]/-/g')
           for f in build/libs/*.jar; do
             base=$(basename "$f" .jar)
-            mv "$f" "build/libs/${base}-b${{ github.run_number }}-${{ github.ref_name }}.jar"
+            mv "$f" "build/libs/${base}-b${{ github.run_number }}-${SAFE_BRANCH}.jar"
           done
 
       - name: Publish artifacts to Discord
-        uses: TheDJGamerYt/discord-webhook-upload-action@v0.2.0
+        uses: TheDJGamerYt/discord-webhook-upload-action@v0.3
         with:
           url: ${{ secrets.DEV_BUILDS }}
           username: TAMAman
@@ -48,19 +50,15 @@ jobs:
           file: 'build/libs/*.jar'
           file_attach_mode: last
 
-          # ── Rich embed ──────────────────────────────────────────────────────
           use_embed: true
           embed_color: purple
           embed_title: 'New Aseoha build #${buildNumber} on `${branch}`'
           embed_thumbnail: 'https://media.forgecdn.net/avatars/thumbnails/983/766/256/256/638492366759883163.png'
           embed_footer: '${repoName} • ${workflowName} • [View run](${runUrl})'
 
-          # ── Message body ────────────────────────────────────────────────────
-          # %COMMITS% is replaced with one line per commit using message_commit
           message_header: '%COMMITS%'
           message_commit: '> [`${shortSha}`](<${commitUrl}>) **${commitMessage}** — [${authorName}](<${authorUrl}>)'
 
-          # ── Reliability ─────────────────────────────────────────────────────
           retry_count: 3
           retry_delay_ms: 1000
           webhook_suppress_errors: false
