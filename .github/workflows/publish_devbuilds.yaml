@@ -2,7 +2,7 @@ name: Automated donator builds
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feat/rwf-claude" ]
 
 jobs:
   build:
