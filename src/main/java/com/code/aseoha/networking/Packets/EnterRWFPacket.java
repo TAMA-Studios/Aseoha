@@ -1,6 +1,6 @@
 package com.code.aseoha.networking.Packets;
 
-import com.code.aseoha.Helpers.IHelpWithExterior;
+import com.code.aseoha.Helpers.IHelpWithConsole;
 import com.code.aseoha.Helpers.TARDISHelper;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
@@ -37,46 +37,49 @@ public class EnterRWFPacket {
             ServerWorld world = WorldHelper.getWorldFromRL(ServerLifecycleHooks.getCurrentServer(), mes.console);
             if (world == null) return;
 
-            if (WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) {
-                TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
-                if (!(te instanceof ConsoleTile)) return;
+            if (!WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) return;
 
-                ConsoleTile consoleTile = (ConsoleTile) te;
-                TardisEntity tardis = consoleTile.getEntity();
-                if (tardis == null) return;
+            TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
+            if (!(te instanceof ConsoleTile)) return;
 
-                ExteriorTile exterior = TARDISHelper.getExteriorTile(consoleTile);
-                if (exterior == null || exterior.getLevel() == null) return;
+            ConsoleTile consoleTile = (ConsoleTile) te;
+            IHelpWithConsole helper = (IHelpWithConsole) consoleTile;
 
-                ServerWorld exteriorWorld = (ServerWorld) exterior.getLevel();
+            TardisEntity tardis = consoleTile.getEntity();
+            if (tardis == null) return;
 
-                // 1. Configure entity fully BEFORE spawning so it's ready on first tick
-                tardis.setConsole(consoleTile);
-                tardis.setExteriorTile(exterior);
-                tardis.setInvulnerable(true);
-                tardis.setNoGravity(true);
+            ExteriorTile exterior = TARDISHelper.getExteriorTile(consoleTile);
+            if (exterior == null || exterior.getLevel() == null) return;
 
-                // 2. Now spawn into the world
-                exteriorWorld.addFreshEntity(tardis);
+            ServerWorld exteriorWorld = (ServerWorld) exterior.getLevel();
 
-                // 3. Teleport entity to exterior position
-                WorldHelper.teleportEntities(tardis, exteriorWorld, exterior.getBlockPos(), 0, 90);
+            // setConsole + setExteriorTile MUST be called before the entity
+            // does anything, otherwise it NPEs with no context to work from
+            tardis.setConsole(consoleTile);
+            tardis.setExteriorTile(exterior);
+            tardis.setInvulnerable(true);
+            tardis.setNoGravity(true);
 
-                // 4. Update console reference to the now-spawned entity
-                consoleTile.setEntity(tardis);
+            // Spawn and move the tardis entity into the exterior world
+            exteriorWorld.addFreshEntity(tardis);
+            WorldHelper.teleportEntities(tardis, exteriorWorld, exterior.getBlockPos(), 0, 90);
+            consoleTile.setEntity(tardis);
 
-                // 5. Delete exterior blocks only after entity is safely in place
-                exterior.deleteExteriorBlocks();
+            // Delete exterior blocks now that the entity is in place to replace them
+            exterior.deleteExteriorBlocks();
 
-                // 6. Teleport player THEN start riding, so the player is already
-                //    in the correct world before the ride is established
-                WorldHelper.teleportEntities(ctx.get().getSender(), exteriorWorld, exterior.getBlockPos(), 0, 90);
-                ctx.get().getSender().startRiding(tardis, true);
+            // Teleport player to exterior world BEFORE riding — riding across
+            // a dimension boundary causes an NPE
+            WorldHelper.teleportEntities(ctx.get().getSender(), exteriorWorld, exterior.getBlockPos(), 0, 90);
 
-                // 7. Also seat the stored pilot if different from the sender
-                if (consoleTile.getPilot() != null && consoleTile.getPilot() != ctx.get().getSender()) {
-                    consoleTile.getPilot().startRiding(tardis, true);
-                }
+            // Use Aseoha$Ride which handles the riding logic properly.
+            // getPilot() is always non-null here (dev confirmed: player must
+            // have interacted with console/monitor to get this far)
+            helper.Aseoha$Ride(ctx.get().getSender());
+
+            // Also seat the stored pilot if they're a different player
+            if (helper.Aseoha$GetPilot() != ctx.get().getSender()) {
+                helper.Aseoha$Ride(helper.Aseoha$GetPilot());
             }
         });
         ctx.get().setPacketHandled(true);
