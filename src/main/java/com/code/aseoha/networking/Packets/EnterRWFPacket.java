@@ -2,7 +2,6 @@ package com.code.aseoha.networking.Packets;
 
 import com.code.aseoha.Helpers.IHelpWithExterior;
 import com.code.aseoha.Helpers.TARDISHelper;
-import com.code.aseoha.aseoha;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -36,40 +35,50 @@ public class EnterRWFPacket {
     public static void handle(EnterRWFPacket mes, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerWorld world = WorldHelper.getWorldFromRL(ServerLifecycleHooks.getCurrentServer(), mes.console);
+            if (world == null) return;
+
             if (WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) {
                 TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
-                if (te instanceof ConsoleTile) {
-                    ConsoleTile consoleTile = (ConsoleTile) te;
+                if (!(te instanceof ConsoleTile)) return;
 
-                    TardisEntity tardis = consoleTile.getEntity();
+                ConsoleTile consoleTile = (ConsoleTile) te;
+                TardisEntity tardis = consoleTile.getEntity();
+                if (tardis == null) return;
 
-                    ExteriorTile Exterior = TARDISHelper.getExteriorTile(consoleTile);
+                ExteriorTile exterior = TARDISHelper.getExteriorTile(consoleTile);
+                if (exterior == null || exterior.getLevel() == null) return;
 
-                    if (Exterior != null && Exterior.getLevel() != null) {
-                        Exterior.getLevel().addFreshEntity(tardis);
-                        tardis.setConsole(consoleTile);
-                        tardis.setExteriorTile(Exterior);
-                        tardis.setInvulnerable(true);
-                        tardis.setNoGravity(true);
-                        WorldHelper.teleportEntities(tardis, (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 90);
-                        consoleTile.setEntity(tardis);
+                ServerWorld exteriorWorld = (ServerWorld) exterior.getLevel();
 
-//                            this.relocatePlayerToExterior(p, (ServerWorld) Exterior.getLevel());
-                        WorldHelper.teleportEntities(ctx.get().getSender(), (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 90);
-//                            this.getLevel().getServer().tell(new TickDelayedTask(1, () -> p.startRiding(tardis)));
+                // 1. Configure entity fully BEFORE spawning so it's ready on first tick
+                tardis.setConsole(consoleTile);
+                tardis.setExteriorTile(exterior);
+                tardis.setInvulnerable(true);
+                tardis.setNoGravity(true);
 
-                        Exterior.deleteExteriorBlocks();
-                        ctx.get().getSender().startRiding(tardis);
+                // 2. Now spawn into the world
+                exteriorWorld.addFreshEntity(tardis);
 
-                    }
-                    assert tardis != null;
-                    consoleTile.getPilot().startRiding(tardis);
+                // 3. Teleport entity to exterior position
+                WorldHelper.teleportEntities(tardis, exteriorWorld, exterior.getBlockPos(), 0, 90);
+
+                // 4. Update console reference to the now-spawned entity
+                consoleTile.setEntity(tardis);
+
+                // 5. Delete exterior blocks only after entity is safely in place
+                exterior.deleteExteriorBlocks();
+
+                // 6. Teleport player THEN start riding, so the player is already
+                //    in the correct world before the ride is established
+                WorldHelper.teleportEntities(ctx.get().getSender(), exteriorWorld, exterior.getBlockPos(), 0, 90);
+                ctx.get().getSender().startRiding(tardis, true);
+
+                // 7. Also seat the stored pilot if different from the sender
+                if (consoleTile.getPilot() != null && consoleTile.getPilot() != ctx.get().getSender()) {
+                    consoleTile.getPilot().startRiding(tardis, true);
                 }
             }
-
         });
-        ((NetworkEvent.Context) ctx.get()).setPacketHandled(true);
+        ctx.get().setPacketHandled(true);
     }
-
-
 }
