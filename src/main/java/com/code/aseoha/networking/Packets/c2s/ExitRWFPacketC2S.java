@@ -1,9 +1,11 @@
 package com.code.aseoha.networking.Packets.c2s;
 
 import com.code.aseoha.Helpers.IHelpWithConsole;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.tardis.mod.helper.TardisHelper;
@@ -30,23 +32,29 @@ public class ExitRWFPacketC2S {
     }
 
     public static void handle(ExitRWFPacketC2S mes, Supplier<NetworkEvent.Context> ctx) {
-        ((NetworkEvent.Context) ctx.get()).enqueueWork(() -> {
-            ServerWorld world = Objects.requireNonNull(((NetworkEvent.Context) ctx.get()).getSender()).getLevel();
-            if (WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) {
-                TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
-                if (te instanceof ConsoleTile) {
-                    ConsoleTile consoleTile = (ConsoleTile) te;
-//                    Console console = (Console)((IForgeRegistry) ConsoleRegistry.CONSOLE_REGISTRY.get()).getValue(mes.console);
-                    ((IHelpWithConsole) consoleTile).Aseoha$CleanupRide();
-                    ctx.get().getSender().setLevel(consoleTile.getLevel());
-                    ctx.get().getSender().setPos(3, 128, 0);
+        ctx.get().enqueueWork(() -> {
+            ServerPlayerEntity sender = ctx.get().getSender();
+            if (sender == null) return;
 
-                }
-            }
+            ServerWorld world = sender.getLevel();
+            if (!WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) return;
 
+            TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
+            if (!(te instanceof ConsoleTile)) return;
+
+            ConsoleTile consoleTile = (ConsoleTile) te;
+
+            // Stop riding before teleporting
+            sender.stopRiding();
+
+            // Clean up the RWF ride state
+            ((IHelpWithConsole) consoleTile).Aseoha$CleanupRide();
+
+            // Teleport player back to the TARDIS interior spawn point properly
+            // rather than hardcoded coords
+            BlockPos interiorSpawn = TardisHelper.TARDIS_POS.offset(0, 1, 0);
+            WorldHelper.teleportEntities(sender, world, interiorSpawn, sender.yRot, sender.xRot);
         });
-        ((NetworkEvent.Context) ctx.get()).setPacketHandled(true);
+        ctx.get().setPacketHandled(true);
     }
-
-
 }
