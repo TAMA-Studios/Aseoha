@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
+        with:
+          # Fetch full history so the commit list is populated in the payload
+          fetch-depth: 0
 
       - name: Set up JDK 8
         uses: actions/setup-java@v4
@@ -21,18 +24,13 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
 
-      - name: Grant Execute Permissions for Gradlew
+      - name: Grant execute permissions for Gradlew
         run: chmod +x ./gradlew
-
-      #1 name: SpotlessApply
-      #  run: ./gradlew :spotlessApply
 
       - name: Build
         run: ./gradlew build
-        # env:
-        #   BETA: 1 # exclude assets if it's a beta dev build
 
       - name: Rename artifacts with run number and branch
         run: |
@@ -41,14 +39,28 @@ jobs:
             mv "$f" "build/libs/${base}-b${{ github.run_number }}-${{ github.ref_name }}.jar"
           done
 
-      - name: Publish artifacts
-        uses: TheDJGamerYt/discord-webhook-upload-action@v0.1.2
+      - name: Publish artifacts to Discord
+        uses: TheDJGamerYt/discord-webhook-upload-action@v0.2.0
         with:
           url: ${{ secrets.DEV_BUILDS }}
-          file: 'build/libs/*.jar'
           username: TAMAman
           avatar: 'https://media.forgecdn.net/avatars/thumbnails/983/766/256/256/638492366759883163.png'
-          message_commit: '> [${commitMessage}](<${commitUrl}>) by [${authorName}](<${authorUrl}>) '
-          message_header: |
-            <:new1:1253371736510959636><:new2:1253371805734015006> New `Aseoha` dev build `#${{ github.run_number }}` on branch `${{ github.ref_name }}`:
-            %COMMITS%
+          file: 'build/libs/*.jar'
+          file_attach_mode: last
+
+          # ── Rich embed ──────────────────────────────────────────────────────
+          use_embed: true
+          embed_color: purple
+          embed_title: 'New Aseoha build #${buildNumber} on `${branch}`'
+          embed_thumbnail: 'https://media.forgecdn.net/avatars/thumbnails/983/766/256/256/638492366759883163.png'
+          embed_footer: '${repoName} • ${workflowName} • [View run](${runUrl})'
+
+          # ── Message body ────────────────────────────────────────────────────
+          # %COMMITS% is replaced with one line per commit using message_commit
+          message_header: '%COMMITS%'
+          message_commit: '> [`${shortSha}`](<${commitUrl}>) **${commitMessage}** — [${authorName}](<${authorUrl}>)'
+
+          # ── Reliability ─────────────────────────────────────────────────────
+          retry_count: 3
+          retry_delay_ms: 1000
+          webhook_suppress_errors: false
