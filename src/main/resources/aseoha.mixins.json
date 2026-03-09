@@ -20,7 +20,6 @@
   },
   "minVersion": "0.8",
   "mixins": [
-    "TACommonEventsMixin",
     "BrokenExteriorMixin",
     "BrokenExteriorTypeMixin",
     "ConsoleChangeMessageMixin",
