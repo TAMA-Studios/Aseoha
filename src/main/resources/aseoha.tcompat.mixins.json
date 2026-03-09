@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.code.aseoha.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "TACommonEventsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
