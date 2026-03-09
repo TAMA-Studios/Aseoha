@@ -106,7 +106,6 @@ public class aseoha {
 
         if (!(ModList.get().isLoaded("tadditions"))) {
             NoTadditionsItems.register(modBus);
-            Mixins.addConfiguration("aseoha.tacompat.mixins.json");
         }
 
         if (!(ModList.get().isLoaded("project_tardis") || ModList.get().isLoaded("sidrat")))
