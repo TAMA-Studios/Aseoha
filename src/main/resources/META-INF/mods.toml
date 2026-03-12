@@ -37,8 +37,8 @@ description = '''
 Asoeha, Adds stuff.
 Thanks Nintendo for not DMCA'ing Me'''
 
-[[mixins]]
-config="aseoha.tacompat.mixins.json"
+#[[mixins]]
+#config="aseoha.tacompat.mixins.json"
 [[mixins]]
 config="aseoha.mixins.json"
 
