@@ -20,7 +20,6 @@ import net.tardis.mod.misc.WorldText;
 
 import java.util.Objects;
 
-@OnlyIn(Dist.CLIENT)
 public class mk2_tennant_render extends ExteriorRenderer<mk2_tennant> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/mk2/mk2_tennant.png");
     public static ResourceLocation SNOW_TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/mk2/snow/mk2_tennant.png");

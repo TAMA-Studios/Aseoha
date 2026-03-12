@@ -17,7 +17,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class BattleConsoleRender extends TileEntityRenderer<BattleConsoleTile> {
 
 	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/consoles/battle.png");

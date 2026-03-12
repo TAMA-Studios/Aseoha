@@ -12,7 +12,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * This is the monitor renderer for the K9Monitor Screen, this gets called to open the screen
  */
 
-@OnlyIn(Dist.CLIENT)
 public class K9Screen extends K9MonitorScreen {
     public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/gui/monitors/K9Entity.png");
 

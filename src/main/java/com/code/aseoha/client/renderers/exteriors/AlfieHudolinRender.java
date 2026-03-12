@@ -13,7 +13,6 @@ import net.tardis.mod.client.TRenderTypes;
 import net.tardis.mod.client.renderers.exteriors.ExteriorRenderer;
 import net.tardis.mod.misc.WorldText;
 
-@OnlyIn(Dist.CLIENT)
 public class AlfieHudolinRender extends ExteriorRenderer<AlfieHudolinTile> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/wardrobe/acacia_exterior.png");
     public static AlfieHudolinExterior MODEL = new AlfieHudolinExterior();

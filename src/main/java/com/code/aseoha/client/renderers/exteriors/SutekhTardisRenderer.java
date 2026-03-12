@@ -13,7 +13,6 @@ import net.tardis.mod.client.TRenderTypes;
 import net.tardis.mod.client.renderers.exteriors.ExteriorRenderer;
 import net.tardis.mod.misc.WorldText;
 
-@OnlyIn(Dist.CLIENT)
 public class SutekhTardisRenderer extends ExteriorRenderer<SutekhTardisTile> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/mk2/mk2_capaldi.png");
     public static SutekhTardisModel MODEL = new SutekhTardisModel();

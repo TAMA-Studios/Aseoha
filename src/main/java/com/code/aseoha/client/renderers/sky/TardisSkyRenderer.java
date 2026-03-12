@@ -24,7 +24,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-@OnlyIn(Dist.CLIENT)
 public class TardisSkyRenderer implements ISkyRenderHandler {
 
 //    public static final ResourceLocation TEXTURE = new ResourceLocation(Tardis.MODID, "textures/sky/vortex.png");

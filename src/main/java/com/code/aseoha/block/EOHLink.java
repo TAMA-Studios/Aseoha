@@ -99,26 +99,31 @@ public class EOHLink extends Block {
     @NotNull
     @Override
     public ActionResultType use(@NotNull BlockState state, @NotNull World world, @NotNull BlockPos pos, @NotNull PlayerEntity player, @NotNull Hand hand, @NotNull BlockRayTraceResult blockRayTraceResult) {
-
-        if (!world.isClientSide) return ActionResultType.PASS;
-
+        if(hand.equals(Hand.OFF_HAND)) return ActionResultType.PASS;
         TileEntity tile = world.getBlockEntity(pos);
 
         if (!(tile instanceof EOHLinkTile)) return ActionResultType.PASS;
 
         if (this.hasStar) {
             ((EOHLinkTile) tile).Activate(); // ACTIVATE
-            Networking.sendToServer(new EOHInteractPacketC2S(false));
-            this.Mark();
+//            if(world.isClientSide) {
+//                Networking.sendToServer(new EOHInteractPacketC2S(false));
+//                this.Mark();
+//            }
             return ActionResultType.SUCCESS;
         }
+
         else {
             if (!player.getMainHandItem().getItem().equals(Items.NETHER_STAR)) return ActionResultType.FAIL;
             ((EOHLinkTile) tile).setHasStar(true); // STAR
             this.LastPlayerClick = player;
             player.getMainHandItem().shrink(1);
-            Networking.sendToServer(new EOHInteractPacketC2S(true));
-            Networking.sendToServer(new PlayerItemRemovePacketC2S(player.getUUID()));
+//            if(world.isClientSide) {
+//                Networking.sendToServer(new EOHInteractPacketC2S(true));
+//                Networking.sendToServer(new PlayerItemRemovePacketC2S(player.getUUID()));
+//            }
+
+            ((EOHLinkTile) tile).setActive(true);
             this.hasStar = true;
             this.Mark();
             return ActionResultType.SUCCESS;

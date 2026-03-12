@@ -204,7 +204,8 @@ public class EOHLinkTile extends TileEntity implements ITickableTileEntity, ICap
         this.active = true;
         this.hasStar = true;
         this.Mark = true;
-        WorldHelper.forceChunkVanillaIfNotLoaded(ServerLifecycleHooks.getCurrentServer().getLevel(this.level.dimension()), new ChunkPos(this.getBlockPos().getX() / 16, this.getBlockPos().getZ() / 16));
+        assert this.level != null;
+        WorldHelper.forceChunkVanillaIfNotLoaded(Objects.requireNonNull(ServerLifecycleHooks.getCurrentServer().getLevel(this.level.dimension())), new ChunkPos(this.getBlockPos().getX() / 16, this.getBlockPos().getZ() / 16));
         if (this.consoleTile == null) return;
         ((IHelpWithConsole) this.consoleTile).Aseoha$SetEOHActive(true);
         ((IHelpWithConsole) this.consoleTile).Aseoha$SetEOH(this);

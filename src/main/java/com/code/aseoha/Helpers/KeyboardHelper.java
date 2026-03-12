@@ -6,7 +6,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.lwjgl.glfw.GLFW;
 
-@OnlyIn(Dist.CLIENT)
 public class KeyboardHelper {
     private static final long WINDOW = Minecraft.getInstance().getWindow().getWindow();
 

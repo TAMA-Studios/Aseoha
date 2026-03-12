@@ -9,7 +9,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tardis.mod.world.dimensions.SpaceSkyProperty;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class KlomSkyProperty extends DimensionRenderInfo {
 
     public KlomSkyProperty() {

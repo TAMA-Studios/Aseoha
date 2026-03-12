@@ -241,7 +241,6 @@ public class RecycledWolf extends TameableEntity implements IAngerable {
         super.die(p_70645_1_);
     }
 
-    @OnlyIn(Dist.CLIENT)
     public boolean isWet() {
         return this.isWet;
     }

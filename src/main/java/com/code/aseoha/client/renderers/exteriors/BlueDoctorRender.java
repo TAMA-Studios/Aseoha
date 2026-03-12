@@ -13,7 +13,6 @@ import net.tardis.mod.client.TRenderTypes;
 import net.tardis.mod.client.renderers.exteriors.ExteriorRenderer;
 import net.tardis.mod.misc.WorldText;
 
-@OnlyIn(Dist.CLIENT)
 public class BlueDoctorRender extends ExteriorRenderer<BlueDoctorTile> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/bluedoctor/bluedoctorexterior.png");
     public static BlueDoctorExterior MODEL = new BlueDoctorExterior();

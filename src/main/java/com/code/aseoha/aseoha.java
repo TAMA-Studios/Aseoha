@@ -220,7 +220,7 @@ public class aseoha {
         RenderTypeLookup.setRenderLayer(AseohaBlocks.HARMONIC_PILLAR.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(AseohaBlocks.WORKBENCH.get(), RenderType.cutout());
 
-        RenderTypeLookup.setRenderLayer(ModFluids.LATINUM.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.LATINUM_FLUID.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(ModFluids.LATINUM_FLOWING.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(ModFluids.LATINUM_BLOCK.get(), RenderType.translucent());
 

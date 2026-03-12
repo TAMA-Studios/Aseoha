@@ -15,7 +15,6 @@ import net.tardis.mod.client.TRenderTypes;
 import net.tardis.mod.client.renderers.exteriors.ExteriorRenderer;
 import net.tardis.mod.misc.WorldText;
 
-@OnlyIn(Dist.CLIENT)
 public class mk2_pertwee_render extends ExteriorRenderer<mk2_pertwee> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/mk2/mk2_pertwee.png");
     public static mk_two_pertwee MODEL = new mk_two_pertwee();

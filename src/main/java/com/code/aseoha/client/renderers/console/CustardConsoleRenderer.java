@@ -18,7 +18,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tardis.mod.misc.WorldText;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class CustardConsoleRenderer extends TileEntityRenderer<CustardConsoleTile> {
 
     public static final WorldText TEXT = new WorldText(0.31F, 0.26F, 0.003F, 16777215);

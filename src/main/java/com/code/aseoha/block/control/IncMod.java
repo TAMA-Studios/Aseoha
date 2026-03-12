@@ -127,7 +127,6 @@ public class IncMod extends TorchBlock {
         return true;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState p_180655_1_, @NotNull World p_180655_2_, @NotNull BlockPos p_180655_3_, @NotNull Random p_180655_4_) {
         if ((Boolean)p_180655_1_.getValue(LIT)) {
             double lvt_5_1_ = (double)p_180655_3_.getX() + 0.5 + (p_180655_4_.nextDouble() - 0.5) * 0.2;

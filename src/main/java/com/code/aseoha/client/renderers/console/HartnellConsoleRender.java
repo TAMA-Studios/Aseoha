@@ -20,7 +20,6 @@ import net.tardis.mod.helper.Helper;
 
 import static com.code.aseoha.client.renderers.exteriors.BrackolinRender.TEXT;
 
-@OnlyIn(Dist.CLIENT)
 public class HartnellConsoleRender extends TileEntityRenderer<HartnellConsoleTile> {
 
 	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/consoles/hartnell.png");

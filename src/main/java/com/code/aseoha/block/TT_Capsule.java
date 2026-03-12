@@ -69,7 +69,6 @@ package com.code.aseoha.block;//
 //        }
 //    }
 //
-//    @OnlyIn(Dist.CLIENT)
 //    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 ////        if (rand.nextDouble() < 0.05) {
 ////            for(int i = 0; i < 18; ++i) {

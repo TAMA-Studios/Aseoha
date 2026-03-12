@@ -14,7 +14,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tardis.mod.client.models.tiles.EngineModel;
 import net.tardis.mod.tileentities.TardisEngineTile;
 
-@OnlyIn(Dist.CLIENT)
 public class UpsideDownEngineRenderer extends TileEntityRenderer<TardisEngineTile> {
     public static final UpsideDownEngine MODEL = new UpsideDownEngine();
     public static final ResourceLocation TEXTURE = new ResourceLocation("tardis", "textures/tiles/engine.png");

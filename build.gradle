@@ -193,8 +193,8 @@ def var = dependencies {
     /************************************ Temporal API *****************************************/
     implementation fg.deobf("curse.maven:temporalapi-1056469:5967827")
     /************************************ Create *********************************************/
-    implementation fg.deobf("curse.maven:create-328085:3536025")
-    implementation fg.deobf("curse.maven:flywheel-486392:3535459")
+//    implementation fg.deobf("curse.maven:create-328085:3536025")
+//    implementation fg.deobf("curse.maven:flywheel-486392:3535459")
     ////////////////// Disable these when running datagen ////////////////////
 //    implementation fg.deobf("curse.maven:embeddium-908741:5322311")
 //    implementation fg.deobf("curse.maven:rubidium-extra-654373:4823321")

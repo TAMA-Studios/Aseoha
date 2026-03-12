@@ -23,7 +23,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * This is recycled monitor GUI code that I repurposed for K-9
  */
-@OnlyIn(Dist.CLIENT)
 public abstract class K9MonitorScreen extends Screen implements IMonitorGui {
     public static TranslationTextComponent TITLE = new TranslationTextComponent("aseoha.k9.container.screen");
 //    public K9MonitorScreen(ITextComponent titleIn) {
@@ -60,7 +59,6 @@ public abstract class K9MonitorScreen extends Screen implements IMonitorGui {
 
     }
 
-//@OnlyIn(Dist.CLIENT)
 //    public void openTARDISScreen() {
 //        Minecraft.getInstance().setScreen(new TARDISSubMenu(this, this.K9));
 //    }

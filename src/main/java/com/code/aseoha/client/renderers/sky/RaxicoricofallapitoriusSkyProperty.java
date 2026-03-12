@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-@OnlyIn(Dist.CLIENT)
 public class RaxicoricofallapitoriusSkyProperty extends DimensionRenderInfo {
     private final float[] sunriseCol = new float[4];
 

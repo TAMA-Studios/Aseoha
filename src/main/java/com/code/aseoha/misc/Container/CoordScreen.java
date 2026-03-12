@@ -19,7 +19,6 @@ import net.tardis.mod.tileentities.ConsoleTile;
 
 import java.util.Objects;
 
-@OnlyIn(Dist.CLIENT)
 public class CoordScreen extends MonitorScreen {
     private final TranslationTextComponent title = new TranslationTextComponent("aseoha.gui.coord.title");
     private final TranslationTextComponent desc = new TranslationTextComponent("aseoha.gui.coord.desc");

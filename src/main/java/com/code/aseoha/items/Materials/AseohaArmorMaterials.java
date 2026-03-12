@@ -88,7 +88,6 @@ public enum AseohaArmorMaterials implements IArmorMaterial {
         return this.repairIngredient.get();
     }
 
-    @OnlyIn(Dist.CLIENT)
     public String getName() {
         return String.join("",aseoha.MODID, ":", this.name);
     }

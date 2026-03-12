@@ -44,9 +44,13 @@ public class EOHInteractPacketC2S {
                     if (eoh == null) return;
                     if (mes.intType) {
                         eoh.setHasStar(true);
+                        eoh.getTile().setHasStar(true);
                         eoh.Mark();
                         eoh.LastPlayerClick.getMainHandItem().shrink(1);
-                    } else ((IHelpWithConsole) consoleTile).Aseoha$GetEOH().Activate();
+                    } else {
+                        eoh.getTile().setActive(true);
+                        ((IHelpWithConsole) consoleTile).Aseoha$GetEOH().Activate();
+                    }
                     eoh.Mark();
                 }
             }

@@ -17,7 +17,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class MiscHelper {
 
-    @OnlyIn(Dist.CLIENT)
     public static void forceThirdPerson() {
             Minecraft.getInstance().options.setCameraType(PointOfView.THIRD_PERSON_BACK);
     }

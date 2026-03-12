@@ -21,7 +21,6 @@ import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 
 import static com.code.aseoha.client.renderers.exteriors.BrackolinRender.TEXT;
 
-@OnlyIn(Dist.CLIENT)
 public class BlueMarbleRender extends TileEntityRenderer<BlueMarbleTile> {
 
 	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/consoles/bluemarble.png");

@@ -196,22 +196,18 @@ public enum EnumDoorTypes implements IDoorType {
         this.func = func;
     }
 
-    @Override
     public EnumDoorState[] getValidStates() {
         return this.validStates;
     }
 
-    @Override
     public double getRotationForState(EnumDoorState state) {
         return func.apply(state);
     }
 
-    @OnlyIn(Dist.CLIENT)
     public void setInteriorDoorModel(IInteriorDoorRenderer renderer) {
         this.renderer = () -> () -> renderer;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public IInteriorDoorRenderer getInteriorDoorRenderer() {
         return this.renderer.get().get();
     }

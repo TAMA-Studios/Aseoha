@@ -35,7 +35,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class ManualScreen extends Screen {
 //    public static final ManualScreen.IBookInfo EMPTY_ACCESS = new ManualScreen.IBookInfo() {
 //        public int getPageCount() {
@@ -262,7 +261,6 @@ public class ManualScreen extends Screen {
         return builder.build();
     }
 
-    @OnlyIn(Dist.CLIENT)
     public interface IBookInfo {
         int getPageCount();
 
@@ -282,7 +280,6 @@ public class ManualScreen extends Screen {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class UnwrittenBookInfo implements ManualScreen.IBookInfo {
         private final List<String> pages;
 
@@ -304,7 +301,6 @@ public class ManualScreen extends Screen {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class WrittenBookInfo implements ManualScreen.IBookInfo {
         private final List<String> pages;
 

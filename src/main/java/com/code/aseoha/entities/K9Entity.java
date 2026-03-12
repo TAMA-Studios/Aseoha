@@ -49,7 +49,7 @@ import java.util.Objects;
 
 import static com.code.aseoha.misc.NBTHelper.getInvNBT;
 import static com.code.aseoha.misc.NBTHelper.setInvNBT;
-import static com.code.aseoha.misc.ScreenClientStuff.OpenK9Screen;
+import com.code.aseoha.misc.ScreenClientStuff;
 
 /**
  * @author Me <br />
@@ -183,7 +183,7 @@ public class K9Entity extends RecycledWolf implements IAngerable, ISpaceImmuneEn
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
         if (this.level.isClientSide) {
-            if (!this.isDead && !player.isCrouching()) OpenK9Screen(this);
+            if (!this.isDead && !player.isCrouching()) ScreenClientStuff.OpenK9Screen(this);
             return ActionResultType.SUCCESS;
         } else {
             if (this.isTame()) {

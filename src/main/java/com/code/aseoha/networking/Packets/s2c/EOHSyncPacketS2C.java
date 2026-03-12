@@ -13,6 +13,7 @@ import net.tardis.mod.world.dimensions.TDimensions;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class EOHSyncPacketS2C {
@@ -30,7 +31,7 @@ public class EOHSyncPacketS2C {
 
     public static void handle(EOHSyncPacketS2C mes, @NotNull Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
-            ServerWorld world = ctx.get().getSender().getLevel();
+            ServerWorld world = Objects.requireNonNull(ctx.get().getSender()).getLevel();
             if (WorldHelper.areDimensionTypesSame(world, TDimensions.DimensionTypes.TARDIS_TYPE)) {
                 TileEntity te = world.getBlockEntity(TardisHelper.TARDIS_POS);
                 if (te instanceof ConsoleTile) {

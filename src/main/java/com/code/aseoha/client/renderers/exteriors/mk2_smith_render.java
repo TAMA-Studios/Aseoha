@@ -15,7 +15,6 @@ import net.tardis.mod.client.TRenderTypes;
 import net.tardis.mod.client.renderers.exteriors.ExteriorRenderer;
 import net.tardis.mod.misc.WorldText;
 
-@OnlyIn(Dist.CLIENT)
 public class mk2_smith_render extends ExteriorRenderer<mk2_smith> {
     public static ResourceLocation TEXTURE = new ResourceLocation("aseoha", "textures/exteriors/mk2/mk2_smith.png");
     public static mk_two_smith MODEL = new mk_two_smith();

@@ -10,7 +10,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class DavrosChairRenderer extends MobRenderer<DavrosChair, DavrosChairModel<DavrosChair>> {
 
     private static final ResourceLocation BOAT_TEXTURE_LOCATIONS = new ResourceLocation(aseoha.MODID, "textures/entity/davroschair.png");

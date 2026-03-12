@@ -153,7 +153,7 @@ public abstract class ConsoleMixin extends TileEntity implements ITickableTileEn
 
     @Override
     public boolean Aseoha$GetEOHActive() {
-        return Aseoha$EOHActive;
+        return this.Aseoha$EOH.isActive();
     }
 
     @Override
@@ -293,10 +293,12 @@ public abstract class ConsoleMixin extends TileEntity implements ITickableTileEn
     public void Aseoha$UpdateArtronValues(CallbackInfo ci) {
         if (!this.Aseoha$GetHasEOH()) return;
         if (this.Aseoha$GetEOH() == null) return;
-        if (this.Aseoha$GetEOHOverheated()) return;
-        if (!this.Aseoha$GetEOHActive()) return;
-        this.setMaxArtron(Float.POSITIVE_INFINITY);
-        this.setArtron(Float.POSITIVE_INFINITY);
+        if(!this.Aseoha$GetEOH().IsOverheated && this.Aseoha$GetEOH().isActive()) {
+//        if (this.Aseoha$GetEOHOverheated()) return;
+//        if (!this.Aseoha$GetEOHActive()) return;
+            this.setMaxArtron(Float.POSITIVE_INFINITY);
+            this.setArtron(Float.POSITIVE_INFINITY);
+        }
     }
 
     @Override

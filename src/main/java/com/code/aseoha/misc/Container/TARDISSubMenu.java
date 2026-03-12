@@ -25,7 +25,6 @@ import net.tardis.mod.tileentities.ConsoleTile;
  * This contains functions for the "TARDIS" Submenu in K-9
  */
 
-@OnlyIn(Dist.CLIENT)
 public class TARDISSubMenu extends MonitorScreen {
     @Setter
     @Getter
@@ -90,7 +89,6 @@ public class TARDISSubMenu extends MonitorScreen {
         return 0;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public void openCoordScreen(IMonitorGui parent, ConsoleTile console, byte Axis) {
         Minecraft.getInstance().setScreen(new CoordScreen(parent, Axis, Objects.requireNonNull(console.getLevel()).dimension().getRegistryName()));
     }

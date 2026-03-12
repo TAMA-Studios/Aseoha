@@ -37,7 +37,6 @@ public class FixControlsCommand extends TCommand {
                     return FixControlsCommand.fixControls(commandSource.getSource());
                 });
     }
-//    @OnlyIn(Dist.CLIENT)
 //    private void sendPacket(ConsoleTile console) {
 //        new UpdateControls(Objects.requireNonNull(console.getLevel()).dimension().getRegis/tryName()));
 //    }

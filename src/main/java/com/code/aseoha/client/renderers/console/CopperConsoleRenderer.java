@@ -21,7 +21,6 @@ import net.tardis.mod.helper.Helper;
 import net.tardis.mod.misc.WorldText;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
 public class CopperConsoleRenderer extends TileEntityRenderer<CopperConsoleTile> {
     public static final WorldText TEXT = new WorldText(0.31F, 0.26F, 0.003F, 16777215);
     public static CopperConsoleModel MODEL = new CopperConsoleModel();//((tex) -> {

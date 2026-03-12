@@ -1,6 +1,0 @@
-{
-  "parent": "aseoha:block/decoration/stair_rail_right",
-  "textures": {
-    "0": "aseoha:block/decoration/railings/railing_tungsten"
-  }
-}

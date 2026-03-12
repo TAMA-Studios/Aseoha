@@ -1,6 +1,5 @@
 package com.code.aseoha.backport.ntm;
 
-import com.jozufozu.flywheel.util.vec.Vec3;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -145,10 +144,6 @@ public class Helper {
                 RegistryKey.createRegistryKey(new ResourceLocation(parts[0])),
                 new ResourceLocation(parts[1])
         ));
-    }
-
-    public static BlockPos vec3ToBlockPos(Vec3 pos) {
-        return new BlockPos(Math.floor(pos.getX()), Math.floor(pos.getY()), Math.floor(pos.getZ()));
     }
 
     /**

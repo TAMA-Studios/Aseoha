@@ -25,7 +25,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-@OnlyIn(Dist.CLIENT)
 @SuppressWarnings("deprecation")
 public class GallifreySkyRenderer implements ISkyRenderHandler  {
     

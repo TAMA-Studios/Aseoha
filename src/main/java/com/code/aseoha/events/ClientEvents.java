@@ -21,7 +21,6 @@ import net.tardis.mod.sounds.TSounds;
 public class ClientEvents {
 
 //    @SubscribeEvent
-//    @OnlyIn(Dist.CLIENT)
 //    public static void onJump(@NotNull InputUpdateEvent update) {
 //        LivingEntity liv = update.getEntityLiving();
 //
@@ -38,7 +37,6 @@ public class ClientEvents {
 //    }
 
     @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
     public static void onKey(InputEvent.KeyInputEvent e) {
         if (Minecraft.getInstance().level != null) {
             if (KeyboardHelper.isHoldingControl()) {
@@ -53,7 +51,6 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
     public static void onSoundPlayed(PlaySoundEvent event){
         if(!Config.COMMON.ShouldAmbientSoundsPlay.get() && event.getSound().getLocation() == TSounds.AMBIENT_CREAKS.getId()){
             ClientHelper.shutTheFuckUp(TSounds.AMBIENT_CREAKS.get(), event.getSound().getSource());
@@ -81,7 +78,6 @@ public class ClientEvents {
 //    }
 
 //    @SubscribeEvent
-//    @OnlyIn(Dist.CLIENT)
 //    public static void ClientSetup(FMLClientSetupEvent event){
 //    }
 }
