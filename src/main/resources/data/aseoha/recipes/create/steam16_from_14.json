@@ -1,0 +1,11 @@
+{
+  "ingredients" : [ {
+    "item" : "aseoha:console/steam_fourteen"
+  }, {
+    "item" : "tardis:xion"
+  } ],
+  "results" : [ {
+    "item" : "aseoha:console/steam_sixteen"
+  } ],
+  "type" : "create:item_application"
+}
