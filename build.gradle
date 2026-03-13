@@ -162,7 +162,12 @@ tasks.named('processResources', ProcessResources).configure {
 	}
 }
 
+tasks.withType(Copy).configureEach {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 tasks.named('jar', Jar).configure {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	manifest {
 		attributes(["Specification-Title"     : mod_id,
 					"Specification-Vendor"    : mod_authors,
