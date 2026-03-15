@@ -15,6 +15,6 @@ public class RegisterProtocols extends ProtocolRegistry {
     public static final RegistryObject<Protocol> ISOMORPHIC_SECURITY = PROTOCOLSREGISTER.register("isomorphic_security", IsomorphicProtocol::new);
 
     public static final RegistryObject<Protocol> MAINTENANCE = PROTOCOLSREGISTER.register("maintenance", MaintenanceProtocol::new);
-//    public static final RegistryObject<Protocol> RWF = PROTOCOLSREGISTER.register("rwf", RWFProtocol::new);
+    public static final RegistryObject<Protocol> RWF = PROTOCOLSREGISTER.register("rwf", RWFProtocol::new);
     //TODO: FINISH RWF
 }

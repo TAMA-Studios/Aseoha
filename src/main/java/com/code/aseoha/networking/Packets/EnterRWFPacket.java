@@ -1,5 +1,6 @@
 package com.code.aseoha.networking.Packets;
 
+import com.code.aseoha.Helpers.IHelpWithConsole;
 import com.code.aseoha.Helpers.IHelpWithExterior;
 import com.code.aseoha.Helpers.TARDISHelper;
 import com.code.aseoha.aseoha;
@@ -41,17 +42,19 @@ public class EnterRWFPacket {
                 if (te instanceof ConsoleTile) {
                     ConsoleTile consoleTile = (ConsoleTile) te;
 
+                    ((IHelpWithConsole) consoleTile).Aseoha$SetRealWorldFlight(true);
+
                     TardisEntity tardis = consoleTile.getEntity();
 
                     ExteriorTile Exterior = TARDISHelper.getExteriorTile(consoleTile);
 
                     if (Exterior != null && Exterior.getLevel() != null) {
-                        Exterior.getLevel().addFreshEntity(tardis);
                         tardis.setConsole(consoleTile);
                         tardis.setExteriorTile(Exterior);
                         tardis.setInvulnerable(true);
                         tardis.setNoGravity(true);
                         WorldHelper.teleportEntities(tardis, (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 90);
+                        Exterior.getLevel().addFreshEntity(tardis);
                         consoleTile.setEntity(tardis);
 
 //                            this.relocatePlayerToExterior(p, (ServerWorld) Exterior.getLevel());
@@ -68,7 +71,7 @@ public class EnterRWFPacket {
             }
 
         });
-        ((NetworkEvent.Context) ctx.get()).setPacketHandled(true);
+        ctx.get().setPacketHandled(true);
     }
 
 
