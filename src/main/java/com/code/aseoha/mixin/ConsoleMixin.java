@@ -248,7 +248,7 @@ public abstract class ConsoleMixin extends TileEntity implements ITickableTileEn
     public void Aseoha$Tick(CallbackInfo ci) {
 
         if (this.Aseoha$IsRealWorldFlight()) {
-            aseoha.LOGGER.warn("GO BULLSEYE!!");
+//            aseoha.LOGGER.info("GO BULLSEYE!!");
             if (this.getLevel() != null) {
                 if (!this.getLevel().isClientSide()) {
                     this.forceLoadInteriorChunk(true, false);
