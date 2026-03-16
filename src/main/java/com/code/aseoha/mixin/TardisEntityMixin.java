@@ -73,16 +73,6 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
     private float rotationPitch;
     private float rotationYaw;
 
-    /** Tracks how many consecutive ticks the rider has been sneaking, for dismount. */
-    private int rwfSneakTicks = 0;
-
-    /** Whether we have forced third-person this ride session (only do it once). */
-    private boolean rwfForcedCamera = false;
-
-    // -------------------------------------------------------------------------
-    // IHelpWithTardisEntity
-    // -------------------------------------------------------------------------
-
     @Override public boolean isJumping() { return jumping; }
     @Override public void setJumping(boolean v) { this.jumping = v; }
     @Override public void setHasLanded(boolean v) { this.hasLanded = v; }
@@ -91,10 +81,6 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
     @Override public boolean canBeRiddenInWater(Entity rider) { return true; }
     @Override public RegistryKey<DimensionType> getInteriorDimension() { return interiorDimension; }
     @Override public void setInteriorDimension(RegistryKey<DimensionType> v) { this.interiorDimension = v; }
-
-    // -------------------------------------------------------------------------
-    // Overrides
-    // -------------------------------------------------------------------------
 
     /**
      * @author Codiak540
@@ -130,14 +116,6 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
         return !this.getPassengers().isEmpty() ? this.getPassengers().get(0) : null;
     }
 
-    // -------------------------------------------------------------------------
-    // Interact — start riding the entity (RWF board)
-    //
-    // The original interact() calls this.remove() unconditionally on the server,
-    // which would land the TARDIS immediately. We cancel it entirely and instead
-    // mount the player onto the entity.
-    // -------------------------------------------------------------------------
-
     @Inject(
             method = "interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResultType;",
             at = @At("HEAD"),
@@ -145,76 +123,32 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
     )
     private void Aseoha$Interact(PlayerEntity player, Hand hand,
                                  CallbackInfoReturnable<ActionResultType> cir) {
-        // Cancel on both sides — prevents the remove() on server and the super()
-        // return value from reaching the original method body.
         if (!this.level.isClientSide) {
             if (this.getPassengers().isEmpty()) {
-                // force=true bypasses normal "can this player ride" checks
                 boolean mounted = player.startRiding((Entity)(Object)this, true);
                 aseoha.LOGGER.info("RWF mount attempt for {}: {}", player.getName().getString(), mounted);
                 cir.setReturnValue(mounted ? ActionResultType.SUCCESS : ActionResultType.FAIL);
             } else {
-                // Someone already riding
                 cir.setReturnValue(ActionResultType.FAIL);
             }
         } else {
-            // Client side: return SUCCESS so no "nothing happened" feedback
             cir.setReturnValue(ActionResultType.SUCCESS);
         }
     }
-
-    // -------------------------------------------------------------------------
-    // Prevent tick() from calling this.remove() while a player is riding.
-    //
-    // tick() has two remove() call-sites:
-    //   1. if (!LandingSystem.shouldTARDISFall(...)) this.remove()
-    //      — fires constantly in mid-air, would despawn the entity every tick.
-    //   2. if (this.getY() <= 0) this.onFallOutOfWorld() — fine to keep.
-    //
-    // We @Redirect the LandingSystem-triggered remove() to a guarded version.
-    // The onFallOutOfWorld path stays untouched.
-    //
-    // Note: if there are multiple remove() INVOKE sites in tick() this redirect
-    // will match the first one found at the target ordinal. If your
-    // decompiler shows a different ordering, adjust ordinal = 0/1 accordingly.
-    // -------------------------------------------------------------------------
-
     @Redirect(
             method = "tick()V",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/tardis/mod/entity/TardisEntity;remove()V",
-                    ordinal = 0          // the LandingSystem-triggered remove() is first
+                    ordinal = 0
             )
     )
     private void Aseoha$SuppressRemoveWhileRiding(TardisEntity self) {
         if (self.isVehicle()) {
-            // A player is riding — do NOT remove, they're controlling it.
             return;
         }
-        // No passenger, proceed normally.
         self.remove();
     }
-
-    // -------------------------------------------------------------------------
-    // Tick — RWF movement (server-side only)
-    //
-    // Injection is AFTER super.tick() and BEFORE move() / gravity in tick().
-    //
-    // tick() execution order:
-    //   super.tick()                           ← inject here (AFTER)
-    //   move(SELF, deltaMovement)              ← consumes our value same tick
-    //   gravity / noGravity friction           ← modifies leftover after move()
-    //   server-side landing/removal checks
-    //
-    // We set deltaMovement fresh every tick from raw rider inputs so there is
-    // no velocity accumulation. The gravity/friction code runs after move() has
-    // already consumed our value; we overwrite it again next tick, so it is
-    // harmless regardless of noGravity state.
-    //
-    // setNoGravity(true) is still important: without it, tick() adds -0.08 to
-    // deltaMovement AFTER our injection but BEFORE move(), fighting upward input.
-    // -------------------------------------------------------------------------
 
     @Inject(
             method = "tick()V",
@@ -224,18 +158,12 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
         if (this.getConsole() == null) return;
 
         if (this.level.isClientSide) {
-            if (this.isVehicle() && !rwfForcedCamera) {
                 MiscHelper.forceThirdPerson();
-                rwfForcedCamera = true;
-            } else if (!this.isVehicle()) {
-                rwfForcedCamera = false;
-            }
             return;
         }
 
         if (!this.isVehicle()) {
             this.setNoGravity(false);
-            rwfSneakTicks = 0;
             return;
         }
 
@@ -250,24 +178,14 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
 
         this.setNoGravity(true);
 
-        // Snapshot rider rotation
+        // Steal the riders rotation
         this.prevRotationPitch = this.rotationPitch;
         this.prevRotationYaw  = this.rotationYaw;
         this.rotationPitch    = rider.xRot;
         this.rotationYaw      = rider.yRot;
 
-        // ---- Dismount: hold sneak for 30 ticks ----
-        // Using a hold-to-dismount prevents accidental ejection when
-        // the player taps shift to move down.
         if (rider.isCrouching() && !level.getBlockState(blockPosition().below(2)).isAir()) {
-            rwfSneakTicks++;
-            if (rwfSneakTicks >= 30) {
-                rwfSneakTicks = 0;
                 ((IHelpWithConsole) this.getConsole()).Aseoha$CleanupRide();
-                return;
-            }
-        } else {
-            rwfSneakTicks = 0;
         }
 
         float speed = 1.0f; // TODO: wire to ThrottleControl
@@ -293,7 +211,7 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
             motion = motion.add(strafe.x, 0, strafe.z);
         }
 
-        // Up — Space / jump key
+        // TODO: Gordon, I don't think you can jump or crouch in the middle of the air...
         if (this.isJumping()) {
             motion = motion.add(0, speed, 0);
             this.setJumping(false);
@@ -305,7 +223,7 @@ public abstract class TardisEntityMixin extends Entity implements IHelpWithTardi
 
         this.setDeltaMovement(motion);
 
-        // Keep console display current
+        // Keep console display updated
         this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
         this.getConsole().updateFlightTime();
     }

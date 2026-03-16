@@ -20,7 +20,7 @@ public class TardisEntityRendererMixin {
 //        if(((IHelpWithExterior)entity.getExterior()).Aseoha$ShouldSpin())
         if (!entity.getPassengers().isEmpty()) {
             matrixStackIn.translate(0.5, 0, 0.5);
-            matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(++Aseoha$SpinAmount));
+            matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(Aseoha$SpinAmount += 3));
         }
     }
 }

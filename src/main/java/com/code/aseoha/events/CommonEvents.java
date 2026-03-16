@@ -27,6 +27,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.*;
+import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -64,6 +65,19 @@ import static com.code.aseoha.Helpers.IHelpWithMonitor.Aseoha$MonitorGetRot;
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = aseoha.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
+
+    @SubscribeEvent
+    public static void onEntityMount(EntityMountEvent event) {
+        if (event.getEntity() instanceof PlayerEntity && event.isDismounting()) {
+            if (event.getEntityBeingMounted() instanceof TardisEntity) {
+                if (((IHelpWithConsole) ((TardisEntity) event.getEntityBeingMounted()).getConsole()).Aseoha$IsRealWorldFlight())
+                    if (event.isCancelable()) {
+                        event.setCanceled(true);
+                    }
+
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void onLivingDeath(net.minecraftforge.event.entity.living.LivingDeathEvent event) {
