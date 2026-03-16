@@ -5,27 +5,21 @@ import com.code.aseoha.Helpers.IHelpWithTardisEntity;
 import com.code.aseoha.Helpers.MiscHelper;
 import com.code.aseoha.Helpers.PlayerHelper;
 import com.code.aseoha.aseoha;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.injector.ModifyReceiver;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.play.server.SEntityVelocityPacket;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.concurrent.TickDelayedTask;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.api.distmarker.Dist;
-import net.tardis.mod.client.ClientHelper;
-import net.tardis.mod.controls.ThrottleControl;
 import net.tardis.mod.entity.DoorEntity;
 import net.tardis.mod.entity.TardisEntity;
-import net.tardis.mod.exterior.AbstractExterior;
 import net.tardis.mod.helper.TardisHelper;
 import net.tardis.mod.helper.WorldHelper;
 import net.tardis.mod.tileentities.ConsoleTile;
@@ -36,306 +30,289 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
-
-import static org.jline.terminal.MouseEvent.Modifier.Shift;
 
 @Mixin(TardisEntity.class)
 public abstract class TardisEntityMixin extends Entity implements IHelpWithTardisEntity {
+
     public TardisEntityMixin(EntityType<?> p_i48580_1_, World p_i48580_2_) {
         super(p_i48580_1_, p_i48580_2_);
     }
 
-//    @Shadow(remap = false)
-//    public abstract ConsoleTile getConsole();
-//
-//    @Shadow(remap = false)
-//    private ConsoleTile console;
-//
-//    @Shadow(remap = false)
-//    @Nullable
-//    public abstract ExteriorTile getExteriorTile();
-//
-//    @Shadow(remap = false)
-//    private AbstractExterior exterior;
-//
-//    @Shadow(remap = false)
-//    private boolean hasLanded;
-//
-//    @Shadow(remap = false) public abstract Entity changeDimension(@NotNull ServerWorld destination);
+    // -------------------------------------------------------------------------
+    // Shadows
+    // -------------------------------------------------------------------------
 
-//    private RegistryKey<DimensionType> interiorDimension;
-//    private boolean canDismount = false;
-//    private boolean jumping = false;
-//    public float renderYaw = 0;
-//    private float prevRotationPitch;
-//    private float prevRotationYaw;
-//    private float rotationPitch;
-//    private float rotationYaw;
-//
-//    @Override
-//    public boolean isJumping() {
-//        return jumping;
-//    }
-//
-//    @Override
-//    public void setJumping(boolean jumpingState) {
-//        this.jumping = jumpingState;
-//    }
-//
-//    @Override
-//    public void setHasLanded(boolean hasLanded) {
-//        this.hasLanded = hasLanded;
-//    }
-//
-//    /**
-//     * @author Codiak
-//     * @reason RWF
-//     */
-//    @Overwrite(remap = false)
-//    public boolean isPushable() {
-//        return true;
-//    }
-//
-//    @Override
-//    public double getPassengersRidingOffset() {
-//        return (double)this.getDimensions(this.getPose()).height * 0.9D;
-//    }
-//
-//    @Override
-//    protected boolean canRide(@NotNull Entity entityIn) {
-//        return true;
-//    }
-//
-//
-//    @Inject(method = "interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResultType;", at = @At("HEAD"), cancellable = true)
-//    private void Aseoha$Interact(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResultType> cir) {
-//        if (!player.level.isClientSide) {
-//            player.level.getServer().tell(new TickDelayedTask(1, () -> {
-//                double x = 0, y = TardisHelper.TARDIS_POS.getY(), z = 0;
-//                ConsoleTile console = null;
-////                ServerWorld ws = Objects.requireNonNull(this.level.getServer()).getLevel(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(this.getConsole().getLevel()).getServer()).getLevel(this.getConsole().getLevel().dimension())).dimension());
-//
-//                ServerWorld ws = ((IHelpWithConsole) console).Aseoha$GetInteriorDimension().getServer().getLevel(((IHelpWithConsole) console).Aseoha$GetInteriorDimension().dimension());//this.level.getServer().getLevel(((IHelpWithConsole) this.getConsole()).getInteriorDimension().dimension());
-//                //Get Console
-//                if (ws != null) {
-//                    TileEntity te = ws.getBlockEntity(TardisHelper.TARDIS_POS);
-//                    if (te instanceof ConsoleTile)
-//                        console = (ConsoleTile) te;
-//                }
-//
-//                //If an interior door exists, put the player near it
-//                DoorEntity door = console != null ? console.getDoor().orElse(null) : null;
-//
-//                float rotationYaw = door != null ? door.yRot : player.yRot;
-//
-//                aseoha.LOGGER.info("test {}", player);
-//
-//                if (door != null)
-//                    door.addEntityToTeleportImmuneList(player.getUUID());
-//
-//                WorldHelper.teleportEntities(player, ws, x, y, z, rotationYaw, player.xRot);
-//
-//                //Motion
-//
-//                Vector3d oldMotion = player.getDeltaMovement();
-//                assert door != null;
-//                Vector3d setMot = oldMotion.yRot(-(float) Math.toRadians(door.yRot));
-//
-//                this.level.getServer().tell(new TickDelayedTask(1, () -> {
-//                    Entity ent = ws.getEntity(player.getUUID());
-//                    if (ent != null)
-//                        ent.moveTo(setMot);
-//                    if (ent instanceof ServerPlayerEntity) {
-//                        ((ServerPlayerEntity) ent).connection.send(new SEntityVelocityPacket(ent));
-//                    }
-//                }));
-//            }));
-//        }
-//        cir.setReturnValue(ActionResultType.FAIL);
-//    }
-//
-//    @Override
-//    public void setCanDismount(boolean canDismount) {
-//        this.canDismount = canDismount;
-//    }
-//
-//    @Override
-//    public boolean canDismount() {
-//        return canDismount;
-//    }
-//
-//    @Override
-//    public boolean canBeRiddenInWater(Entity rider) {
-//        return true;
-//    }
+    @Shadow(remap = false) @Nullable
+    public abstract ExteriorTile getExteriorTile();
 
+    @Shadow(remap = false)
+    private boolean hasLanded;
 
-//    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tick()V", shift = At.Shift.AFTER))
-//    private void Aseoha$Tick(CallbackInfo ci) {
-//
-//        if(level.isClientSide) {
-//            if(isVehicle()) {
-//                MiscHelper.forceThirdPerson();
-//            }
-//        }
-//
-//        if(isVehicle()) {
-//            if(this.getControllingPassenger() instanceof PlayerEntity) {
-//                this.renderYaw += 5;
-//
-//                if(!level.isClientSide) {
-//                    this.moveTo(Vector3d.ZERO);
-//
-//                    PlayerEntity entity = (PlayerEntity) this.getControllingPassenger();
-//
-//                    this.prevRotationPitch = this.rotationPitch;
-//                    this.prevRotationYaw = this.rotationYaw;
-//
-//                    this.rotationPitch = entity.xRot;
-//                    this.rotationYaw = entity.yRot;
-//
-//                    float speed = this.getConsole().getControl(ThrottleControl.class).get().getAmount();
-//
-//                    Vector3d lookVec = PlayerHelper.getVectorForRotation(0, this.rotationYaw).scale(speed);
-//
-//                    if(entity.getSpeed() > 0) {
-//                        this.setDeltaMovement(this.getDeltaMovement().add(lookVec.x, 0, lookVec.z));
-//                    } else if (entity.getSpeed() < 0) {
-//                        this.setDeltaMovement(this.getDeltaMovement().add(-lookVec.x, 0, -lookVec.z));
-//                    }
-//
-//                    if(entity.moveDist > 0) {
-//                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw - 90F).scale(speed);
-//
-//                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
-//                    } else if (entity.moveDist < 0) {
-//                        Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw + 90F).scale(speed);
-//
-//                        this.setDeltaMovement(this.getDeltaMovement().add(vec.x, 0, vec.z));
-//                    }
-//
-//                    if(this.isJumping()) {
-//                        this.setDeltaMovement(this.getDeltaMovement().add(0, 1 * speed, 0));
-//                        this.setJumping(false);
-//                    }
-//
-//                    if(entity.isCrouching()) {
-//                        this.setDeltaMovement(this.getDeltaMovement().add(0, -1 * speed, 0));
-//                    }
-//
-//                    //Update Tardis Screen
-//                    this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
-//                    this.getConsole().updateFlightTime();
-//                }
-//            }
-//        }
-//        if (this.level.isClientSide) {
-//            if (this.isVehicle()) {
-//                MiscHelper.forceThirdPerson();
-//            }
-//        }
-//
-////        if(this.getControllingPassenger() instanceof TardisEntity)
-//            if (this.isVehicle()) {
-//            if (this.getControllingPassenger() instanceof PlayerEntity) {
-//                    this.renderYaw += 5;
-//
-//                    if (this.level.isClientSide) {
-//                        this.moveTo(Vector3d.ZERO);
-//
-//                        PlayerEntity entity = (PlayerEntity) this.getControllingPassenger();
-//
-//                        this.prevRotationPitch = this.xRot;
-//                        this.prevRotationYaw = this.yRot;
-//
-//                        this.rotationPitch = entity.xRot;
-//                        this.rotationYaw = entity.yRot;
-//
-//                        ThrottleControl throt = this.getConsole().getControl(ThrottleControl.class).get();
-//                        float speed = throt.getAmount();
-//
-//                        Vector3d lookVec = PlayerHelper.getVectorForRotation(0, this.rotationYaw).scale(speed);
-//
-//                        if (entity.getSpeed() > 0) {
-//                            this.moveTo(this.getDeltaMovement().add(lookVec.x, 0, lookVec.z));
-//                        } else if (entity.moveDist < 0) {
-//                            this.moveTo(this.getDeltaMovement().add(-lookVec.x, 0, -lookVec.z));
-//                        }
-//
-//                        if (entity.getX() > 0) {
-//                            Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw - 90F).scale(speed);
-//
-//                            this.moveTo(this.getDeltaMovement().add(vec.x, 0, vec.z));
-//                        } else if (entity.getX() < 0) {
-//                            Vector3d vec = PlayerHelper.getVectorForRotation(0, this.rotationYaw + 90F).scale(speed);
-//
-//                            this.moveTo(this.getDeltaMovement().add(vec.x, 0, vec.z));
-//                        }
-//
-//                        if (this.isJumping()) {
-//                            this.moveTo(this.getDeltaMovement().add(0, 1 * speed, 0));
-//                            this.setJumping(false);
-//                        }
-//
-//                        if (entity.isCrouching()) {
-//                            this.moveRelative(this.getDeltaMovementDirection().toYRot(), new Vector3d(0, -1 * speed, 0));
-//                        }
-//
-//                        //Update Tardis Screen
-//                        this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
-//                        this.getConsole().updateFlightTime();
-//                    }
-////                else this.remove();
-//            }
-//            else
-//                ((IHelpWithConsole) this.getConsole()).Aseoha$StopRide(true);
-//        }
+    @Shadow(remap = false)
+    public abstract Entity changeDimension(@NotNull ServerWorld destination);
 
+    @Shadow
+    private ConsoleTile console;
 
+    // -------------------------------------------------------------------------
+    // Mixin-added fields
+    // -------------------------------------------------------------------------
 
-//    }
+    private RegistryKey<DimensionType> interiorDimension;
+    private boolean canDismount = false;
+    private boolean jumping = false;
+    public float renderYaw = 0;
 
-//    @Override
-//    public Entity getControllingPassenger() {
-//        return !this.getPassengers().isEmpty() ? this.getPassengers().get(0) : null;
-//    }
+    private float prevRotationPitch;
+    private float prevRotationYaw;
+    private float rotationPitch;
+    private float rotationYaw;
+
+    /** Tracks how many consecutive ticks the rider has been sneaking, for dismount. */
+    private int rwfSneakTicks = 0;
+
+    /** Whether we have forced third-person this ride session (only do it once). */
+    private boolean rwfForcedCamera = false;
+
+    // -------------------------------------------------------------------------
+    // IHelpWithTardisEntity
+    // -------------------------------------------------------------------------
+
+    @Override public boolean isJumping() { return jumping; }
+    @Override public void setJumping(boolean v) { this.jumping = v; }
+    @Override public void setHasLanded(boolean v) { this.hasLanded = v; }
+    @Override public void setCanDismount(boolean v) { this.canDismount = v; }
+    @Override public boolean canDismount() { return canDismount; }
+    @Override public boolean canBeRiddenInWater(Entity rider) { return true; }
+    @Override public RegistryKey<DimensionType> getInteriorDimension() { return interiorDimension; }
+    @Override public void setInteriorDimension(RegistryKey<DimensionType> v) { this.interiorDimension = v; }
+
+    // -------------------------------------------------------------------------
+    // Overrides
+    // -------------------------------------------------------------------------
+
+    /**
+     * @author Codiak540
+     * @reason Cache + server-only console lookup
+     */
+    @Overwrite(remap = false)
+    public ConsoleTile getConsole() {
+        if (this.console != null) return this.console;
+        if (this.level.isClientSide) return null;
+        return this.console = TardisHelper.getConsole(
+                this.level.getServer(), this.interiorDimension.location()).get();
+    }
 
     /**
      * @author Codiak
-     * @reason RWF
+     * @reason Must be pushable for physics to allow movement
      */
-//    @Overwrite(remap = false)
-//    @Override
-//    @Inject(method = "rideTick()V", at = @At("TAIL"))
-//    public void rideTick(CallbackInfo ci) {
-//        this.setDeltaMovement(Vector3d.ZERO);
-//        if (canUpdate())
-//            this.tick();
-//        if (this.isPassenger()) {
-//            this.getVehicle().positionRider(this);
-//        }
-//    }
+    @Overwrite(remap = false)
+    public boolean isPushable() { return true; }
 
+    @Override
+    public double getPassengersRidingOffset() {
+        return (double) this.getDimensions(this.getPose()).height * 0.9D;
+    }
 
+    @Override
+    protected boolean canRide(@NotNull Entity entityIn) { return true; }
 
-//    public boolean canBeControlledByRider() {
-//        return true;
-//    }
+    public boolean canBeControlledByRider() { return true; }
 
-//    @Override
-//    public RegistryKey<DimensionType> getInteriorDimension() {
-//        return interiorDimension;
-//    }
-//
-//    @Override
-//    public void setInteriorDimension(RegistryKey<DimensionType> interiorDimension) {
-//        this.interiorDimension = interiorDimension;
-//    }
+    @Override
+    public Entity getControllingPassenger() {
+        return !this.getPassengers().isEmpty() ? this.getPassengers().get(0) : null;
+    }
 
+    // -------------------------------------------------------------------------
+    // Interact — start riding the entity (RWF board)
+    //
+    // The original interact() calls this.remove() unconditionally on the server,
+    // which would land the TARDIS immediately. We cancel it entirely and instead
+    // mount the player onto the entity.
+    // -------------------------------------------------------------------------
 
+    @Inject(
+            method = "interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResultType;",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private void Aseoha$Interact(PlayerEntity player, Hand hand,
+                                 CallbackInfoReturnable<ActionResultType> cir) {
+        // Cancel on both sides — prevents the remove() on server and the super()
+        // return value from reaching the original method body.
+        if (!this.level.isClientSide) {
+            if (this.getPassengers().isEmpty()) {
+                // force=true bypasses normal "can this player ride" checks
+                boolean mounted = player.startRiding((Entity)(Object)this, true);
+                aseoha.LOGGER.info("RWF mount attempt for {}: {}", player.getName().getString(), mounted);
+                cir.setReturnValue(mounted ? ActionResultType.SUCCESS : ActionResultType.FAIL);
+            } else {
+                // Someone already riding
+                cir.setReturnValue(ActionResultType.FAIL);
+            }
+        } else {
+            // Client side: return SUCCESS so no "nothing happened" feedback
+            cir.setReturnValue(ActionResultType.SUCCESS);
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Prevent tick() from calling this.remove() while a player is riding.
+    //
+    // tick() has two remove() call-sites:
+    //   1. if (!LandingSystem.shouldTARDISFall(...)) this.remove()
+    //      — fires constantly in mid-air, would despawn the entity every tick.
+    //   2. if (this.getY() <= 0) this.onFallOutOfWorld() — fine to keep.
+    //
+    // We @Redirect the LandingSystem-triggered remove() to a guarded version.
+    // The onFallOutOfWorld path stays untouched.
+    //
+    // Note: if there are multiple remove() INVOKE sites in tick() this redirect
+    // will match the first one found at the target ordinal. If your
+    // decompiler shows a different ordering, adjust ordinal = 0/1 accordingly.
+    // -------------------------------------------------------------------------
+
+    @Redirect(
+            method = "tick()V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/tardis/mod/entity/TardisEntity;remove()V",
+                    ordinal = 0          // the LandingSystem-triggered remove() is first
+            )
+    )
+    private void Aseoha$SuppressRemoveWhileRiding(TardisEntity self) {
+        if (self.isVehicle()) {
+            // A player is riding — do NOT remove, they're controlling it.
+            return;
+        }
+        // No passenger, proceed normally.
+        self.remove();
+    }
+
+    // -------------------------------------------------------------------------
+    // Tick — RWF movement (server-side only)
+    //
+    // Injection is AFTER super.tick() and BEFORE move() / gravity in tick().
+    //
+    // tick() execution order:
+    //   super.tick()                           ← inject here (AFTER)
+    //   move(SELF, deltaMovement)              ← consumes our value same tick
+    //   gravity / noGravity friction           ← modifies leftover after move()
+    //   server-side landing/removal checks
+    //
+    // We set deltaMovement fresh every tick from raw rider inputs so there is
+    // no velocity accumulation. The gravity/friction code runs after move() has
+    // already consumed our value; we overwrite it again next tick, so it is
+    // harmless regardless of noGravity state.
+    //
+    // setNoGravity(true) is still important: without it, tick() adds -0.08 to
+    // deltaMovement AFTER our injection but BEFORE move(), fighting upward input.
+    // -------------------------------------------------------------------------
+
+    @Inject(
+            method = "tick()V",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tick()V", shift = At.Shift.AFTER)
+    )
+    private void Aseoha$Tick(CallbackInfo ci) {
+        if (this.getConsole() == null) return;
+
+        if (this.level.isClientSide) {
+            if (this.isVehicle() && !rwfForcedCamera) {
+                MiscHelper.forceThirdPerson();
+                rwfForcedCamera = true;
+            } else if (!this.isVehicle()) {
+                rwfForcedCamera = false;
+            }
+            return;
+        }
+
+        if (!this.isVehicle()) {
+            this.setNoGravity(false);
+            rwfSneakTicks = 0;
+            return;
+        }
+
+        Entity passenger = this.getControllingPassenger();
+        if (!(passenger instanceof PlayerEntity)) {
+            this.setNoGravity(false);
+            ((IHelpWithConsole) this.getConsole()).Aseoha$StopRide(true);
+            return;
+        }
+
+        PlayerEntity rider = (PlayerEntity) passenger;
+
+        this.setNoGravity(true);
+
+        // Snapshot rider rotation
+        this.prevRotationPitch = this.rotationPitch;
+        this.prevRotationYaw  = this.rotationYaw;
+        this.rotationPitch    = rider.xRot;
+        this.rotationYaw      = rider.yRot;
+
+        // ---- Dismount: hold sneak for 30 ticks ----
+        // Using a hold-to-dismount prevents accidental ejection when
+        // the player taps shift to move down.
+        if (rider.isCrouching() && !level.getBlockState(blockPosition().below(2)).isAir()) {
+            rwfSneakTicks++;
+            if (rwfSneakTicks >= 30) {
+                rwfSneakTicks = 0;
+                ((IHelpWithConsole) this.getConsole()).Aseoha$CleanupRide();
+                return;
+            }
+        } else {
+            rwfSneakTicks = 0;
+        }
+
+        float speed = 1.0f; // TODO: wire to ThrottleControl
+
+        // Build motion fresh every tick from rider inputs.
+        // Starting from ZERO means no velocity buildup between ticks.
+        Vector3d motion = Vector3d.ZERO;
+
+        // Forward / backward
+        // zza > 0 = W (forward), zza < 0 = S (backward)
+        if (rider.zza != 0) {
+            Vector3d fwd = PlayerHelper.getVectorForRotation(0, this.rotationYaw)
+                    .scale(rider.zza * speed);
+            motion = motion.add(fwd.x, 0, fwd.z);
+        }
+
+        // Strafe left / right
+        // xxa > 0 = D (right) = rotationYaw - 90 direction
+        // xxa < 0 = A (left)  = sign flip handles it automatically
+        if (rider.xxa != 0) {
+            Vector3d strafe = PlayerHelper.getVectorForRotation(0, this.rotationYaw - 90F)
+                    .scale(rider.xxa * speed);
+            motion = motion.add(strafe.x, 0, strafe.z);
+        }
+
+        // Up — Space / jump key
+        if (this.isJumping()) {
+            motion = motion.add(0, speed, 0);
+            this.setJumping(false);
+        }
+
+        if (rider.isCrouching()) {
+            motion = motion.add(0, -speed, 0);
+        }
+
+        this.setDeltaMovement(motion);
+
+        // Keep console display current
+        this.getConsole().setCurrentLocation(this.level.dimension(), this.blockPosition());
+        this.getConsole().updateFlightTime();
+    }
+
+    @Override
+    protected void removePassenger(Entity ent) {
+        if(!((IHelpWithConsole) this.getConsole()).Aseoha$IsRealWorldFlight())
+            super.removePassenger(ent);
+    }
 }

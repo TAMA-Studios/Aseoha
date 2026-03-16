@@ -57,6 +57,7 @@ public class EnterRWFPacket {
                         Exterior.getLevel().addFreshEntity(tardis);
                         consoleTile.setEntity(tardis);
 
+
 //                            this.relocatePlayerToExterior(p, (ServerWorld) Exterior.getLevel());
                         WorldHelper.teleportEntities(ctx.get().getSender(), (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 90);
 //                            this.getLevel().getServer().tell(new TickDelayedTask(1, () -> p.startRiding(tardis)));

@@ -131,6 +131,7 @@ public class EOHLinkTile extends TileEntity implements ITickableTileEntity, ICap
                 ((IHelpWithConsole) this.consoleTile).Aseoha$SetEOHOverheated(this.IsOverheated);
                 ((IHelpWithConsole) this.consoleTile).Aseoha$SetEOHTimer(this.timer);
                 ((IHelpWithConsole) this.consoleTile).Aseoha$SetEOHPillars((byte) this.GetPillars());
+                this.consoleTile.updateArtronValues();
                 this.Mark = false;
             }
     }

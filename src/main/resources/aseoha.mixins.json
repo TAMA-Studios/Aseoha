@@ -9,6 +9,7 @@
     "client.MonitorScreenMixin",
     "client.PlayerRendererMixin",
     "client.ServerWorldInfoMixin",
+    "client.TardisEntityRendererMixin",
     "client.TardisSkyPropertyMixin",
     "client.TelepathicCircuitMixin",
     "client.VortexSkyRendererMixin"
@@ -20,7 +21,6 @@
   },
   "minVersion": "0.8",
   "mixins": [
-    "TACommonEventsMixin",
     "BrokenExteriorMixin",
     "BrokenExteriorTypeMixin",
     "ConsoleChangeMessageMixin",
@@ -35,6 +35,7 @@
     "NameTagMixin",
     "SonicTardisDestinationInteractionMixin",
     "SucceedFlightEventTriggerMixin",
+    "TACommonEventsMixin",
     "TakeoffTardisTriggerMixin",
     "TardisBottomBlockMixin",
     "TardisEntityMixin",

@@ -3,6 +3,12 @@ package com.code.aseoha.Helpers;
 import org.spongepowered.asm.mixin.Unique;
 
 public interface IHelpWithExterior {
+    boolean Aseoha$ShouldSpin();
+
+    void Aseoha$SetShouldSpin(boolean spin);
+
+    float Aseoha$SpinAmount();
+
     boolean Aseoha$GetScale();
 
     boolean Aseoha$IsSnowyVariant();

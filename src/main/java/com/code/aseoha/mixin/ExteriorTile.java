@@ -33,6 +33,9 @@ public abstract class ExteriorTile extends TileEntity implements ITickableTileEn
         super(p_i48289_1_);
     }
 
+    @Unique
+    float SpinAmount = 0;
+
     @Shadow(remap = false)
     public abstract TardisEntity createEntity();
 
@@ -124,5 +127,10 @@ public abstract class ExteriorTile extends TileEntity implements ITickableTileEn
                     tile -> tile.setEntity(ent));
             return ent;
         }
+    }
+
+    @Override
+    public float Aseoha$SpinAmount() {
+        return ++this.SpinAmount;
     }
 }

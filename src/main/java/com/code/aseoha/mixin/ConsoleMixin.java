@@ -258,26 +258,8 @@ public abstract class ConsoleMixin extends TileEntity implements ITickableTileEn
 
                         assert tardis != null;
                         if (tardis.getPassengers().isEmpty()) {
-                            PlayerEntity p = this.getPilot();
-
-                            if (Exterior != null && Exterior.getLevel() != null) {
-                                Networking.sendToClient(((ServerPlayerEntity) p), new EnterRWFPacket(this.Aseoha$GetConsole().getLevel().dimension().location()));
-
-                                Exterior.getLevel().addFreshEntity(tardis);
-                                tardis.setConsole(this.Aseoha$GetConsole());
-                                tardis.setExteriorTile(Exterior);
-                                tardis.setInvulnerable(true);
-                                tardis.setNoGravity(true);
-                                WorldHelper.teleportEntities(tardis, (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 0);
-                                this.setEntity(tardis);
-
-//                            this.relocatePlayerToExterior(p, (ServerWorld) Exterior.getLevel());
-                                WorldHelper.teleportEntities(p, (ServerWorld) Exterior.getLevel(), Exterior.getBlockPos(), 0, 0);
-//                            this.getLevel().getServer().tell(new TickDelayedTask(1, () -> p.startRiding(tardis)));
-
-                                assert this.level != null;
-                                Exterior.deleteExteriorBlocks();
-                                p.startRiding(tardis);
+                            if (tardis != null && tardis.level != null) {
+                                this.Aseoha$CleanupRide();
                             }
                         }
                     }
