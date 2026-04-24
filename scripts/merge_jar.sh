@@ -46,7 +46,7 @@ rm -f "$JAR_FILE"
 
 echo "Creating new jar file: $JAR_FILE"
 #zip -qr "$JAR_FILE" "/tmp/unzipped"
-jar --create --file=$JAR_FILE -C /tmp/unzipped .
+jar --create --file="$JAR_FILE" -C /tmp/unzipped .
 
 echo "Cleaning up temporary files"
 rm -rf "/tmp/unzipped"
