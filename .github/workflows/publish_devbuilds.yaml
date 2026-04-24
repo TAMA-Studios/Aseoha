@@ -39,6 +39,17 @@ jobs:
             mv "$f" "build/libs/${base}-b${{ github.run_number }}-${{ github.ref_name }}.jar"
           done
 
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v4
+        with:
+          packsquash_version: latest
+          options: |
+            pack_directory = './build/resources/main/'
+            output_file_path = '/tmp/pack.zip'
+
+      - name: Combine
+        run: ./scripts/merge_jar ./build/libs/ /tmp/pack.zip
+
       - name: Publish artifacts to Discord
         uses: TheDJGamerYt/discord-webhook-upload-action@v0.2.0
         with:
