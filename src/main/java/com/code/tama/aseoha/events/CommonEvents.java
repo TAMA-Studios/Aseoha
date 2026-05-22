@@ -18,6 +18,7 @@ import com.code.tama.aseoha.registries.AEntities;
 import com.code.tama.aseoha.registries.DamageTypes;
 import com.code.tama.aseoha.world.Dimensions;
 import com.code.tama.aseoha.world.TickrateSavedData;
+import net.minecraft.core.registries.Registries;
 import net.tardis.api.events.TardisEvent;
 import net.tardis.mod.block.ExteriorBlock;
 import net.tardis.mod.cap.level.ITardisLevel;
@@ -114,12 +115,11 @@ public class CommonEvents {
 
 			if (event.level.dimension() == ADimensions.MIDNIGHT) {
 				if (!(entity instanceof XtonicImmune) && entity instanceof LivingEntity livingEntity) {
-					if (!livingEntity.fireImmune()) {
-						livingEntity.setSecondsOnFire(1);
-
-						livingEntity.handleDamageEvent(
-								new DamageSource(Holder.direct(DamageTypes.XTONIC.get()), livingEntity));
-					}
+					if(!entity.fireImmune())
+						livingEntity.hurt(
+								new DamageSource(livingEntity.level().registryAccess()
+										.registryOrThrow(Registries.DAMAGE_TYPE)
+										.getHolderOrThrow(DamageTypes.XTONIC)), Integer.MAX_VALUE);
 				}
 			}
 		}));

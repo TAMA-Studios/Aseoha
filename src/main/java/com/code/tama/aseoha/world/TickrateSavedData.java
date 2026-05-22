@@ -22,7 +22,7 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 public class TickrateSavedData extends SavedData {
 	public static final String NAME = "tickrate_data";
 
-	private TimerIMPL currentTimer = new TimerIMPL(20.0F, 0L);
+	private final TimerIMPL currentTimer = new TimerIMPL(20.0F, 0L);
 
 	private final List<Pair<AABB, Float>> areas = new ArrayList<>();
 
@@ -32,8 +32,7 @@ public class TickrateSavedData extends SavedData {
 			ServerLevel serverLevel = server.getLevel(dimension);
 			if (serverLevel != null) {
 				DimensionDataStorage storage = serverLevel.getDataStorage();
-				TickrateSavedData data = storage.computeIfAbsent(TickrateSavedData::load, TickrateSavedData::new, NAME);
-				return data;
+                return storage.computeIfAbsent(TickrateSavedData::load, TickrateSavedData::new, NAME);
 			}
 		}
 		return null;
