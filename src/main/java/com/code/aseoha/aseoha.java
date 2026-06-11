@@ -8,14 +8,20 @@ import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.fabricmc.api.ModInitializer;
 
 public class aseoha implements ModInitializer {
-    public static String MOD_ID = "aseoha";
+
+    public static final String MOD_ID = "aseoha";
 
     @Override
     public void onInitialize() {
+
+        // Creative tab / item group init
         ItemGroup.aseohaGroup.initialize();
+
+        // OWO reflective registries
         FieldRegistrationHandler.register(Items.class, MOD_ID, false);
         FieldRegistrationHandler.register(Blocks.class, MOD_ID, false);
 
+        // Structures
         Structures.registerStructureFeatures();
     }
 }
