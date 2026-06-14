@@ -24,6 +24,16 @@ repositories {
 
     maven { url "https://theo.is-a.dev/maven/" }
 
+    maven {
+        url = "https://amblelabs.github.io/maven"
+
+        content {
+            includeGroup "dev.amble"
+        }
+    }
+
+
+
     exclusiveContent {
         forRepository {
             maven {

@@ -4,37 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ee901da-190c-4d52-83a2-b4f218b1a0d5" name="Changes" comment="Attempted to Update the AiT Ver Attempt 3&#10;&#10;Should work ish but Codiak or DJ double check as Caused by: java.util.ServiceConfigurationError: javax.imageio.spi.ImageReaderSpi: Provider com.twelvemonkeys.imageio.plugins.webp.WebPImageReaderSpi not found">
+    <list default="true" id="9ee901da-190c-4d52-83a2-b4f218b1a0d5" name="Changes" comment="Attempted to Update the AiT Ver Attempt 4&#10;&#10;Should work ish but Codiak or DJ double check as Caused by: Could not resolve com.github.amblelabs:amblekit:1.1.14.">
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777-client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777-client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777-common.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777-common.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.39+92a0d36777.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-transitive-access-wideners-v1-4.3.2+1802ada577.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/loom-cache/remapped_working/net_fabricmc_yarn_1_20_1_1_20_1_build_10_v2.net.fabricmc.fabric-api-fabric-transitive-access-wideners-v1-4.3.2+1802ada577.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-6.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/2026-06-11-7.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2026-06-11-7.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,20 +89,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.AseohaAIT [clean].executor": "Run",
-    "Gradle.AseohaAIT [runClient].executor": "Run",
-    "Gradle.AseohaAIT [runDatagen].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Fabric-1.20-AITv2",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alfie/IdeaProjects/Aseoha/libs"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.AseohaAIT [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AseohaAIT [runClient].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AseohaAIT [runDatagen].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Fabric-1.20-AITv2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alfie/IdeaProjects/Aseoha/libs&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alfie\IdeaProjects\Aseoha\libs" />
@@ -144,7 +119,7 @@
       <recent name="C:\Users\nitew\IdeaProjects\AseohaAIT\src\main\resources\assets\aseoha\models\item\sonic" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AseohaAIT [runClient]">
+  <component name="RunManager" selected="Gradle.AseohaAIT [clean]">
     <configuration name="AseohaAIT [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -230,8 +205,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AseohaAIT [runClient]" />
         <item itemvalue="Gradle.AseohaAIT [clean]" />
+        <item itemvalue="Gradle.AseohaAIT [runClient]" />
         <item itemvalue="Gradle.AseohaAIT [runDatagen]" />
         <item itemvalue="Gradle.AseohaAIT [runClient]" />
       </list>
