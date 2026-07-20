@@ -1,0 +1,41 @@
+#Enables/Disable Debug Mode, all this does is output a ton of potentially useful data to the console and log file
+DebugMode = false
+#How long the TARDIS should stay in flight before landing when HADS is triggered in ticks(1 second is 20 ticks, the default is 10 minutes or 12000 ticks)
+#Range: > 0
+HADSDuration = 1200
+
+[Numbers]
+	#Changes Power Drain rate of K-9, measured in seconds, 0 - 2147483647
+	#This will set how many seconds it takes to drain 1% of K9's battery, default is 25
+	#Range: > 0
+	K9PowerDrainRate = 25
+	#Sets the maximum amount of FE that the Eye Of Harmony can provide (Doesn't work don't bother)
+	#Range: > 0
+	EOHMaxFETransfer = 1000
+
+["Electric Artron Generator"]
+	#How much energy the Generator can pull in per tick to recharge.
+	"Artron Generator Charge Rate" = 3800
+	#How much energy (I.E Redstone Flux RF/Forge Energy FE) the Generator uses to make one Artron Unit.
+	"FE to AU rate" = 26000
+	#How much energy the Electric Artron Generator can store.
+	"Artron Generator Buffer" = 90000
+
+["Artron Converter"]
+	#How much energy you get from converting one Artron Unit.
+	"AU to FE rate" = 900
+	#How much energy the Artron Converter can store.
+	"Artron Converter Buffer" = 90000
+
+["Electric Artron Charger"]
+	#How many Artron Units batteries can charge per second.
+	"Artron Charger Charge Rate" = 3.8
+	#How much energy the Charger needs to create one Artron Unit.
+	"FE to AU rate" = 26000
+	#How many Artron Units the Charger can hold at one time.
+	"Artron Charger AU Buffer" = 230.0
+	#How much energy the Artron Charger can store.
+	"Artron Charger Buffer" = 90000
+	#How much energy the Charger can pull in per tick to refill itself.
+	"Artron Charger Refill Rate" = 3800
+

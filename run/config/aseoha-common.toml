@@ -1,0 +1,11 @@
+#Changes the rarity of the Power Fault, 0 - 100
+#Range: 0 ~ 100
+PowerFaultRarity = 25
+#Changes the rarity of the TARDIS Taking Over event, 0 - 100
+#Range: 0 ~ 100
+TakingOverRarity = 15
+#Enables/Disable Debug Mode, all this does is output a ton of potentially useful data to the console and log file
+DebugMode = false
+#If false, GUI's such as the monitor, telepathic circuits, and the communicator will not be openable while the console is in-flight, NOTE: This only goes for GUI's opened via console controls, it won't do anything against GUI's from blocks, I.E The monitor block/ARS egg block
+ShouldAmbientSoundsPlay = true
+

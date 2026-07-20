@@ -1,0 +1,5 @@
+
+["Client Settings"]
+	#A toggle to use the entire hotbar for rendering the control names instead of just the hand for a manual
+	useHotbarForManual = false
+

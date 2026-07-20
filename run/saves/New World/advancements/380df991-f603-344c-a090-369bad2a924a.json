@@ -1,0 +1,18 @@
+{
+  "aseoha:aseoha": {
+    "criteria": {
+      "requirement": "2026-06-20 15:13:00 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:jungle_edge": "2026-06-20 15:12:59 -0500",
+      "minecraft:desert": "2026-06-20 15:19:29 -0500",
+      "minecraft:jungle": "2026-06-20 15:19:20 -0500",
+      "minecraft:badlands": "2026-06-20 15:19:35 -0500"
+    },
+    "done": false
+  },
+  "DataVersion": 2586
+}

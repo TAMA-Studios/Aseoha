@@ -1,0 +1,5 @@
+
+["Server Settings"]
+	#The base flight speed of a TARDIS, in blocks per tick
+	baseSpeed = 10
+

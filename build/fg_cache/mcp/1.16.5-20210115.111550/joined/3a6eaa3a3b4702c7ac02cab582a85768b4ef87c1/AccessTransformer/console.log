@@ -1,0 +1,6 @@
+JVM:         /Users/alhazbean/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/bin/java
+JVM Args:    
+Run Args:    "--inJar", "/Users/alhazbean/Documents/GitHub/Aseoha/build/fg_cache/mcp/1.16.5-20210115.111550/joined/3a6eaa3a3b4702c7ac02cab582a85768b4ef87c1/mcinject/output.jar", "--outJar", "/Users/alhazbean/Documents/GitHub/Aseoha/build/fg_cache/mcp/1.16.5-20210115.111550/joined/3a6eaa3a3b4702c7ac02cab582a85768b4ef87c1/AccessTransformer/output.jar", "--atFile", "/Users/alhazbean/Documents/GitHub/Aseoha/src/main/resources/META-INF/accesstransformer.cfg", "--atFile", "/var/folders/fh/p3pc7n8n1598zz32_126184h0000gn/T/FG_ats_8782045714164362238.cfg"
+Classpath:   /Users/alhazbean/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/accesstransformers/8.0.7/accesstransformers-8.0.7-fatjar.jar
+Working Dir: /Users/alhazbean/Documents/GitHub/Aseoha/build/fg_cache/mcp/1.16.5-20210115.111550/joined/3a6eaa3a3b4702c7ac02cab582a85768b4ef87c1/AccessTransformer
+Main Class:  net.minecraftforge.accesstransformer.TransformerProcessor

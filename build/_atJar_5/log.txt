@@ -1,0 +1,7 @@
+Java Launcher: /Users/alhazbean/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/bin/java
+Arguments: '--inJar, /Users/alhazbean/Documents/GitHub/Aseoha/build/fg_cache/net/minecraftforge/forge/1.16.5-36.2.34/forge-1.16.5-36.2.34-injected.jar, --outJar, /Users/alhazbean/Documents/GitHub/Aseoha/build/fg_cache/net/minecraftforge/forge/1.16.5-36.2.34_mapped_official_1.16.5/forge-1.16.5-36.2.34_mapped_official_1.16.5.jar, --logFile, accesstransform.log, --atFile, /Users/alhazbean/Documents/GitHub/Aseoha/src/main/resources/META-INF/accesstransformer.cfg, --atFile, /Users/alhazbean/Documents/GitHub/Aseoha/build/_atJar_5/parent_at.cfg'
+Classpath:
+ - /Users/alhazbean/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/accesstransformers/8.0.7/accesstransformers-8.0.7-fatjar.jar
+Working directory: /Users/alhazbean/Documents/GitHub/Aseoha/build/_atJar_5
+Main class: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================
