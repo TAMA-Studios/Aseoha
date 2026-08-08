@@ -39,7 +39,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          ./gradlew spotlessApply --no-daemon --stacktrace
+          # ./gradlew spotlessApply --no-daemon --stacktrace
           ./gradlew build reobfJarJar --no-daemon --stacktrace
 
       - name: Rename final jar
