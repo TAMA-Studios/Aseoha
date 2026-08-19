@@ -39,6 +39,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Build! Faster!
+        run: gradlew build
+
       - name: Upload mod jar artifact
         uses: actions/upload-artifact@v4
         with:
