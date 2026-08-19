@@ -7,8 +7,6 @@ on:
     branches:
       - '1.20'
   workflow_dispatch:
-    branches:
-      - '1.20'
   pull_request:
     branches:
       - '1.20'
@@ -26,21 +24,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Cache Gradle
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: gradle-
+          cache: 'gradle' # Replaces manual actions/cache@v4 step
 
       - name: Make gradlew executable
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
 
       - name: Build! Faster!
-        run: gradlew build
+        run: ./gradlew build
 
       - name: Upload mod jar artifact
         uses: actions/upload-artifact@v4
@@ -52,6 +42,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: [ build-mod-jar ]
+    if: startsWith(github.ref, 'refs/tags/') # Only run release job on tag pushes
 
     permissions:
       contents: write
@@ -59,6 +50,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history & tags so prev_tag calculation works
 
       - name: Download mod jar
         uses: actions/download-artifact@v4
@@ -73,8 +66,6 @@ jobs:
       - name: Get previous tag
         id: prev_tag
         run: |
-          # Fetch all tags, sort by version, grab the one before the current tag
-          git fetch --tags
           PREV=$(git tag --sort=-version:refname | grep -v "^${{ steps.tag.outputs.TAG }}$" | head -n 1)
           echo "PREV_TAG=$PREV" >> $GITHUB_OUTPUT
 
@@ -96,7 +87,7 @@ jobs:
 
             **Full Changelog**: https://github.com/TAMA-Studios/aseoha/compare/${{ steps.prev_tag.outputs.PREV_TAG }}...${{ steps.tag.outputs.TAG }}
 
-          files: ${{ env.JAR_PATH }}
+          files: release/*.jar # Fixed missing JAR_PATH reference
           draft: false
           prerelease: ${{ contains(steps.tag.outputs.TAG, '-') }}
         env:
