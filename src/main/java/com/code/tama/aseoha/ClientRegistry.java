@@ -27,6 +27,7 @@ import com.code.tama.aseoha.tileEntities.WhirlygigTile;
 import net.tardis.mod.client.ModelHolder;
 import net.tardis.mod.client.models.exteriors.interior_door.TTCapsuleInteriorDoorModel;
 import net.tardis.mod.client.renderers.SpecialItemRenderer;
+import net.tardis.mod.client.renderers.exteriors.TTCapsuleExteriorRenderer;
 import net.tardis.mod.client.renderers.tiles.BrokenExteriorRenderer;
 import net.tardis.mod.client.renderers.tiles.ChameleonInteriorDoorRenderer;
 import net.tardis.mod.client.renderers.tiles.InteriorDoorRender;
@@ -158,23 +159,29 @@ public class ClientRegistry {
 	}
 
 	public static void registerDoors() {
+
 		ChameleonInteriorDoorRenderer.registerChameleonDoor(ExteriorRegistry.RTD_9_EXTERIOR.get(),
-				new InteriorDoorRender<>(Helper.createRL("textures/tiles/interiordoor/ttcapsule.png"),
+				new InteriorDoorRender<>(TTCapsuleExteriorRenderer.DEFAULT_TEXTURE,
+						(context) -> new TTCapsuleInteriorDoorModel<>(
+								context.bakeLayer(TTCapsuleInteriorDoorModel.LAYER_LOCATION))));
+
+		ChameleonInteriorDoorRenderer.registerChameleonDoor(ExteriorRegistry.DELOREAN_TIME_MACHINE.get(),
+				new InteriorDoorRender<>(TTCapsuleExteriorRenderer.DEFAULT_TEXTURE,
 						(context) -> new TTCapsuleInteriorDoorModel<>(
 								context.bakeLayer(TTCapsuleInteriorDoorModel.LAYER_LOCATION))));
 
 		ChameleonInteriorDoorRenderer.registerChameleonDoor(ExteriorRegistry.CAPALDI_EXTERIOR.get(),
-				new InteriorDoorRender<>(Helper.createRL("textures/tiles/interiordoor/ttcapsule.png"),
+				new InteriorDoorRender<>(TTCapsuleExteriorRenderer.DEFAULT_TEXTURE,
 						(context) -> new TTCapsuleInteriorDoorModel<>(
 								context.bakeLayer(TTCapsuleInteriorDoorModel.LAYER_LOCATION))));
 
 		ChameleonInteriorDoorRenderer.registerChameleonDoor(ExteriorRegistry.HARTNELL112_EXTERIOR.get(),
-				new InteriorDoorRender<>(Helper.createRL("textures/tiles/interiordoor/ttcapsule.png"),
+				new InteriorDoorRender<>(TTCapsuleExteriorRenderer.DEFAULT_TEXTURE,
 						(context) -> new TTCapsuleInteriorDoorModel<>(
 								context.bakeLayer(TTCapsuleInteriorDoorModel.LAYER_LOCATION))));
 
 		ChameleonInteriorDoorRenderer.registerChameleonDoor(ExteriorRegistry.WARDROBE_EXTERIOR.get(),
-				new InteriorDoorRender<>(Helper.createRL("textures/tiles/interiordoor/ttcapsule.png"),
+				new InteriorDoorRender<>(TTCapsuleExteriorRenderer.DEFAULT_TEXTURE,
 						(context) -> new TTCapsuleInteriorDoorModel<>(
 								context.bakeLayer(TTCapsuleInteriorDoorModel.LAYER_LOCATION))));
 	}

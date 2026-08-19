@@ -56,7 +56,7 @@ public class DalekEntity extends Monster {
 	private boolean clientSideTouchedGround;
 	@Nullable protected RandomStrollGoal randomStrollGoal;
 
-	public DalekEntity(EntityType<? extends Guardian> p_32810_, Level p_32811_) {
+	public DalekEntity(EntityType<? extends DalekEntity> p_32810_, Level p_32811_) {
 		super(p_32810_, p_32811_);
 		this.xpReward = 10;
 		this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
@@ -432,37 +432,37 @@ public class DalekEntity extends Monster {
 	}
 
 	static class GuardianMoveControl extends MoveControl {
-		private final DalekEntity guardian;
+		private final DalekEntity dalek;
 
 		public GuardianMoveControl(DalekEntity p_32886_) {
 			super(p_32886_);
-			this.guardian = p_32886_;
+			this.dalek = p_32886_;
 		}
 
 		public void tick() {
-			if (this.operation == MoveControl.Operation.MOVE_TO && !this.guardian.getNavigation().isDone()) {
-				Vec3 vec3 = new Vec3(this.wantedX - this.guardian.getX(), this.wantedY - this.guardian.getY(),
-						this.wantedZ - this.guardian.getZ());
+			if (this.operation == MoveControl.Operation.MOVE_TO && !this.dalek.getNavigation().isDone()) {
+				Vec3 vec3 = new Vec3(this.wantedX - this.dalek.getX(), this.wantedY - this.dalek.getY(),
+						this.wantedZ - this.dalek.getZ());
 				double d0 = vec3.length();
 				double d1 = vec3.x / d0;
 				double d2 = vec3.y / d0;
 				double d3 = vec3.z / d0;
 				float f = (float) (Mth.atan2(vec3.z, vec3.x) * (double) (180F / (float) Math.PI)) - 90.0F;
-				this.guardian.setYRot(this.rotlerp(this.guardian.getYRot(), f, 90.0F));
-				this.guardian.yBodyRot = this.guardian.getYRot();
-				float f1 = (float) (this.speedModifier * this.guardian.getAttributeValue(Attributes.MOVEMENT_SPEED));
-				float f2 = Mth.lerp(0.125F, this.guardian.getSpeed(), f1);
-				this.guardian.setSpeed(f2);
-				double d4 = Math.sin((double) (this.guardian.tickCount + this.guardian.getId()) * 0.5D) * 0.05D;
-				double d5 = Math.cos((double) (this.guardian.getYRot() * ((float) Math.PI / 180F)));
-				double d6 = Math.sin((double) (this.guardian.getYRot() * ((float) Math.PI / 180F)));
-				double d7 = Math.sin((double) (this.guardian.tickCount + this.guardian.getId()) * 0.75D) * 0.05D;
-				this.guardian.setDeltaMovement(this.guardian.getDeltaMovement().add(d4 * d5,
+				this.dalek.setYRot(this.rotlerp(this.dalek.getYRot(), f, 90.0F));
+				this.dalek.yBodyRot = this.dalek.getYRot();
+				float f1 = (float) (this.speedModifier * this.dalek.getAttributeValue(Attributes.MOVEMENT_SPEED));
+				float f2 = Mth.lerp(0.125F, this.dalek.getSpeed(), f1);
+				this.dalek.setSpeed(f2);
+				double d4 = Math.sin((double) (this.dalek.tickCount + this.dalek.getId()) * 0.5D) * 0.05D;
+				double d5 = Math.cos((double) (this.dalek.getYRot() * ((float) Math.PI / 180F)));
+				double d6 = Math.sin((double) (this.dalek.getYRot() * ((float) Math.PI / 180F)));
+				double d7 = Math.sin((double) (this.dalek.tickCount + this.dalek.getId()) * 0.75D) * 0.05D;
+				this.dalek.setDeltaMovement(this.dalek.getDeltaMovement().add(d4 * d5,
 						d7 * (d6 + d5) * 0.25D + (double) f2 * d2 * 0.1D, d4 * d6));
-				LookControl lookcontrol = this.guardian.getLookControl();
-				double d8 = this.guardian.getX() + d1 * 2.0D;
-				double d9 = this.guardian.getEyeY() + d2 / d0;
-				double d10 = this.guardian.getZ() + d3 * 2.0D;
+				LookControl lookcontrol = this.dalek.getLookControl();
+				double d8 = this.dalek.getX() + d1 * 2.0D;
+				double d9 = this.dalek.getEyeY() + d2 / d0;
+				double d10 = this.dalek.getZ() + d3 * 2.0D;
 				double d11 = lookcontrol.getWantedX();
 				double d12 = lookcontrol.getWantedY();
 				double d13 = lookcontrol.getWantedZ();
@@ -472,12 +472,12 @@ public class DalekEntity extends Monster {
 					d13 = d10;
 				}
 
-				this.guardian.getLookControl().setLookAt(Mth.lerp(0.125D, d11, d8), Mth.lerp(0.125D, d12, d9),
+				this.dalek.getLookControl().setLookAt(Mth.lerp(0.125D, d11, d8), Mth.lerp(0.125D, d12, d9),
 						Mth.lerp(0.125D, d13, d10), 10.0F, 40.0F);
-				this.guardian.setMoving(true);
+				this.dalek.setMoving(true);
 			} else {
-				this.guardian.setSpeed(0.0F);
-				this.guardian.setMoving(false);
+				this.dalek.setSpeed(0.0F);
+				this.dalek.setMoving(false);
 			}
 		}
 	}

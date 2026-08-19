@@ -56,11 +56,8 @@ import com.code.tama.triggerapi.universal.UniversalServerOnly;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
-	@SubscribeEvent
-	public static void RegisterAttributesEvent(EntityAttributeCreationEvent event) {
-		event.put(AEntities.K9.get(), K9Entity.createAttributes().build());
-		event.put(AEntities.WALLE.get(), K9Entity.createAttributes().build());
-	}
+
+
 	@SubscribeEvent
 	public static void chatEvent(ServerChatEvent event) {
 		if (event.getMessage().getString().contains("k9")) {

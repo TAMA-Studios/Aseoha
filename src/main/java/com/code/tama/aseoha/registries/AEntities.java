@@ -1,6 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.registries;
 
+import com.code.tama.aseoha.entities.DalekEntity;
 import com.code.tama.aseoha.entities.K9Entity;
 import net.tardis.mod.entity.CarExteriorEntity;
 
@@ -22,6 +23,9 @@ public class AEntities {
 
 	public static final RegistryObject<EntityType<K9Entity>> K9 = TYPES.register("k9",
 			() -> EntityType.Builder.of(K9Entity::new, MobCategory.MISC).sized(0.5f, 0.5f).build(aseoha.MODID));
+
+	public static final RegistryObject<EntityType<DalekEntity>> DALEK = TYPES.register("dalek",
+			() -> EntityType.Builder.of(DalekEntity::new, MobCategory.MISC).sized(1, 2).build(aseoha.MODID));
 
 	public static final RegistryObject<EntityType<K9Entity>> WALLE = TYPES.register("walle",
 			() -> EntityType.Builder.of(K9Entity::new, MobCategory.MISC).sized(0.5f, 0.5f).build(aseoha.MODID));
