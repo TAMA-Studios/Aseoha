@@ -3,6 +3,7 @@ package com.code.tama.aseoha.client.Models.Consoles.ported; // Made with Blockbe
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
+import com.code.tama.aseoha.AseohaMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.blockentities.consoles.ConsoleTile;
@@ -28,14 +29,12 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-import com.code.tama.aseoha.aseoha;
-
 public class ToyotaConsoleModel<T extends ConsoleTile> extends BaseTileHierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "toyotaconsolemodel"), "main");
+			new ResourceLocation(AseohaMod.MODID, "toyotaconsolemodel"), "main");
 	private final ModelPart base_console;
 	private final ModelPart centre_column;
 	private final ModelPart rotorbeam_glow;
@@ -2359,7 +2358,7 @@ public class ToyotaConsoleModel<T extends ConsoleTile> extends BaseTileHierarchi
 			final ControlDataFloat throttle = tardis.getControlDataOrCreate(ControlRegistry.THROTTLE.get());
 			final ControlDataBool handbrake = tardis.getControlDataOrCreate(ControlRegistry.HANDBRAKE.get());
 			final ControlDataBool light = tardis
-					.getControlDataOrCreate(com.code.tama.aseoha.registries.ControlRegistry.LIGHT_SWITCH.get());
+					.getControlDataOrCreate(com.code.tama.aseoha.common.registries.ControlRegistry.LIGHT_SWITCH.get());
 			final ControlDataNone door = (ControlDataNone) tardis.getControlDataOrCreate(ControlRegistry.DOOR.get());
 			boolean doorBool = tardis.getInteriorManager().getDoorHandler().getDoorState().isOpen();
 

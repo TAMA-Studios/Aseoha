@@ -14,7 +14,7 @@ import io.netty.buffer.Unpooled;
 
 import net.minecraft.network.FriendlyByteBuf;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 /**
  * A DynamicOps implementation for serializing/deserializing via
@@ -316,13 +316,13 @@ public class FriendlyByteBufOps implements DynamicOps<FriendlyByteBuf> {
 
 			// The code here was correct for passing the wrapped buffer to the Codec.
 			return codec.parse(FriendlyByteBufOps.INSTANCE, temp)
-					.resultOrPartial(err -> aseoha.LOGGER.error("Codec parse error: {}", err)).orElseThrow();
+					.resultOrPartial(err -> AseohaMod.LOGGER.error("Codec parse error: {}", err)).orElseThrow();
 		}
 
 		// Encoding
 		public static <T> void writeWithCodec(FriendlyByteBuf buf, Codec<T> codec, T value) {
 			FriendlyByteBuf temp = codec.encodeStart(FriendlyByteBufOps.INSTANCE, value)
-					.resultOrPartial(aseoha.LOGGER::error).orElseThrow();
+					.resultOrPartial(AseohaMod.LOGGER::error).orElseThrow();
 
 			// The code here was correct for reading the final encoded bytes.
 			byte[] data = new byte[temp.readableBytes()];

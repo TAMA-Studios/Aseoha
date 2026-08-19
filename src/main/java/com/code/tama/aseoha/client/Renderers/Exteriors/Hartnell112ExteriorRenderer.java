@@ -13,14 +13,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class Hartnell112ExteriorRenderer<T extends ExteriorTile, M extends BaseTileHierarchicalModel<T> & IExteriorModel<T>>
 		extends
 			ExteriorRenderer<T, M> {
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID,
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID,
 			"textures/exteriors/convert/hartnell.png");
 
 	public Hartnell112ExteriorRenderer(BlockEntityRendererProvider.Context context) {

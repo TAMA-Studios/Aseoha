@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.client.Models;
 
-import com.code.tama.aseoha.tileEntities.WhirlygigTile;
+import com.code.tama.aseoha.common.tileEntities.WhirlygigTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -19,7 +19,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 public class WhirlygigModel<T extends WhirlygigTile> extends BaseTileHierarchicalModel<WhirlygigTile>
 		implements
@@ -28,7 +28,7 @@ public class WhirlygigModel<T extends WhirlygigTile> extends BaseTileHierarchica
 	// the entity renderer and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "whirlygigmodel"), "main");
+			new ResourceLocation(AseohaMod.MODID, "whirlygigmodel"), "main");
 	private final ModelPart first_rotor;
 	private final ModelPart bone627;
 	private final ModelPart bone628;

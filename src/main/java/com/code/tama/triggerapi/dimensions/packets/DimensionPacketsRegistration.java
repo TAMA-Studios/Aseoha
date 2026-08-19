@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2026 */
 package com.code.tama.triggerapi.dimensions.packets;
 
-import com.code.tama.aseoha.networking.Networking;
+import com.code.tama.aseoha.common.networking.Networking;
 
 import com.code.tama.triggerapi.dimensions.packets.s2c.SyncDimensionsS2C;
 import com.code.tama.triggerapi.dimensions.packets.s2c.UpdateDimensionsS2C;

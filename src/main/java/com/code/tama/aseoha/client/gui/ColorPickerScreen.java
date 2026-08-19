@@ -12,11 +12,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class ColorPickerScreen extends Screen {
-	private static final ResourceLocation COLOR_WHEEL = new ResourceLocation(aseoha.MODID,
+	private static final ResourceLocation COLOR_WHEEL = new ResourceLocation(AseohaMod.MODID,
 			"textures/gui/color_wheel.png");// "textures/gui/color_wheel.png");
 
 	private int wheelX, wheelY, wheelSize;

@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.client.Models.Consoles;
 
-import com.code.tama.aseoha.tileEntities.Console.TokamakConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.Console.TokamakConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.client.models.BaseTileHierarchicalModel;

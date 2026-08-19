@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import static com.code.tama.aseoha.aseoha.EntityTickRateLimit;
+import static com.code.tama.aseoha.AseohaMod.EntityTickRateLimit;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-import com.code.tama.aseoha.misc.IHelpWithTime;
-import com.code.tama.aseoha.misc.TickrateManager;
-import com.code.tama.aseoha.misc.TimerIMPL;
+import com.code.tama.aseoha.common.misc.IHelpWithTime;
+import com.code.tama.aseoha.common.misc.TickrateManager;
+import com.code.tama.aseoha.common.misc.TimerIMPL;
 import com.google.common.collect.EvictingQueue;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.vertex.VertexConsumer;

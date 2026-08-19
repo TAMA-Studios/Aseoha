@@ -2,7 +2,7 @@
 package com.code.tama.aseoha.client.Renderers.Consoles;
 
 import com.code.tama.aseoha.client.Models.Consoles.ported.CoralConsoleModel;
-import com.code.tama.aseoha.tileEntities.Console.CoralConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.Console.CoralConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.tardis.mod.blockentities.BaseMonitorTile;
 import net.tardis.mod.cap.level.ITardisLevel;

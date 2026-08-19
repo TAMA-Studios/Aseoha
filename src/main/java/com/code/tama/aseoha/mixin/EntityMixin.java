@@ -1,9 +1,9 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin;
 
-import com.code.tama.aseoha.capabilities.Capabilities;
-import com.code.tama.aseoha.capabilities.Interfaces.ITickrateCapability;
-import com.code.tama.aseoha.misc.TickrateManager;
+import com.code.tama.aseoha.server.capabilities.Capabilities;
+import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
+import com.code.tama.aseoha.common.misc.TickrateManager;
 import org.apache.commons.lang3.tuple.Pair;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

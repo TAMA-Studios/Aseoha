@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin;
 
-import com.code.tama.aseoha.events.ControlEvent;
+import com.code.tama.aseoha.common.events.custom.ControlEvent;
 import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.control.Control;
 import net.tardis.mod.control.ControlType;

@@ -1,10 +1,9 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha;
 
-import static com.code.tama.aseoha.aseoha.MODID;
-import static com.code.tama.aseoha.registries.ATabs.*;
+import static com.code.tama.aseoha.AseohaMod.MODID;
 
-import com.code.tama.aseoha.blocks.ABlocks;
+import com.code.tama.aseoha.common.blocks.ABlocks;
 import com.code.tama.aseoha.client.Keybinds;
 import com.code.tama.aseoha.client.Models.Armor.MondasCybermanArmorModel;
 import com.code.tama.aseoha.client.Models.Consoles.*;
@@ -17,13 +16,13 @@ import com.code.tama.aseoha.client.Models.WhirlygigModel;
 import com.code.tama.aseoha.client.Renderers.BaseTileRenderer;
 import com.code.tama.aseoha.client.Renderers.Consoles.*;
 import com.code.tama.aseoha.client.Renderers.Exteriors.*;
-import com.code.tama.aseoha.registries.AEntities;
-import com.code.tama.aseoha.registries.AItems;
-import com.code.tama.aseoha.tileEntities.Console.BaseConsoleTile;
-import com.code.tama.aseoha.tileEntities.ConsoleBlocks;
-import com.code.tama.aseoha.tileEntities.ExteriorRegistry;
-import com.code.tama.aseoha.tileEntities.TileRegistry;
-import com.code.tama.aseoha.tileEntities.WhirlygigTile;
+import com.code.tama.aseoha.common.registries.AEntities;
+import com.code.tama.aseoha.common.registries.AItems;
+import com.code.tama.aseoha.common.tileEntities.Console.BaseConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.ConsoleBlocks;
+import com.code.tama.aseoha.common.tileEntities.ExteriorRegistry;
+import com.code.tama.aseoha.common.tileEntities.TileRegistry;
+import com.code.tama.aseoha.common.tileEntities.WhirlygigTile;
 import net.tardis.mod.client.ModelHolder;
 import net.tardis.mod.client.models.exteriors.interior_door.TTCapsuleInteriorDoorModel;
 import net.tardis.mod.client.renderers.SpecialItemRenderer;
@@ -31,7 +30,6 @@ import net.tardis.mod.client.renderers.exteriors.TTCapsuleExteriorRenderer;
 import net.tardis.mod.client.renderers.tiles.BrokenExteriorRenderer;
 import net.tardis.mod.client.renderers.tiles.ChameleonInteriorDoorRenderer;
 import net.tardis.mod.client.renderers.tiles.InteriorDoorRender;
-import net.tardis.mod.helpers.Helper;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.client.Minecraft;

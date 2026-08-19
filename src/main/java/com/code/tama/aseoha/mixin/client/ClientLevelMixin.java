@@ -1,14 +1,14 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import static com.code.tama.aseoha.aseoha.EntityTickRateLimit;
+import static com.code.tama.aseoha.AseohaMod.EntityTickRateLimit;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import com.code.tama.aseoha.misc.IHelpWithTime;
-import com.code.tama.aseoha.misc.TickrateManager;
-import com.code.tama.aseoha.misc.TimerIMPL;
+import com.code.tama.aseoha.common.misc.IHelpWithTime;
+import com.code.tama.aseoha.common.misc.TickrateManager;
+import com.code.tama.aseoha.common.misc.TimerIMPL;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;

@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.triggerapi.JavaInJSON;
 
-import static com.code.tama.aseoha.aseoha.LOGGER;
+import static com.code.tama.aseoha.AseohaMod.LOGGER;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

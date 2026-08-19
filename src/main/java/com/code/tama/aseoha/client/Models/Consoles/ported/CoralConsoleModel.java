@@ -5,7 +5,7 @@ package com.code.tama.aseoha.client.Models.Consoles.ported; // Made with Blockbe
 
 import java.util.Optional;
 
-import com.code.tama.aseoha.tileEntities.Console.CoralConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.Console.CoralConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.cap.Capabilities;

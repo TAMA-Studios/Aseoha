@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import com.code.tama.aseoha.misc.HalfBOTI;
+import com.code.tama.aseoha.common.misc.HalfBOTI;
 import com.mojang.blaze3d.vertex.*;
 import net.tardis.mod.blockentities.InteriorDoorTile;
 import net.tardis.mod.cap.level.ITardisLevel;

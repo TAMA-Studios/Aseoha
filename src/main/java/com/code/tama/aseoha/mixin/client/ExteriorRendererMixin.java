@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import com.code.tama.aseoha.misc.IHelpWithMatterStateHandlers;
+import com.code.tama.aseoha.common.misc.IHelpWithMatterStateHandlers;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.tardis.mod.client.animations.demat.DematAnimation;

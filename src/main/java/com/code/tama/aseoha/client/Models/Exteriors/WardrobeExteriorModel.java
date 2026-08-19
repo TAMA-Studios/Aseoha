@@ -18,7 +18,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class WardrobeExteriorModel<T extends ExteriorTile> extends BaseTileHierarchicalModel<T>
@@ -29,7 +29,7 @@ public class WardrobeExteriorModel<T extends ExteriorTile> extends BaseTileHiera
 	// and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "wardrobeexteriormodel"), "main");
+			new ResourceLocation(AseohaMod.MODID, "wardrobeexteriormodel"), "main");
 	private final ModelPart Shell;
 	private final ModelPart BOTI;
 	private final ModelPart Clothes;

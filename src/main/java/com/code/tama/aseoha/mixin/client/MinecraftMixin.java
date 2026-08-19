@@ -3,8 +3,8 @@ package com.code.tama.aseoha.mixin.client;
 
 import javax.annotation.Nullable;
 
-import com.code.tama.aseoha.misc.IHelpWithTime;
-import com.code.tama.aseoha.misc.TickrateManager;
+import com.code.tama.aseoha.common.misc.IHelpWithTime;
+import com.code.tama.aseoha.common.misc.TickrateManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

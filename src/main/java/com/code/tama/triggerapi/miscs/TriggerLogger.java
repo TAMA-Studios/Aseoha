@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.triggerapi.miscs;
 
-import static com.code.tama.aseoha.aseoha.MODID;
+import static com.code.tama.aseoha.AseohaMod.MODID;
 
 import java.io.BufferedWriter;
 import java.io.File;

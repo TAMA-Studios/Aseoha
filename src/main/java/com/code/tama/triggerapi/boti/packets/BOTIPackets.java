@@ -3,7 +3,7 @@ package com.code.tama.triggerapi.boti.packets;
 
 import java.util.Optional;
 
-import com.code.tama.aseoha.networking.Networking;
+import com.code.tama.aseoha.common.networking.Networking;
 
 import net.minecraftforge.network.NetworkDirection;
 

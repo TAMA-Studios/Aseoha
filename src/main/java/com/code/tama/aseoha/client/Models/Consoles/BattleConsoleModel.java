@@ -4,7 +4,7 @@ package com.code.tama.aseoha.client.Models.Consoles;
 import java.util.Optional;
 
 import com.code.tama.aseoha.client.animations.BattleConsoleAnimations;
-import com.code.tama.aseoha.misc.IHelpWithConsole;
+import com.code.tama.aseoha.common.misc.IHelpWithConsole;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.blockentities.consoles.ConsoleTile;

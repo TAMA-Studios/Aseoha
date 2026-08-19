@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin;
 
-import com.code.tama.aseoha.misc.IHelpWithMatterStateHandlers;
+import com.code.tama.aseoha.common.misc.IHelpWithMatterStateHandlers;
 import net.tardis.mod.misc.MatterStateHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

@@ -4,12 +4,13 @@ package com.code.tama.triggerapi;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.code.tama.aseoha.blocks.ABlocks;
-import com.code.tama.aseoha.registries.AEntities;
-import com.code.tama.aseoha.registries.AItems;
-import com.code.tama.aseoha.registries.ControlRegistry;
-import com.code.tama.aseoha.registries.FlightEventRegistry;
-import com.code.tama.aseoha.tileEntities.ExteriorRegistry;
+import com.code.tama.aseoha.AseohaMod;
+import com.code.tama.aseoha.common.blocks.ABlocks;
+import com.code.tama.aseoha.common.registries.AEntities;
+import com.code.tama.aseoha.common.registries.AItems;
+import com.code.tama.aseoha.common.registries.ControlRegistry;
+import com.code.tama.aseoha.common.registries.FlightEventRegistry;
+import com.code.tama.aseoha.common.tileEntities.ExteriorRegistry;
 import net.tardis.mod.Constants;
 
 import net.minecraft.client.resources.language.I18n;
@@ -17,8 +18,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.loading.FMLLoader;
-
-import com.code.tama.aseoha.aseoha;
 
 /**
  * This is for functions related to string manipulation
@@ -89,7 +88,7 @@ public class GrammarNazi {
 	 * @return The ID of a Block
 	 */
 	public static String IDFromBlock(Block block) {
-		return block.toString().replaceAll(aseoha.MODID + ":", "").replaceAll("minecraft:", "").replace("{", "")
+		return block.toString().replaceAll(AseohaMod.MODID + ":", "").replaceAll("minecraft:", "").replace("{", "")
 				.replace("}", "").replace(":", "").toLowerCase().substring(5);
 	}
 
@@ -182,8 +181,8 @@ public class GrammarNazi {
 		});
 
 		if (!MissingTranslations.isEmpty()) {
-			aseoha.LOGGER.error("Missing translations!");
-			MissingTranslations.forEach(aseoha.LOGGER::error);
+			AseohaMod.LOGGER.error("Missing translations!");
+			MissingTranslations.forEach(AseohaMod.LOGGER::error);
 
 //			throw new RuntimeException();
 		}

@@ -11,11 +11,11 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 public class K9Screen extends Screen {
 	public static final Component TITLE = Component.translatable("gui.k9.title");
-	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/gui/monitors/k9.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID, "textures/gui/monitors/k9.png");
 	private static final int cWidth = 256;
 	private static final int cHeight = 256;
 
@@ -29,7 +29,7 @@ public class K9Screen extends Screen {
 		this.children().clear();
 
 		assert this.minecraft != null;
-		aseoha.LOGGER.info("w={}, h={}", width, height);
+		AseohaMod.LOGGER.info("w={}, h={}", width, height);
 		// this.minecraft.font.getClass();
 		PlainTextButton button = new PlainTextButton(width, height, 20, 20, TITLE, (button1) -> {
 			assert Minecraft.getInstance().player != null;

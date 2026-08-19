@@ -19,7 +19,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class RTD9ExteriorModel<T extends ExteriorTile> extends BaseTileHierarchicalModel<T>
@@ -30,7 +30,7 @@ public class RTD9ExteriorModel<T extends ExteriorTile> extends BaseTileHierarchi
 	// and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "rtd9exteriormodel"), "main");
+			new ResourceLocation(AseohaMod.MODID, "rtd9exteriormodel"), "main");
 	private final ModelPart Shell;
 	private final ModelPart bone4;
 	private final ModelPart bone5;

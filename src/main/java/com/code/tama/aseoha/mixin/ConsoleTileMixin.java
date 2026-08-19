@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin;
 
-import com.code.tama.aseoha.misc.IHelpWithConsole;
+import com.code.tama.aseoha.common.misc.IHelpWithConsole;
 import lombok.Getter;
 import net.tardis.mod.blockentities.consoles.ConsoleTile;
 import net.tardis.mod.cap.level.ITardisLevel;

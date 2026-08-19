@@ -3,7 +3,7 @@ package com.code.tama.aseoha.client.Models.Consoles;
 
 import java.util.Optional;
 
-import com.code.tama.aseoha.tileEntities.Console.BrackolinConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.Console.BrackolinConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.cap.Capabilities;
@@ -30,7 +30,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 public class BrackolinConsoleModel<T extends BrackolinConsoleTile> extends BaseTileHierarchicalModel<T>
 		implements
@@ -40,7 +40,7 @@ public class BrackolinConsoleModel<T extends BrackolinConsoleTile> extends BaseT
 	// and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "brackolin"), "main");
+			new ResourceLocation(AseohaMod.MODID, "brackolin"), "main");
 	private final ModelPart Console;
 	private final ModelPart BaseConsole;
 	private final ModelPart Feet;

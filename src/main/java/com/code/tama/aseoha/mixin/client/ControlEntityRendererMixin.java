@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import com.code.tama.aseoha.controls.CollisionControl;
+import com.code.tama.aseoha.common.tardis.controls.CollisionControl;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.tardis.mod.client.renderers.RendererControl;
 import net.tardis.mod.control.ControlType;

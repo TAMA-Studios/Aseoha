@@ -18,13 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class DeLoreanExteriorRenderer<T extends CarExteriorEntity, M extends HierarchicalModel<T>>
 		extends
 			EntityRenderer<T> {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(aseoha.MODID, "textures/entity/delorean.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID, "textures/entity/delorean.png");
 	private final M model;
 
 	public DeLoreanExteriorRenderer(EntityRendererProvider.Context pContext, M model) {

@@ -1,8 +1,8 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.mixin.client;
 
-import com.code.tama.aseoha.misc.TickrateManager;
-import com.code.tama.aseoha.misc.TimerIMPL;
+import com.code.tama.aseoha.common.misc.TickrateManager;
+import com.code.tama.aseoha.common.misc.TimerIMPL;
 import com.mojang.blaze3d.vertex.PoseStack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

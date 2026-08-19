@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import com.code.tama.aseoha.aseoha;
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class DeLoreanExteriorModel<T extends CarExteriorEntity> extends HierarchicalModel<T> {
@@ -26,7 +26,7 @@ public class DeLoreanExteriorModel<T extends CarExteriorEntity> extends Hierarch
 	// and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "delorean"), "main");
+			new ResourceLocation(AseohaMod.MODID, "delorean"), "main");
 	private final ModelPart root;
 	private final ModelPart LicensePlatePart1;
 	private final ModelPart BTTFPartIII;

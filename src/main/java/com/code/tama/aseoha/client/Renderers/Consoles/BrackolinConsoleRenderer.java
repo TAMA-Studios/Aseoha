@@ -2,7 +2,7 @@
 package com.code.tama.aseoha.client.Renderers.Consoles;
 
 import com.code.tama.aseoha.client.Models.Consoles.BrackolinConsoleModel;
-import com.code.tama.aseoha.tileEntities.Console.BrackolinConsoleTile;
+import com.code.tama.aseoha.common.tileEntities.Console.BrackolinConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.tardis.mod.blockentities.BaseMonitorTile;

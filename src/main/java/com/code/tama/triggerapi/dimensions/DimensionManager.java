@@ -1,7 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.triggerapi.dimensions;
 
-import static com.code.tama.aseoha.aseoha.MODID;
+import static com.code.tama.aseoha.AseohaMod.MODID;
 
 import java.util.*;
 import java.util.concurrent.Executor;
@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
-import com.code.tama.aseoha.networking.Networking;
+import com.code.tama.aseoha.common.networking.Networking;
 import com.google.common.collect.Lists;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableSet;
 import com.mojang.serialization.DynamicOps;

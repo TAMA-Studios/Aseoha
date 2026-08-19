@@ -3,7 +3,8 @@ package com.code.tama.aseoha.client.Models.Consoles;
 
 import java.util.Optional;
 
-import com.code.tama.aseoha.tileEntities.Console.CopperConsoleTile;
+import com.code.tama.aseoha.AseohaMod;
+import com.code.tama.aseoha.common.tileEntities.Console.CopperConsoleTile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.tardis.mod.cap.Capabilities;
@@ -30,8 +31,6 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-import com.code.tama.aseoha.aseoha;
-
 public class CopperConsoleModel<T extends CopperConsoleTile> extends BaseTileHierarchicalModel<T>
 		implements
 			IAdditionalConsoleRenderData {
@@ -40,7 +39,7 @@ public class CopperConsoleModel<T extends CopperConsoleTile> extends BaseTileHie
 	// and passed into
 	// this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation(aseoha.MODID, "copperconsolemodel"), "main");
+			new ResourceLocation(AseohaMod.MODID, "copperconsolemodel"), "main");
 
 	private final ModelPart base;
 	private final ModelPart side;

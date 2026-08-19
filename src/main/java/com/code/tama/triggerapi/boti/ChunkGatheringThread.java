@@ -4,7 +4,7 @@ package com.code.tama.triggerapi.boti;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.code.tama.aseoha.networking.Networking;
+import com.code.tama.aseoha.common.networking.Networking;
 import lombok.AllArgsConstructor;
 
 import net.minecraft.core.BlockPos;
