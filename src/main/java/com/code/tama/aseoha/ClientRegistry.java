@@ -324,6 +324,7 @@ public class ClientRegistry {
 	@SubscribeEvent
 	public static void registerKeymaps(RegisterKeyMappingsEvent event) {
 		event.register(Keybinds.REMOTE_TARDIS_GUI);
+		event.register(Keybinds.THANOS);
 		event.register(Keybinds.PICKER);
 	}
 }

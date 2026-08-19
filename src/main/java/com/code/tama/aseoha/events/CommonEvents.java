@@ -11,6 +11,7 @@ import com.code.tama.aseoha.entities.K9Entity;
 import com.code.tama.aseoha.misc.TickrateManager;
 import com.code.tama.aseoha.misc.XtonicImmune;
 import com.code.tama.aseoha.networking.Networking;
+import com.code.tama.aseoha.networking.c2s.SnapPacket;
 import com.code.tama.aseoha.networking.s2c.UpdateAreaTickratePacket;
 import com.code.tama.aseoha.networking.s2c.UpdateDimensionTickratePacket;
 import com.code.tama.aseoha.registries.ADimensions;
@@ -18,7 +19,6 @@ import com.code.tama.aseoha.registries.AEntities;
 import com.code.tama.aseoha.registries.DamageTypes;
 import com.code.tama.aseoha.world.Dimensions;
 import com.code.tama.aseoha.world.TickrateSavedData;
-import net.minecraft.core.registries.Registries;
 import net.tardis.api.events.TardisEvent;
 import net.tardis.mod.block.ExteriorBlock;
 import net.tardis.mod.cap.level.ITardisLevel;
@@ -32,7 +32,7 @@ import net.tardis.mod.upgrade.tardis.BaseTardisUpgrade;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -115,11 +115,11 @@ public class CommonEvents {
 
 			if (event.level.dimension() == ADimensions.MIDNIGHT) {
 				if (!(entity instanceof XtonicImmune) && entity instanceof LivingEntity livingEntity) {
-					if(!entity.fireImmune())
+					if (!entity.fireImmune())
 						livingEntity.hurt(
 								new DamageSource(livingEntity.level().registryAccess()
-										.registryOrThrow(Registries.DAMAGE_TYPE)
-										.getHolderOrThrow(DamageTypes.XTONIC)), Integer.MAX_VALUE);
+										.registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.XTONIC)),
+								Integer.MAX_VALUE);
 				}
 			}
 		}));
@@ -168,15 +168,14 @@ public class CommonEvents {
 	public static void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase == TickEvent.Phase.END) { // Only call code once as the tick event is called twice every tick
 			GrammarNazi.checkAllTranslations();
-			while (Keybinds.REMOTE_TARDIS_GUI.consumeClick()) {
-				// Execute logic to perform on click here
+			while (Keybinds.REMOTE_TARDIS_GUI.consumeClick())
 				Minecraft.getInstance().setScreen(new K9Screen());
-			}
 
-			while (Keybinds.PICKER.consumeClick()) {
-				// Execute logic to perform on click here
+			while (Keybinds.PICKER.consumeClick())
 				Minecraft.getInstance().setScreen(new ColorPickerScreen());
-			}
+
+			while (Keybinds.THANOS.consumeClick())
+				Networking.sendToServer(new SnapPacket());
 		}
 	}
 }

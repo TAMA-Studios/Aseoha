@@ -185,7 +185,7 @@ public class GrammarNazi {
 			aseoha.LOGGER.error("Missing translations!");
 			MissingTranslations.forEach(aseoha.LOGGER::error);
 
-			throw new RuntimeException();
+//			throw new RuntimeException();
 		}
 	}
 

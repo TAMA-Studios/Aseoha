@@ -522,5 +522,12 @@
   "tooltip.part.upgrades/atrium.description" : "Takes blocks with the TARDIS exterior \nConsult the ASEOHA Manual for more information",
   "tooltip.part.upgrades/dynamic_coordinates.description" : "Makes the TARDIS monitor update flight position while flying",
   "unfinished_data_crystal" : "Unfinished Data Crystal",
-  "unfinished_data_matrix" : "Unfinished Data Matrix"
+  "unfinished_data_matrix" : "Unfinished Data Matrix",
+  "flight_event.aseoha.tardis.low_artron": "Low Artron",
+  "flight_event.aseoha.tardis.vortex_scrap": "Vortex Scrap",
+  "flight_event.aseoha.tardis.exterior_bulkhead": "Exterior Bulkhead",
+  "flight_event.aseoha.tardis.vertical_displacement": "Vertical Displacement",
+  "flight_event.aseoha.tardis.dimensional_drift": "Dimensional Drift",
+  "control.tardis.door": "Door control",
+  "tardis.keybinds.manual": "Manual"
 }

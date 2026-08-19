@@ -1,6 +1,7 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.networking;
 
+import com.code.tama.aseoha.networking.c2s.SnapPacket;
 import com.code.tama.aseoha.networking.s2c.UpdateAreaTickratePacket;
 import com.code.tama.aseoha.networking.s2c.UpdateDimensionTickratePacket;
 import com.code.tama.aseoha.networking.s2c.UpdateTickratePacket;
@@ -28,6 +29,9 @@ public class Networking {
 				UpdateDimensionTickratePacket::new, UpdateDimensionTickratePacket.Handler::onMessage);
 		CHANNEL.registerMessage(ID++, UpdateAreaTickratePacket.class, UpdateAreaTickratePacket::encode,
 				UpdateAreaTickratePacket::new, UpdateAreaTickratePacket.Handler::onMessage);
+
+		CHANNEL.registerMessage(ID++, SnapPacket.class, (msg, m) -> msg.encode(),
+				SnapPacket::new, SnapPacket::onMessage);
 	}
 
 	public static <MSG> void sendToServer(MSG message) {

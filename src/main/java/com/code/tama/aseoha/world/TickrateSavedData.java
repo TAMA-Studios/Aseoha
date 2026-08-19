@@ -32,7 +32,7 @@ public class TickrateSavedData extends SavedData {
 			ServerLevel serverLevel = server.getLevel(dimension);
 			if (serverLevel != null) {
 				DimensionDataStorage storage = serverLevel.getDataStorage();
-                return storage.computeIfAbsent(TickrateSavedData::load, TickrateSavedData::new, NAME);
+				return storage.computeIfAbsent(TickrateSavedData::load, TickrateSavedData::new, NAME);
 			}
 		}
 		return null;
