@@ -1,10 +1,17 @@
-name: Build Release
+name: Build 1.20 Release
 
 on:
   push:
     tags:
       - 'v*' # Run on version tags
+    branches:
+      - '1.20'
   workflow_dispatch:
+    branches:
+      - '1.20'
+  pull_request:
+    branches:
+      - '1.20'
 
 jobs:
   build-mod-jar:
