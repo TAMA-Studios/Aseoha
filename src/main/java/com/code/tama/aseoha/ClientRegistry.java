@@ -2,6 +2,7 @@
 package com.code.tama.aseoha;
 
 import static com.code.tama.aseoha.AseohaMod.MODID;
+import static com.code.tama.aseoha.common.registries.ATabs.*;
 
 import com.code.tama.aseoha.common.blocks.ABlocks;
 import com.code.tama.aseoha.client.Keybinds;
@@ -23,6 +24,8 @@ import com.code.tama.aseoha.common.tileEntities.ConsoleBlocks;
 import com.code.tama.aseoha.common.tileEntities.ExteriorRegistry;
 import com.code.tama.aseoha.common.tileEntities.TileRegistry;
 import com.code.tama.aseoha.common.tileEntities.WhirlygigTile;
+import net.minecraft.world.item.BlockItem;
+import net.tardis.mod.block.ConsoleBlock;
 import net.tardis.mod.client.ModelHolder;
 import net.tardis.mod.client.models.exteriors.interior_door.TTCapsuleInteriorDoorModel;
 import net.tardis.mod.client.renderers.SpecialItemRenderer;
@@ -45,6 +48,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import com.code.tama.triggerapi.universal.UniversalCommon;
+
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistry {
@@ -316,7 +321,7 @@ public class ClientRegistry {
 	@SubscribeEvent
 	public static void addTabItemsEvent(BuildCreativeModeTabContentsEvent event) {
 		if (event.getTab() == MAIN.get())
-			AItems.ITEMS.getEntries().forEach(event::accept);
+			AItems.ITEMS.getEntries().stream().filter(i -> !((i.get() instanceof BlockItem b) && b.getBlock() instanceof ConsoleBlock)).forEach(event::accept);
 		if (event.getTab() == CONSOLES.get())
 			ConsoleBlocks.CONSOLE_BLOCKS.getEntries().forEach(event::accept);
 		else if (event.getTab() == FOOD.get())

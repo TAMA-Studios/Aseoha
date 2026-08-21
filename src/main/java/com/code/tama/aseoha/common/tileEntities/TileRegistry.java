@@ -8,8 +8,8 @@ import com.code.tama.aseoha.common.tileEntities.Exterior.CapaldiExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.Hartnell112ExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.RTD9ExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.WardrobeExteriorTile;
-import com.code.tama.aseoha.tileEntities.Console.*;
-import com.code.tama.aseoha.tileEntities.Exterior.*;
+import com.code.tama.aseoha.common.tileEntities.Console.*;
+import com.code.tama.aseoha.common.tileEntities.Exterior.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
