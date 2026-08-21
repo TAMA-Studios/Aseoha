@@ -1,13 +1,14 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.registries;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.client.gui.MonitorColorPickerScreen;
 import net.tardis.mod.helpers.Helper;
 import net.tardis.mod.misc.tardis.montior.MonitorFunction;
 
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class MonitorFunctionRegistry {
 

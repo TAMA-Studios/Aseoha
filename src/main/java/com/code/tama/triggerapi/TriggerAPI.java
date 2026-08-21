@@ -1,10 +1,11 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.triggerapi;
 
-import com.code.tama.aseoha.AseohaMod;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import com.code.tama.triggerapi.JavaInJSON.JavaJSON;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class TriggerAPI {
 	public static String MOD_ID = AseohaMod.MODID;

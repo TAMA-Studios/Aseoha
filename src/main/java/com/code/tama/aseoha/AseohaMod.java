@@ -8,13 +8,13 @@ import static com.code.tama.aseoha.common.registries.ATabs.TABS;
 import static com.code.tama.aseoha.common.registries.ControlRegistry.CONTROLS;
 
 import com.code.tama.aseoha.common.blocks.Roundels;
-import com.code.tama.aseoha.common.registries.*;
-import com.code.tama.aseoha.server.capabilities.Capabilities;
 import com.code.tama.aseoha.common.networking.Networking;
+import com.code.tama.aseoha.common.registries.*;
 import com.code.tama.aseoha.common.tileEntities.ConsoleBlocks;
 import com.code.tama.aseoha.common.tileEntities.ExteriorBlocks;
 import com.code.tama.aseoha.common.tileEntities.ExteriorRegistry;
 import com.code.tama.aseoha.common.tileEntities.TileRegistry;
+import com.code.tama.aseoha.server.capabilities.Capabilities;
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 

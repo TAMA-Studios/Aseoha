@@ -4,10 +4,10 @@ package com.code.tama.aseoha.common.items.gadgets;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.code.tama.aseoha.common.misc.GrammarNazi;
 import com.code.tama.aseoha.server.capabilities.Capabilities;
 import com.code.tama.aseoha.server.capabilities.ControlDiscProvider;
 import com.code.tama.aseoha.server.capabilities.Interfaces.IControlDiscCapability;
-import com.code.tama.aseoha.common.misc.GrammarNazi;
 import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.item.ISonicPortAction;
 import net.tardis.mod.misc.SpaceTimeCoord;

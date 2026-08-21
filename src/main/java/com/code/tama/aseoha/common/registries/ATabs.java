@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.registries;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.blocks.Roundels;
 import com.code.tama.aseoha.common.tileEntities.ConsoleBlocks;
 
@@ -11,6 +10,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class ATabs {
 	public static DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB,

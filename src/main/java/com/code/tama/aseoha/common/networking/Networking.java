@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.networking;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.networking.c2s.SnapPacketC2S;
 import com.code.tama.aseoha.common.networking.s2c.UpdateAreaTickratePacketS2C;
 import com.code.tama.aseoha.common.networking.s2c.UpdateDimensionTickratePacketS2C;
@@ -13,6 +12,8 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.server.ServerLifecycleHooks;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class Networking {
 	public static int ID;
@@ -29,8 +30,8 @@ public class Networking {
 		CHANNEL.registerMessage(ID++, UpdateAreaTickratePacketS2C.class, UpdateAreaTickratePacketS2C::encode,
 				UpdateAreaTickratePacketS2C::new, UpdateAreaTickratePacketS2C.Handler::onMessage);
 
-		CHANNEL.registerMessage(ID++, SnapPacketC2S.class, (msg, m) -> msg.encode(),
-				SnapPacketC2S::new, SnapPacketC2S::onMessage);
+		CHANNEL.registerMessage(ID++, SnapPacketC2S.class, (msg, m) -> msg.encode(), SnapPacketC2S::new,
+				SnapPacketC2S::onMessage);
 	}
 
 	public static <MSG> void sendToServer(MSG message) {

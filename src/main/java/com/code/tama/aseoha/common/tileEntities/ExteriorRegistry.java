@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.tileEntities;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.registries.AEntities;
 import net.tardis.mod.entity.CarExteriorEntity;
 import net.tardis.mod.exterior.EntityExterior;
@@ -11,6 +10,8 @@ import net.tardis.mod.helpers.Helper;
 
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class ExteriorRegistry {
 

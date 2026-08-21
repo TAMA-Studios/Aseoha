@@ -4,10 +4,10 @@ package com.code.tama.aseoha.common.networking.s2c;
 import java.util.UUID;
 import java.util.function.Supplier;
 
+import com.code.tama.aseoha.common.misc.TickrateManager;
 import com.code.tama.aseoha.server.capabilities.Capabilities;
 import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
 import com.code.tama.aseoha.server.capabilities.tick.TickrateCapabilityImpl;
-import com.code.tama.aseoha.common.misc.TickrateManager;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;

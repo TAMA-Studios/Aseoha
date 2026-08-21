@@ -1,8 +1,8 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.blocks;
 
-import com.code.tama.aseoha.server.capabilities.Capabilities;
 import com.code.tama.aseoha.common.misc.TickrateManager;
+import com.code.tama.aseoha.server.capabilities.Capabilities;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.BlockPos;

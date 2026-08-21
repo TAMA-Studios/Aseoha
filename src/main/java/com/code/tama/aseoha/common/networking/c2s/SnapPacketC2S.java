@@ -1,11 +1,8 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.networking.c2s;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.network.NetworkEvent;
+import java.util.function.Supplier;
+
 import net.tardis.mod.block.ExteriorBlock;
 import net.tardis.mod.block.InteriorDoorBlock;
 import net.tardis.mod.blockentities.InteriorDoorTile;
@@ -15,13 +12,21 @@ import net.tardis.mod.cap.level.ITardisLevel;
 import net.tardis.mod.misc.DoorHandler;
 import net.tardis.mod.misc.enums.DoorState;
 
-import java.util.function.Supplier;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.network.NetworkEvent;
 
 public class SnapPacketC2S {
-	public SnapPacketC2S(FriendlyByteBuf buf) {}
-	public SnapPacketC2S() {}
-	public void encode() {}
-	public void decode() {}
+	public SnapPacketC2S(FriendlyByteBuf buf) {
+	}
+	public SnapPacketC2S() {
+	}
+	public void encode() {
+	}
+	public void decode() {
+	}
 
 	public static boolean onMessage(SnapPacketC2S message, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
@@ -37,30 +42,43 @@ public class SnapPacketC2S {
 							if (l.getBlockState(pos).getBlock() instanceof ExteriorBlock) {
 								ExteriorTile tile = (ExteriorTile) l.getBlockEntity(pos);
 
-								if (!tile.getLinkedTardis().isPresent()) return;
+								if (!tile.getLinkedTardis().isPresent())
+									return;
 								ITardisLevel level = tile.getLinkedTardis().orElse(null);
-								if (level == null) return;
+								if (level == null)
+									return;
 
-								if (level.getEmotionalHandler().getLoyalty(player.getUUID()).isPresent() && level.getEmotionalHandler().getLoyalty(player.getUUID()).get() > 100) {
+								if (level.getEmotionalHandler().getLoyalty(player.getUUID()).isPresent()
+										&& level.getEmotionalHandler().getLoyalty(player.getUUID()).get() > 100) {
 									DoorHandler handler = tile.getDoorHandler();
 
 									handler.setLocked(!handler.getDoorState().equals(DoorState.CLOSED));
-									handler.setDoorState(handler.validDoorStates, handler.getDoorState().equals(DoorState.CLOSED) ? DoorState.BOTH : DoorState.CLOSED);
+									handler.setDoorState(handler.validDoorStates,
+											handler.getDoorState().equals(DoorState.CLOSED)
+													? DoorState.BOTH
+													: DoorState.CLOSED);
 								}
 							}
 
 							if (l.getBlockState(pos).getBlock() instanceof InteriorDoorBlock<?>) {
 								InteriorDoorTile tile = (InteriorDoorTile) l.getBlockEntity(pos);
 
-								if (tile == null || tile.getDoorHandler() == null) return;
+								if (tile == null || tile.getDoorHandler() == null)
+									return;
 								DoorHandler handler = tile.getDoorHandler();
 
-								ITardisLevel level = (ITardisLevel) Capabilities.getCap(Capabilities.TARDIS, tile.getLevel());
-								if (level == null) return;
+								ITardisLevel level = (ITardisLevel) Capabilities.getCap(Capabilities.TARDIS,
+										tile.getLevel());
+								if (level == null)
+									return;
 
-								if (level.getEmotionalHandler().getLoyalty(player.getUUID()).isPresent() && level.getEmotionalHandler().getLoyalty(player.getUUID()).get() > 100) {
+								if (level.getEmotionalHandler().getLoyalty(player.getUUID()).isPresent()
+										&& level.getEmotionalHandler().getLoyalty(player.getUUID()).get() > 100) {
 									handler.setLocked(!handler.getDoorState().equals(DoorState.CLOSED));
-									handler.setDoorState(handler.validDoorStates, handler.getDoorState().equals(DoorState.CLOSED) ? DoorState.BOTH : DoorState.CLOSED);
+									handler.setDoorState(handler.validDoorStates,
+											handler.getDoorState().equals(DoorState.CLOSED)
+													? DoorState.BOTH
+													: DoorState.CLOSED);
 								}
 							}
 						}

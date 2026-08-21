@@ -4,7 +4,6 @@ package com.code.tama.triggerapi;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.blocks.ABlocks;
 import com.code.tama.aseoha.common.registries.AEntities;
 import com.code.tama.aseoha.common.registries.AItems;
@@ -18,6 +17,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.loading.FMLLoader;
+
+import com.code.tama.aseoha.AseohaMod;
 
 /**
  * This is for functions related to string manipulation
@@ -184,7 +185,7 @@ public class GrammarNazi {
 			AseohaMod.LOGGER.error("Missing translations!");
 			MissingTranslations.forEach(AseohaMod.LOGGER::error);
 
-//			throw new RuntimeException();
+			// throw new RuntimeException();
 		}
 	}
 

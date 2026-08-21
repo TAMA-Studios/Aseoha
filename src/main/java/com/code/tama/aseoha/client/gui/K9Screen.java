@@ -15,7 +15,8 @@ import com.code.tama.aseoha.AseohaMod;
 
 public class K9Screen extends Screen {
 	public static final Component TITLE = Component.translatable("gui.k9.title");
-	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID, "textures/gui/monitors/k9.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID,
+			"textures/gui/monitors/k9.png");
 	private static final int cWidth = 256;
 	private static final int cHeight = 256;
 

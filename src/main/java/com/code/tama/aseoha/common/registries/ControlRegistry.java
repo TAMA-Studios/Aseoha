@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.registries;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.tardis.controls.CloakControl;
 import com.code.tama.aseoha.common.tardis.controls.CoffeePotControl;
 import com.code.tama.aseoha.common.tardis.controls.CollisionControl;
@@ -13,6 +12,8 @@ import net.tardis.mod.control.datas.ControlDataNone;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class ControlRegistry {
 	public static DeferredRegister<ControlType<?>> CONTROLS = DeferredRegister

@@ -5,7 +5,6 @@ import static com.code.tama.aseoha.AseohaMod.MODID;
 
 import javax.annotation.Nonnull;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.server.capabilities.Interfaces.IControlDiscCapability;
 import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
 import com.code.tama.aseoha.server.capabilities.tick.TickrateCapabilityImpl;
@@ -18,6 +17,8 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import com.code.tama.aseoha.AseohaMod;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Capabilities {

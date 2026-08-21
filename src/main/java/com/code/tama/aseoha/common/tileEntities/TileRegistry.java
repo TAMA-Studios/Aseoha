@@ -1,15 +1,13 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.tileEntities;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.blocks.ABlocks;
 import com.code.tama.aseoha.common.tileEntities.Console.*;
+import com.code.tama.aseoha.common.tileEntities.Exterior.*;
 import com.code.tama.aseoha.common.tileEntities.Exterior.CapaldiExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.Hartnell112ExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.RTD9ExteriorTile;
 import com.code.tama.aseoha.common.tileEntities.Exterior.WardrobeExteriorTile;
-import com.code.tama.aseoha.common.tileEntities.Console.*;
-import com.code.tama.aseoha.common.tileEntities.Exterior.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,6 +17,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class TileRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> TYPES = DeferredRegister

@@ -12,8 +12,8 @@ public class Keybinds {
 	public static final KeyMapping REMOTE_TARDIS_GUI = new KeyMapping("aseoha.keybinds.tardis.gui",
 			KeyConflictContext.IN_GAME, Type.KEYSYM, GLFW.GLFW_KEY_P, "aseoha.keybinds");
 
-	public static final KeyMapping THANOS = new KeyMapping("aseoha.keybinds.tardis.snap",
-			KeyConflictContext.IN_GAME, Type.KEYSYM, GLFW.GLFW_KEY_H, "aseoha.keybinds");
+	public static final KeyMapping THANOS = new KeyMapping("aseoha.keybinds.tardis.snap", KeyConflictContext.IN_GAME,
+			Type.KEYSYM, GLFW.GLFW_KEY_H, "aseoha.keybinds");
 
 	public static final KeyMapping PICKER = new KeyMapping("aseoha.keybinds.tardis.cpicker", KeyConflictContext.IN_GAME,
 			Type.KEYSYM, GLFW.GLFW_KEY_X, "aseoha.keybinds");

@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.client.Renderers.Exteriors;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.client.Models.Exteriors.RTD9ExteriorModel;
 import net.tardis.mod.blockentities.exteriors.ExteriorTile;
 import net.tardis.mod.client.models.BaseTileHierarchicalModel;
@@ -13,6 +12,8 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import com.code.tama.aseoha.AseohaMod;
 
 @OnlyIn(Dist.CLIENT)
 public class RTD9ExteriorRenderer<T extends ExteriorTile, M extends BaseTileHierarchicalModel<T> & IExteriorModel<T>>

@@ -24,7 +24,8 @@ import com.code.tama.aseoha.AseohaMod;
 public class DeLoreanExteriorRenderer<T extends CarExteriorEntity, M extends HierarchicalModel<T>>
 		extends
 			EntityRenderer<T> {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID, "textures/entity/delorean.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID,
+			"textures/entity/delorean.png");
 	private final M model;
 
 	public DeLoreanExteriorRenderer(EntityRendererProvider.Context pContext, M model) {

@@ -1,10 +1,10 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.server.capabilities.tick;
 
-import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
 import com.code.tama.aseoha.common.misc.TimerIMPL;
 import com.code.tama.aseoha.common.networking.Networking;
 import com.code.tama.aseoha.common.networking.s2c.UpdateTickratePacketS2C;
+import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;

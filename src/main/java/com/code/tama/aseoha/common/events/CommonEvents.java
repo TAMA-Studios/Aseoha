@@ -6,7 +6,6 @@ import static com.code.tama.aseoha.AseohaMod.MODID;
 import com.code.tama.aseoha.client.Keybinds;
 import com.code.tama.aseoha.client.gui.ColorPickerScreen;
 import com.code.tama.aseoha.client.gui.K9Screen;
-import com.code.tama.aseoha.server.data.QuantiscopeDataLoader;
 import com.code.tama.aseoha.common.events.custom.ControlEvent;
 import com.code.tama.aseoha.common.misc.TickrateManager;
 import com.code.tama.aseoha.common.misc.XtonicImmune;
@@ -16,6 +15,7 @@ import com.code.tama.aseoha.common.networking.s2c.UpdateAreaTickratePacketS2C;
 import com.code.tama.aseoha.common.networking.s2c.UpdateDimensionTickratePacketS2C;
 import com.code.tama.aseoha.common.registries.ADimensions;
 import com.code.tama.aseoha.common.registries.DamageTypes;
+import com.code.tama.aseoha.server.data.QuantiscopeDataLoader;
 import com.code.tama.aseoha.server.world.Dimensions;
 import com.code.tama.aseoha.server.world.TickrateSavedData;
 import net.tardis.api.events.TardisEvent;
@@ -54,7 +54,6 @@ import com.code.tama.triggerapi.universal.UniversalServerOnly;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
-
 
 	@SubscribeEvent
 	public static void chatEvent(ServerChatEvent event) {

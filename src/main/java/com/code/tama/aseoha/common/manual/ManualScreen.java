@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -21,6 +20,8 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.ItemStack;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class ManualScreen extends Screen {
 	public static final ResourceLocation TEXTURE = new ResourceLocation(AseohaMod.MODID, "textures/gui/manual.png");
@@ -354,7 +355,8 @@ public class ManualScreen extends Screen {
 			resource = getManualResourceNullable(indexLocation);
 		} catch (IOException exception) {
 			exception.printStackTrace();
-			AseohaMod.LOGGER.error("Could not find Manual resources for locale: {}, reverting to contents for locale {}",
+			AseohaMod.LOGGER.error(
+					"Could not find Manual resources for locale: {}, reverting to contents for locale {}",
 					Minecraft.getInstance().getLanguageManager().getSelected(), "en_us");
 			localeCode = "en_us";
 			indexLocation = this.getManualIndexResourceLocation(localeCode);

@@ -9,13 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.code.tama.aseoha.AseohaMod;
-import com.code.tama.aseoha.server.capabilities.Capabilities;
-import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
-import com.code.tama.aseoha.server.capabilities.tick.TickrateCapabilityImpl;
 import com.code.tama.aseoha.common.networking.Networking;
 import com.code.tama.aseoha.common.networking.s2c.UpdateAreaTickratePacketS2C;
 import com.code.tama.aseoha.common.networking.s2c.UpdateDimensionTickratePacketS2C;
+import com.code.tama.aseoha.server.capabilities.Capabilities;
+import com.code.tama.aseoha.server.capabilities.Interfaces.ITickrateCapability;
+import com.code.tama.aseoha.server.capabilities.tick.TickrateCapabilityImpl;
 import com.code.tama.aseoha.server.world.TickrateSavedData;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -27,6 +26,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
+
+import com.code.tama.aseoha.AseohaMod;
 
 @Mod.EventBusSubscriber(modid = AseohaMod.MODID, bus = Bus.FORGE)
 public class TickrateManager {

@@ -1,7 +1,6 @@
 /* (C) TAMA Studios 2025 */
 package com.code.tama.aseoha.common.registries;
 
-import com.code.tama.aseoha.AseohaMod;
 import com.code.tama.aseoha.common.entities.DalekEntity;
 import com.code.tama.aseoha.common.entities.K9Entity;
 import net.tardis.mod.entity.CarExteriorEntity;
@@ -12,6 +11,8 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import com.code.tama.aseoha.AseohaMod;
 
 public class AEntities {
 	public static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES,
@@ -34,7 +35,8 @@ public class AEntities {
 
 	public static <T extends Entity> RegistryObject<EntityType<T>> createVehicle(String name,
 			EntityType.EntityFactory<T> factory, float width, float height) {
-		return TYPES.register(name, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, height)
-				.setTrackingRange(128).setUpdateInterval(5).setShouldReceiveVelocityUpdates(true).build(AseohaMod.MODID));
+		return TYPES.register(name,
+				() -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, height).setTrackingRange(128)
+						.setUpdateInterval(5).setShouldReceiveVelocityUpdates(true).build(AseohaMod.MODID));
 	}
 }
